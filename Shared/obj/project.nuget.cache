@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5AgJLC7/8Cwkt2iaZeM4lgEDlof/B8Lz+qERRAUKVgXLIf8L5/E3r+YKuOgZ3tSgTHUWJLWPVrajoV4ZGIdtFA==",
+  "dgSpecHash": "lc+eHJVBiqgeZU3ZoH2vG9tZJpmmordsTFKg4TX29EVtwPpPgqC/Mkv6fxZFldHHKrTpgoHOuoX+jVy5ET1TZQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\jacks\\RiderProjects\\SyncTask\\Shared\\Shared.csproj",
+  "projectFilePath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jacks\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.8\\microsoft.aspnetcore.authorization.6.0.8.nupkg.sha512",
     "C:\\Users\\jacks\\.nuget\\packages\\microsoft.aspnetcore.metadata\\6.0.8\\microsoft.aspnetcore.metadata.6.0.8.nupkg.sha512",

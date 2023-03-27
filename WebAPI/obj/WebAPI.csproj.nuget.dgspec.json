@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jacks\\RiderProjects\\SyncTask\\WebAPI\\WebAPI.csproj": {}
+    "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\WebAPI\\WebAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jacks\\RiderProjects\\SyncTask\\Shared\\Shared.csproj": {
+    "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jacks\\RiderProjects\\SyncTask\\Shared\\Shared.csproj",
+        "projectUniqueName": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj",
         "projectName": "Shared",
-        "projectPath": "C:\\Users\\jacks\\RiderProjects\\SyncTask\\Shared\\Shared.csproj",
+        "projectPath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj",
         "packagesPath": "C:\\Users\\jacks\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jacks\\RiderProjects\\SyncTask\\Shared\\obj\\",
+        "outputPath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jacks\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -63,14 +63,14 @@
         }
       }
     },
-    "C:\\Users\\jacks\\RiderProjects\\SyncTask\\WebAPI\\WebAPI.csproj": {
+    "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\WebAPI\\WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jacks\\RiderProjects\\SyncTask\\WebAPI\\WebAPI.csproj",
+        "projectUniqueName": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\WebAPI\\WebAPI.csproj",
         "projectName": "WebAPI",
-        "projectPath": "C:\\Users\\jacks\\RiderProjects\\SyncTask\\WebAPI\\WebAPI.csproj",
+        "projectPath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\WebAPI\\WebAPI.csproj",
         "packagesPath": "C:\\Users\\jacks\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jacks\\RiderProjects\\SyncTask\\WebAPI\\obj\\",
+        "outputPath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\WebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jacks\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -85,8 +85,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\jacks\\RiderProjects\\SyncTask\\Shared\\Shared.csproj": {
-                "projectPath": "C:\\Users\\jacks\\RiderProjects\\SyncTask\\Shared\\Shared.csproj"
+              "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj": {
+                "projectPath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj"
               }
             }
           }

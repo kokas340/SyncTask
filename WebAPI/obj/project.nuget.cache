@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4ilmdj/ZPWsAh7Ckw6Af/fb1hKvFHzbR8Datsn6DTGR5fKRaoojUfx185xty+dQxld1YpTqu0srRiIDEmv32Rg==",
+  "dgSpecHash": "7G0VRsApC395eBjgEnEu57MHPQiX2dybrM2Dhr0RXf5H+80d+ybcRmmd0XRo4YcOo6OTByUqPnuBsHjHTlVH9Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\jacks\\RiderProjects\\SyncTask\\WebAPI\\WebAPI.csproj",
+  "projectFilePath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\WebAPI\\WebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jacks\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.8\\microsoft.aspnetcore.authentication.jwtbearer.6.0.8.nupkg.sha512",
     "C:\\Users\\jacks\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.8\\microsoft.aspnetcore.authorization.6.0.8.nupkg.sha512",

@@ -318,11 +318,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jacks\\RiderProjects\\SyncTask\\Shared\\Shared.csproj",
+      "projectUniqueName": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj",
       "projectName": "Shared",
-      "projectPath": "C:\\Users\\jacks\\RiderProjects\\SyncTask\\Shared\\Shared.csproj",
+      "projectPath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj",
       "packagesPath": "C:\\Users\\jacks\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jacks\\RiderProjects\\SyncTask\\Shared\\obj\\",
+      "outputPath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\Shared\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\jacks\\AppData\\Roaming\\NuGet\\NuGet.Config"
