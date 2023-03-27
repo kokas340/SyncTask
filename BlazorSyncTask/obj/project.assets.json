@@ -1801,19 +1801,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jacks\\.nuget\\packages\\": {}
+    "C:\\Users\\kdani\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj",
+      "projectUniqueName": "C:\\Users\\kdani\\RiderProjects\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj",
       "projectName": "BlazorSyncTask",
-      "projectPath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj",
-      "packagesPath": "C:\\Users\\jacks\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\obj\\",
+      "projectPath": "C:\\Users\\kdani\\RiderProjects\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj",
+      "packagesPath": "C:\\Users\\kdani\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\kdani\\RiderProjects\\SyncTask\\BlazorSyncTask\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\jacks\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\kdani\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -1861,7 +1861,7 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-            "version": "[7.0.3, 7.0.3]"
+            "version": "[7.0.2, 7.0.2]"
           }
         ],
         "frameworkReferences": {
@@ -1869,7 +1869,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\jacks\\.dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {
