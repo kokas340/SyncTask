@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kdani\\RiderProjects\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj": {}
+    "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kdani\\RiderProjects\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj": {
+    "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kdani\\RiderProjects\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj",
+        "projectUniqueName": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj",
         "projectName": "BlazorSyncTask",
-        "projectPath": "C:\\Users\\kdani\\RiderProjects\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj",
-        "packagesPath": "C:\\Users\\kdani\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kdani\\RiderProjects\\SyncTask\\BlazorSyncTask\\obj\\",
+        "projectPath": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj",
+        "packagesPath": "C:\\Users\\bumba\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet"
+        ],
         "configFilePaths": [
-          "C:\\Users\\kdani\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\bumba\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -62,6 +68,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.3, )"
+            },
+            "Microsoft.Extensions.Logging.Abstractions": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             }
           },
           "imports": [
@@ -78,7 +88,7 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-              "version": "[7.0.2, 7.0.2]"
+              "version": "[7.0.3, 7.0.3]"
             }
           ],
           "frameworkReferences": {
@@ -86,7 +96,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\bumba\\.dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
