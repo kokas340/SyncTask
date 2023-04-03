@@ -1,0 +1,35 @@
+.logo {
+    font-family: "Fira Code", sans-serif;
+    text-transform: uppercase;
+}
+
+.field {
+    margin-top: 20px;
+}
+
+
+.login {
+    background-color:lightgreen;
+    border-radius: 5px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.login:hover{
+    box-shadow: 0 2px 10px 2px #3f3f3f;
+    transition: ease-in-out 0.1s;
+}
+
+.signup {
+    background-color:lightgreen;
+    border-radius: 5px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.signup{
+    transition: ease-in-out 0.1s;
+    box-shadow: 0 2px 10px 2px #3f3f3f;
+}

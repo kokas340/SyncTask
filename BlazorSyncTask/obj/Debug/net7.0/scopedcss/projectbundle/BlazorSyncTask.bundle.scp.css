@@ -1,12 +1,53 @@
+/* /Pages/Login.razor.rz.scp.css */
+.logo[b-uejfjchll3] {
+    font-family: "Fira Code", sans-serif;
+    text-transform: uppercase;
+}
+
+.field[b-uejfjchll3] {
+    margin-top: 20px;
+}
+
+
+.login[b-uejfjchll3] {
+    background-color:lightgreen;
+    border-radius: 5px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.login:hover[b-uejfjchll3]{
+    box-shadow: 0 2px 10px 2px #3f3f3f;
+    transition: ease-in-out 0.1s;
+}
+
+.signup[b-uejfjchll3] {
+    background-color:lightgreen;
+    border-radius: 5px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.signup[b-uejfjchll3]{
+    transition: ease-in-out 0.1s;
+    box-shadow: 0 2px 10px 2px #3f3f3f;
+}
 /* /Shared/MainLayout.razor.rz.scp.css */
 .page[b-10xswk6gls] {
     position: relative;
     display: flex;
     flex-direction: column;
+    background-color: #11104a;
+    color: ghostwhite;
+    width: 100%;
+    height: 100%;
 }
 
 main[b-10xswk6gls] {
     flex: 1;
+    
 }
 
 .sidebar[b-10xswk6gls] {

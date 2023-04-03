@@ -22,4 +22,10 @@
       <Folder Include="wwwroot\img" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Update="Pages\Login.razor.css">
+        <DependentUpon>Login.razor</DependentUpon>
+      </None>
+    </ItemGroup>
+
 </Project>
