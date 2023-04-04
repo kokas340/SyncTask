@@ -75,4 +75,30 @@ public class AuthController : ControllerBase
             return BadRequest(e.Message);
         }
     }
+    
+    [HttpPost, Route("register")]
+    public async Task<ActionResult> register([FromBody] UserRegisterDto userRegisterDto)
+    {
+        try
+        {
+            User u = new User
+            {
+                Age = userRegisterDto.Age,
+                SecurityLevel = userRegisterDto.SecurityLevel,
+                Name = userRegisterDto.Name,
+                Domain = userRegisterDto.Domain,
+                Password = userRegisterDto.Password,
+                Username = userRegisterDto.Username,
+                Email = userRegisterDto.Email,
+                Role = userRegisterDto.Role
+            };
+            User user = await authService.RegisterUser(u);
+
+            return Ok(user);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
 }

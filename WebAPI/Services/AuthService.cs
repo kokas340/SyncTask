@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Security.Cryptography;
 using Shared.Models;
 
 namespace WebAPI.Services;
@@ -50,7 +51,7 @@ public class AuthService : IAuthService
         return Task.FromResult(existingUser);
     }
 
-    public Task RegisterUser(User user)
+    public Task<User> RegisterUser(User user)
     {
 
         if (string.IsNullOrEmpty(user.Username))
@@ -62,12 +63,21 @@ public class AuthService : IAuthService
         {
             throw new ValidationException("Password cannot be null");
         }
-        // Do more user info validation here
         
-        // save to persistence instead of list
+        
+        if (string.IsNullOrEmpty(user.Email))
+        {
+            throw new ValidationException("Email cannot be null");
+        }
+        
+        if (string.IsNullOrEmpty(user.Name))
+        {
+            throw new ValidationException("Name cannot be null");
+        }
         
         users.Add(user);
         
-        return Task.CompletedTask;
+
+        return Task.FromResult(user);
     }
 }
