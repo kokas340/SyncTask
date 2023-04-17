@@ -12,7 +12,7 @@ public class DatabaseConnection
     private  NpgsqlConnection connection;
     public DatabaseConnection()
     {
-        _connectionString = "Server=localhost;Port=5432;Database=sep2;User Id=postgres;Password=12344;SearchPath=synctask";
+        _connectionString = "Server=localhost;Port=5432;Database=sep2;User Id=postgres;Password=12344;SearchPath=teachme";
     }
     public NpgsqlConnection connect()
     {
@@ -25,6 +25,4 @@ public class DatabaseConnection
         using var command = new NpgsqlCommand(query, connection);
         return command.ExecuteReader();
     }
-
- 
 }

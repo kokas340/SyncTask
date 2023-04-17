@@ -114,16 +114,15 @@ public class AuthController : ControllerBase
             connection= db.connect();
             
             //query
-            var reader = db.sql("SELECT * FROM systemuser",connection);
-            
+            var reader = db.sql("SELECT username FROM users",connection);
             var results = new List<string>();
             while (reader.Read())
             {
-                var username = reader.GetString(1);
+                //get username
+                var username = reader.GetString(0);
                 results.Add(username);
             }
-        
-            // Replace with your own response logic
+            
             return Ok(results);
         }
         catch (Exception e)
