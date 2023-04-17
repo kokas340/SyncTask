@@ -29,12 +29,8 @@ public class AuthController : ControllerBase
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
             new Claim(ClaimTypes.Name, user.Username),
-            new Claim(ClaimTypes.Role, user.Role),
-            new Claim("DisplayName", user.Name),
-            new Claim("Email", user.Email),
-            new Claim("Age", user.Age.ToString()),
-            new Claim("Domain", user.Domain),
-            new Claim("SecurityLevel", user.SecurityLevel.ToString())
+            new Claim("DisplayName", user.FullName),
+            
         };
         return claims.ToList();
     }
@@ -83,14 +79,11 @@ public class AuthController : ControllerBase
         {
             User u = new User
             {
-                Age = userRegisterDto.Age,
-                SecurityLevel = userRegisterDto.SecurityLevel,
-                Name = userRegisterDto.Name,
-                Domain = userRegisterDto.Domain,
+                
+                FullName = userRegisterDto.FullName,
                 Password = userRegisterDto.Password,
                 Username = userRegisterDto.Username,
-                Email = userRegisterDto.Email,
-                Role = userRegisterDto.Role
+                
             };
             User user = await authService.RegisterUser(u);
 
