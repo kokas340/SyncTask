@@ -18,7 +18,7 @@ public class DatabaseConnection
     {
         connection = new NpgsqlConnection(_connectionString);
         connection.Open();
-        return connection;
+        return connection; 
     }
     public NpgsqlDataReader sql(String query,NpgsqlConnection connection)
     {
