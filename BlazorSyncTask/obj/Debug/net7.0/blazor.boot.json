@@ -34,6 +34,8 @@
       "Microsoft.Extensions.Primitives.dll": "sha256-q4ruoDSCjV\/QJY9ZkzV6uxvEvZUVrDbyUjU3SSh5SlE=",
       "Microsoft.JSInterop.dll": "sha256-mVa0kFJEOfNCeM6spj6DE0H37nHbk++P5R+f6Hi4UQ8=",
       "Microsoft.JSInterop.WebAssembly.dll": "sha256-p3HL4vRJ5TXVidM4+BlxP4rPXArTEzaLu21D9Ra4kYo=",
+      "MySqlConnector.dll": "sha256-gYmxgvnHU2EFP+dF8mx6tqaG1XklN+Ba4\/HFk1OOf\/0=",
+      "Npgsql.dll": "sha256-7ko0HyfXfzdHUiRgJmFtFwWzyCEzsquJQAyrZGNT7+s=",
       "System.IO.Pipelines.dll": "sha256-P\/MqD0fCBd5bgTM16JC1QC\/Zz7s+CwViyzmDFkBG4\/c=",
       "Microsoft.CSharp.dll": "sha256-OXA75L9dgx9LXJxiaIDGLfp0\/Sql7gQVlaMuI285Oq4=",
       "Microsoft.VisualBasic.Core.dll": "sha256-BVcAygeM8zz1DG96XDgbqpCdgTQpnlmukUmHZH0y5Ng=",
@@ -203,18 +205,18 @@
       "mscorlib.dll": "sha256-kgowZLZGyceaJo4bHvVY1kmm1GJuawa5rPO1RCfNYWc=",
       "netstandard.dll": "sha256-2\/SuexPFW8hizUgbgPcchYHfG\/zmGzzMN6ESSyefPRQ=",
       "System.Private.CoreLib.dll": "sha256-mcywrbK0VZXiOvZ4dxU1ocaPZFplCRSIPQ\/wFikcrus=",
-      "Shared.dll": "sha256-HJ8WA7Wj4FsQg+YZvK8axPFScjGzYr59fG2LKBnhJqQ=",
-      "BlazorSyncTask.dll": "sha256-ilsFsGZ3WZGRCFqTT9VUbB\/F\/iiyqIlfOEeY8uvcT5w="
+      "Shared.dll": "sha256-i6zRjhmueHAgNsdSvGJSJrXLTrdfxzjC+9MP2olHXFM=",
+      "BlazorSyncTask.dll": "sha256-9wA9xraCnrUSQluv73LgBjBj+uD3BBtfSlTAXpNGqFk="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "Shared.pdb": "sha256-DX3qMy3X13f2o2FE7DDEjyoM1pFdmASx\/sMnO3jfzJc=",
-      "BlazorSyncTask.pdb": "sha256-ZSNbJrjUwKELmDMJZLy9koKigVztBwZ55wye1bzsDnk="
+      "Shared.pdb": "sha256-l\/cg5dPfHH+C37X64cf0uTVPDsQ9s1U7rXaLhu2frho=",
+      "BlazorSyncTask.pdb": "sha256-MvO3e0cs7Z\/xCUGN+3dtgUTe7XZlGmBb0bYIaLtZFYo="
     },
     "runtime": {
-      "dotnet.7.0.3.zlmx5duu98.js": "sha256-DxGvmbtUa6hGJpk3VyMEbkPZ653qWbQkh8X4ZVM9TWM=",
+      "dotnet.7.0.3.ex8yw9et09.js": "sha256-DxGvmbtUa6hGJpk3VyMEbkPZ653qWbQkh8X4ZVM9TWM=",
       "dotnet.timezones.blat": "sha256-jgK4sHqNVMYvwtJ9cbh\/rz\/+ZekC9qEBgHdG\/NsjYhw=",
       "dotnet.wasm": "sha256-DL4j2DpxtpVPYKs+s2MEt5FbF\/1BGHDewGhsBC8M7as=",
       "icudt.dat": "sha256-tO5O5YzMTVSaKBboxAqezOQL9ewmupzV2JrB5Rkc8a4=",

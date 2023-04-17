@@ -3,8 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
+using DatabaseCon;
+using Npgsql;
 using Shared.Dtos;
 using Shared.Models;
+
 using WebAPI.Services;
 
 namespace WebAPI.Controllers;
@@ -15,7 +18,7 @@ public class AuthController : ControllerBase
 {
     private readonly IConfiguration config;
     private readonly IAuthService authService;
-
+    private NpgsqlConnection connection;
     public AuthController(IConfiguration config, IAuthService authService)
     {
         this.config = config;
@@ -95,6 +98,33 @@ public class AuthController : ControllerBase
             User user = await authService.RegisterUser(u);
 
             return Ok(user);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
+    [HttpGet, Route("test")]
+    public async Task<ActionResult> test()
+    {
+        try
+        {
+            //Connect to database
+            DatabaseConnection db = new DatabaseConnection();
+            connection= db.connect();
+            
+            //query
+            var reader = db.sql("SELECT * FROM systemuser",connection);
+            
+            var results = new List<string>();
+            while (reader.Read())
+            {
+                var username = reader.GetString(1);
+                results.Add(username);
+            }
+        
+            // Replace with your own response logic
+            return Ok(results);
         }
         catch (Exception e)
         {
