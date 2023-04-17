@@ -32,6 +32,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/jacks/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/LoginButtons.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5CdXR0b25zLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/jacks/Documents/GitHub/SyncTask/BlazorSyncTask/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -39,6 +43,14 @@ build_metadata.AdditionalFiles.CssScope =
 [C:/Users/jacks/Documents/GitHub/SyncTask/BlazorSyncTask/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jacks/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-uejfjchll3
+
+[C:/Users/jacks/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/Register.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-xa5acrxc90
 
 [C:/Users/jacks/Documents/GitHub/SyncTask/BlazorSyncTask/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=

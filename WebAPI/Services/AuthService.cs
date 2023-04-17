@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Security.Cryptography;
 using Shared.Models;
 
 namespace WebAPI.Services;
@@ -10,25 +11,20 @@ public class AuthService : IAuthService
     {
         new User
         {
-            Age = 36,
-            Email = "jack@via.dk",
-            Domain = "via",
-            Name = "Troels Mortensen",
+            
+            FullName = "Troels Mortensen",
             Password = "1234",
-            Role = "Teacher",
+            
             Username = "trmo",
-            SecurityLevel = 4
+            
         },
         new User
         {
-            Age = 34,
-            Email = "jakob@gmail.com",
-            Domain = "gmail",
-            Name = "Jakob Rasmussen",
+            FullName = "kris",
             Password = "password",
-            Role = "Student",
+           
             Username = "jknr",
-            SecurityLevel = 2
+           
         }
     };
 
@@ -50,7 +46,7 @@ public class AuthService : IAuthService
         return Task.FromResult(existingUser);
     }
 
-    public Task RegisterUser(User user)
+    public Task<User> RegisterUser(User user)
     {
 
         if (string.IsNullOrEmpty(user.Username))
@@ -62,12 +58,11 @@ public class AuthService : IAuthService
         {
             throw new ValidationException("Password cannot be null");
         }
-        // Do more user info validation here
         
-        // save to persistence instead of list
         
         users.Add(user);
         
-        return Task.CompletedTask;
+
+        return Task.FromResult(user);
     }
 }
