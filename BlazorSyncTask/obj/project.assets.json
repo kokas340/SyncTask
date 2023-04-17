@@ -506,6 +506,38 @@
           }
         }
       },
+      "MySqlConnector/2.3.0-beta.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "7.0.0"
+        },
+        "compile": {
+          "lib/net7.0/MySqlConnector.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/MySqlConnector.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Npgsql/8.0.0-preview.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "6.0.0"
+        },
+        "compile": {
+          "lib/net7.0/Npgsql.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/Npgsql.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "System.IO.Pipelines/7.0.0": {
         "type": "package",
         "compile": {
@@ -567,7 +599,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
-          "Microsoft.AspNetCore.Authorization": "6.0.8"
+          "Microsoft.AspNetCore.Authorization": "6.0.8",
+          "MySqlConnector": "2.3.0-beta.2",
+          "Npgsql": "8.0.0-preview.2"
         },
         "compile": {
           "bin/placeholder/Shared.dll": {}
@@ -1082,6 +1116,38 @@
           }
         }
       },
+      "MySqlConnector/2.3.0-beta.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "7.0.0"
+        },
+        "compile": {
+          "lib/net7.0/MySqlConnector.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/MySqlConnector.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Npgsql/8.0.0-preview.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "6.0.0"
+        },
+        "compile": {
+          "lib/net7.0/Npgsql.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/Npgsql.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "System.IO.Pipelines/7.0.0": {
         "type": "package",
         "compile": {
@@ -1137,7 +1203,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
-          "Microsoft.AspNetCore.Authorization": "6.0.8"
+          "Microsoft.AspNetCore.Authorization": "6.0.8",
+          "MySqlConnector": "2.3.0-beta.2",
+          "Npgsql": "8.0.0-preview.2"
         },
         "compile": {
           "bin/placeholder/Shared.dll": {}
@@ -1987,6 +2055,54 @@
         "microsoft.jsinterop.webassembly.nuspec"
       ]
     },
+    "MySqlConnector/2.3.0-beta.2": {
+      "sha512": "E8vcxmSf8iyfAHPGSujXrUEAD65Ir4cV67dyRFRJC57elizs2dMeg6+tEwimVJnro82dYRJHF1xgzsO3qvo6lQ==",
+      "type": "package",
+      "path": "mysqlconnector/2.3.0-beta.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net462/MySqlConnector.dll",
+        "lib/net462/MySqlConnector.xml",
+        "lib/net471/MySqlConnector.dll",
+        "lib/net471/MySqlConnector.xml",
+        "lib/net6.0/MySqlConnector.dll",
+        "lib/net6.0/MySqlConnector.xml",
+        "lib/net7.0/MySqlConnector.dll",
+        "lib/net7.0/MySqlConnector.xml",
+        "lib/netstandard2.0/MySqlConnector.dll",
+        "lib/netstandard2.0/MySqlConnector.xml",
+        "lib/netstandard2.1/MySqlConnector.dll",
+        "lib/netstandard2.1/MySqlConnector.xml",
+        "logo.png",
+        "mysqlconnector.2.3.0-beta.2.nupkg.sha512",
+        "mysqlconnector.nuspec"
+      ]
+    },
+    "Npgsql/8.0.0-preview.2": {
+      "sha512": "HwU8NqaBKea7wf5BVJQ+Rf0hqi+GLICX0X7eJL9x0NMZLzmEWk54oMZz7818MboBUOsfHJicLxpYD8iE/W7m5Q==",
+      "type": "package",
+      "path": "npgsql/8.0.0-preview.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net6.0/Npgsql.dll",
+        "lib/net6.0/Npgsql.xml",
+        "lib/net7.0/Npgsql.dll",
+        "lib/net7.0/Npgsql.xml",
+        "lib/net8.0/Npgsql.dll",
+        "lib/net8.0/Npgsql.xml",
+        "lib/netstandard2.0/Npgsql.dll",
+        "lib/netstandard2.0/Npgsql.xml",
+        "lib/netstandard2.1/Npgsql.dll",
+        "lib/netstandard2.1/Npgsql.xml",
+        "npgsql.8.0.0-preview.2.nupkg.sha512",
+        "npgsql.nuspec",
+        "postgresql.png"
+      ]
+    },
     "System.IO.Pipelines/7.0.0": {
       "sha512": "jRn6JYnNPW6xgQazROBLSfpdoczRw694vO5kKvMcNnpXuolEixUyw6IBuBs2Y2mlSX/LdLvyyWmfXhaI3ND1Yg==",
       "type": "package",
@@ -2130,23 +2246,25 @@
       "Microsoft.AspNetCore.Components.WebAssembly >= 7.0.3",
       "Microsoft.AspNetCore.Components.WebAssembly.DevServer >= 7.0.3",
       "Microsoft.Extensions.Logging.Abstractions >= 7.0.0",
+      "MySqlConnector >= 2.3.0-beta.2",
+      "Npgsql >= 8.0.0-preview.2",
       "Shared >= 1.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\kdani\\.nuget\\packages\\": {}
+    "C:\\Users\\jacks\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kdani\\OneDrive\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj",
+      "projectUniqueName": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj",
       "projectName": "BlazorSyncTask",
-      "projectPath": "C:\\Users\\kdani\\OneDrive\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj",
-      "packagesPath": "C:\\Users\\kdani\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kdani\\OneDrive\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\obj\\",
+      "projectPath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj",
+      "packagesPath": "C:\\Users\\jacks\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\kdani\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\jacks\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -2158,8 +2276,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\kdani\\OneDrive\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj": {
-              "projectPath": "C:\\Users\\kdani\\OneDrive\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj"
+            "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj": {
+              "projectPath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj"
             }
           }
         }
@@ -2198,6 +2316,14 @@
           "Microsoft.Extensions.Logging.Abstractions": {
             "target": "Package",
             "version": "[7.0.0, )"
+          },
+          "MySqlConnector": {
+            "target": "Package",
+            "version": "[2.3.0-beta.2, )"
+          },
+          "Npgsql": {
+            "target": "Package",
+            "version": "[8.0.0-preview.2, )"
           }
         },
         "imports": [
@@ -2214,7 +2340,7 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-            "version": "[7.0.2, 7.0.2]"
+            "version": "[7.0.3, 7.0.3]"
           }
         ],
         "frameworkReferences": {
@@ -2222,7 +2348,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\jacks\\.dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {

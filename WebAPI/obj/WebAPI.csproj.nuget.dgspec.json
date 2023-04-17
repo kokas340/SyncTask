@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kdani\\OneDrive\\Documents\\GitHub\\SyncTask\\WebAPI\\WebAPI.csproj": {}
+    "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\WebAPI\\WebAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kdani\\OneDrive\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj": {
+    "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kdani\\OneDrive\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj",
+        "projectUniqueName": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj",
         "projectName": "Shared",
-        "projectPath": "C:\\Users\\kdani\\OneDrive\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj",
-        "packagesPath": "C:\\Users\\kdani\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kdani\\OneDrive\\Documents\\GitHub\\SyncTask\\Shared\\obj\\",
+        "projectPath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj",
+        "packagesPath": "C:\\Users\\jacks\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\kdani\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\jacks\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -41,6 +41,14 @@
             "Microsoft.AspNetCore.Authorization": {
               "target": "Package",
               "version": "[6.0.8, )"
+            },
+            "MySqlConnector": {
+              "target": "Package",
+              "version": "[2.3.0-beta.2, )"
+            },
+            "Npgsql": {
+              "target": "Package",
+              "version": "[8.0.0-preview.2, )"
             }
           },
           "imports": [
@@ -59,21 +67,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\jacks\\.dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\kdani\\OneDrive\\Documents\\GitHub\\SyncTask\\WebAPI\\WebAPI.csproj": {
+    "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\WebAPI\\WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kdani\\OneDrive\\Documents\\GitHub\\SyncTask\\WebAPI\\WebAPI.csproj",
+        "projectUniqueName": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\WebAPI\\WebAPI.csproj",
         "projectName": "WebAPI",
-        "projectPath": "C:\\Users\\kdani\\OneDrive\\Documents\\GitHub\\SyncTask\\WebAPI\\WebAPI.csproj",
-        "packagesPath": "C:\\Users\\kdani\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kdani\\OneDrive\\Documents\\GitHub\\SyncTask\\WebAPI\\obj\\",
+        "projectPath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\WebAPI\\WebAPI.csproj",
+        "packagesPath": "C:\\Users\\jacks\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\WebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\kdani\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\jacks\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -85,8 +93,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\kdani\\OneDrive\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj": {
-                "projectPath": "C:\\Users\\kdani\\OneDrive\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj"
+              "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj": {
+                "projectPath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj"
               }
             }
           }
@@ -108,6 +116,14 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.3, )"
+            },
+            "MySqlConnector": {
+              "target": "Package",
+              "version": "[2.3.0-beta.2, )"
+            },
+            "Npgsql": {
+              "target": "Package",
+              "version": "[8.0.0-preview.2, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -133,7 +149,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\jacks\\.dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }
