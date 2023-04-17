@@ -11,25 +11,20 @@ public class AuthService : IAuthService
     {
         new User
         {
-            Age = 36,
-            Email = "jack@via.dk",
-            Domain = "via",
-            Name = "Troels Mortensen",
+            
+            FullName = "Troels Mortensen",
             Password = "1234",
-            Role = "Teacher",
+            
             Username = "trmo",
-            SecurityLevel = 4
+            
         },
         new User
         {
-            Age = 34,
-            Email = "jakob@gmail.com",
-            Domain = "gmail",
-            Name = "Jakob Rasmussen",
+            FullName = "kris",
             Password = "password",
-            Role = "Student",
+           
             Username = "jknr",
-            SecurityLevel = 2
+           
         }
     };
 
@@ -64,16 +59,6 @@ public class AuthService : IAuthService
             throw new ValidationException("Password cannot be null");
         }
         
-        
-        if (string.IsNullOrEmpty(user.Email))
-        {
-            throw new ValidationException("Email cannot be null");
-        }
-        
-        if (string.IsNullOrEmpty(user.Name))
-        {
-            throw new ValidationException("Name cannot be null");
-        }
         
         users.Add(user);
         

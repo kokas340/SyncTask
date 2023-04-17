@@ -42,6 +42,27 @@ public class JwtAuthService : IAuthService
 
         OnAuthStateChanged.Invoke(principal);
     }
+    public async Task RegisterAsync(string fullName, string username, string password)
+    {
+        UserRegisterDto userRegisterDto = new()
+        {
+            FullName = fullName,
+            Username = username,
+            Password = password
+        };
+
+        string userAsJson = JsonSerializer.Serialize(userRegisterDto);
+        StringContent content = new(userAsJson, Encoding.UTF8, "application/json");
+
+        HttpResponseMessage response = await client.PostAsync("http://localhost:5041/auth/register", content);
+        string responseContent = await response.Content.ReadAsStringAsync();
+
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(responseContent);
+        }
+    }
+
 
     private static ClaimsPrincipal CreateClaimsPrincipal()
     {
