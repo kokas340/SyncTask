@@ -1,40 +1,91 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">BlazorSyncTask</a>
-        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </div>
-</div>
+﻿@using BlazorSyncTask.Services
+@inject IAuthService authService
+<AuthorizeView>
+    <NotAuthorized>
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-2">
+                    <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                        <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                            <span class="fs-5 d-none d-sm-inline text-uppercase" style="font-weight: bold">synctask</span>
+                        </a>
+                        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                            <li class="nav-item">
+                                <a href="" class="nav-link align-middle px-2">
+                                    <i class="oi oi-home"></i> <span class="ms-1 d-sm-inline">Home</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/about" class="nav-link px-2 align-middle">
+                                    <i class="oi oi-book"></i> <span class="ms-1 d-sm-inline">About</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/register" class="nav-link px-2 align-middle">
+                                    <i class="oi oi-key"></i> <span class="ms-1 d-sm-inline">Register</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/login" class="nav-link px-2 align-middle">
+                                    <i class="oi oi-account-login"></i> <span class="ms-1  d-sm-inline">LogIn</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+    </NotAuthorized>
+    <Authorized>
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-2">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                    <span class="fs-5 d-none d-sm-inline text-uppercase" style="font-weight: bold">synctask</span>
+                </a>
+                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link align-middle px-2">
+                            <i class="oi oi-home"></i> <span class="ms-1 d-sm-inline">Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link px-2 align-middle">
+                            <i class="oi oi-dashboard"></i> <span class="ms-1 d-sm-inline">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link px-2 align-middle">
+                            <i class="oi oi-task"></i> <span class="ms-1  d-sm-inline">Tasks</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" data-bs-toggle="collapse" class="nav-link px-2 align-middle">
+                            <i class="oi oi-people"></i> <span class="ms-1  d-sm-inline">Friends</span>
+                        </a>
+                    </li>
 
-<div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
+                </ul>
+                <hr>
+                <div class="dropdown pb-4">
+                    <a href="/account" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="oi oi-person"></i>
+                        <span class=" d-sm-inline mx-1"> @context.User.Identity.Name </span>
+                    </a>
+                    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser1">
+                        <li>
+                            <a class="dropdown-item" href="#">New project...</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Settings</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Profile</a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Sign out</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="oi oi-plus" aria-hidden="true"></span> Counter
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="fetchdata">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
-            </NavLink>
-        </div>
-    </nav>
-</div>
-
-@code {
-    private bool collapseNavMenu = true;
-
-    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    private void ToggleNavMenu()
-    {
-        collapseNavMenu = !collapseNavMenu;
-    }
-
-}
+    </Authorized>
+</AuthorizeView>

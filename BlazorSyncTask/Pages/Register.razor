@@ -1,7 +1,8 @@
-@page "/Register"
 @using BlazorSyncTask.Services
 @inject IAuthService authService
 @inject NavigationManager navMgr
+@page "/Register"
+
 <AuthorizeView>
     <NotAuthorized>
         <div class="row textbs" style="padding-top: 2rem; padding-bottom: 6rem; display: flex; flex-direction: revert;">
@@ -21,19 +22,19 @@
         <div class="loginForm">
             <div class="row">
                 <div class="offset-md-2 col-md-3">
-                                    <div class="field">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Fullname</label>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <input type="text" @bind="fullName"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="field">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Fullname</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" @bind="fullName"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-md-3">
                     <div class="field">
                         <div class="row">
@@ -78,19 +79,20 @@
             </div>
         }
         <div class="buttons" style="padding: 3rem 0 3rem 0">
-            <div class="offset-md-10 col-md-2">
+            <div class="offset-md-10 col-md-2" >
+                <div class="field">
+                    <a class="signupbtn" @onclick="RegisterAsync">Sign Up</a>
+                </div>
+            </div>
+            <div class="offset-md-10 col-md-2" style="padding-bottom: 2rem;">
                 <div class="field">
                     <a class="loginbtn" @onclick="LoginAsync">Log in</a>
                 </div>
             </div>
 
-            <div class="offset-md-10 col-md-2" style="padding-bottom: 2rem;">
-                <div class="field">
-                    <a class="signupbtn" @onclick="RegisterAsync">Sign Up</a>
-                </div>
-            </div>
+
         </div>
-        
+
     </NotAuthorized>
     <Authorized>
         <div class="card">
@@ -107,25 +109,17 @@
 
     private async Task LoginAsync()
     {
-        errorLabel = "";
-        try
-        {
-            await authService.LoginAsync(userName, password);
-            navMgr.NavigateTo("/");
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            errorLabel = $"Error: {e.Message}";
-        }
+        navMgr.NavigateTo("/login");
     }
+
+
     private async Task RegisterAsync()
     {
         errorLabel = "";
         try
         {
             await authService.RegisterAsync(fullName, userName, password);
-            navMgr.NavigateTo("/");
+            navMgr.NavigateTo("/login");
         }
         catch (Exception e)
         {
