@@ -72,7 +72,7 @@
 
             <div class="offset-md-10 col-md-2" style="padding-bottom: 2rem;">
                 <div class="field">
-                    <a class="signupbtn" @onclick="LoginAsync">Sign Up</a>
+                    <a class="signupbtn" @onclick="RegisterAsync">Sign Up</a>
                 </div>
             </div>
         </div>
@@ -103,6 +103,11 @@
             Console.WriteLine(e);
             errorLabel = $"Error: {e.Message}";
         }
+    }
+
+    private async Task RegisterAsync()
+    {
+        navMgr.NavigateTo("/register");
     }
 
 }

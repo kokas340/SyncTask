@@ -2577,3 +2577,12 @@ C:\Users\jacks\Documents\GitHub\SyncTask\BlazorSyncTask\bin\Debug\net7.0\wwwroot
 C:\Users\jacks\Documents\GitHub\SyncTask\BlazorSyncTask\bin\Debug\net7.0\wwwroot\_framework\MySqlConnector.dll.gz
 C:\Users\jacks\Documents\GitHub\SyncTask\BlazorSyncTask\bin\Debug\net7.0\MySqlConnector.dll
 C:\Users\jacks\Documents\GitHub\SyncTask\BlazorSyncTask\obj\Debug\net7.0\build-gz\xuLYIfr7.gz
+C:\Users\bumba\Documents\GitHub\SyncTask\BlazorSyncTask\bin\Debug\net7.0\wwwroot\_framework\MySqlConnector.dll
+C:\Users\bumba\Documents\GitHub\SyncTask\BlazorSyncTask\bin\Debug\net7.0\wwwroot\_framework\Npgsql.dll
+C:\Users\bumba\Documents\GitHub\SyncTask\BlazorSyncTask\bin\Debug\net7.0\wwwroot\_framework\MySqlConnector.dll.gz
+C:\Users\bumba\Documents\GitHub\SyncTask\BlazorSyncTask\bin\Debug\net7.0\wwwroot\_framework\Npgsql.dll.gz
+C:\Users\bumba\Documents\GitHub\SyncTask\BlazorSyncTask\bin\Debug\net7.0\MySqlConnector.dll
+C:\Users\bumba\Documents\GitHub\SyncTask\BlazorSyncTask\bin\Debug\net7.0\Npgsql.dll
+C:\Users\bumba\Documents\GitHub\SyncTask\BlazorSyncTask\obj\Debug\net7.0\build-gz\JdvAUs+B.gz
+C:\Users\bumba\Documents\GitHub\SyncTask\BlazorSyncTask\obj\Debug\net7.0\build-gz\XXFQnZ0x.gz
+C:\Users\bumba\Documents\GitHub\SyncTask\BlazorSyncTask\obj\Debug\net7.0\scopedcss\Pages\Register.razor.rz.scp.css

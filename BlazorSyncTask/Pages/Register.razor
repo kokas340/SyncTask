@@ -107,25 +107,17 @@
 
     private async Task LoginAsync()
     {
-        errorLabel = "";
-        try
-        {
-            await authService.LoginAsync(userName, password);
-            navMgr.NavigateTo("/");
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            errorLabel = $"Error: {e.Message}";
-        }
+        navMgr.NavigateTo("/login");
     }
+    
+    
     private async Task RegisterAsync()
     {
         errorLabel = "";
         try
         {
             await authService.RegisterAsync(fullName, userName, password);
-            navMgr.NavigateTo("/");
+            navMgr.NavigateTo("/login");
         }
         catch (Exception e)
         {
