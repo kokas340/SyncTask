@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\BlazorSyncTask.styles.css"
     },
     {
+      "Id": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\wwwroot\\about_pic.svg",
+      "PackagePath": "staticwebassets\\about_pic.svg"
+    },
+    {
       "Id": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\wwwroot\\css\\app.css",
       "PackagePath": "staticwebassets\\css\\app.css"
     },
@@ -61,8 +65,16 @@
       "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
     },
     {
+      "Id": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\wwwroot\\cta-bg.jpg",
+      "PackagePath": "staticwebassets\\cta-bg.jpg"
+    },
+    {
       "Id": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\wwwroot\\favicon.png",
       "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\wwwroot\\hero-img.png",
+      "PackagePath": "staticwebassets\\hero-img.png"
     },
     {
       "Id": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\wwwroot\\icon-192.png",
@@ -75,6 +87,10 @@
     {
       "Id": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\wwwroot\\sample-data\\weather.json",
       "PackagePath": "staticwebassets\\sample-data\\weather.json"
+    },
+    {
+      "Id": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\wwwroot\\why-us.png",
+      "PackagePath": "staticwebassets\\why-us.png"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.BlazorSyncTask.Microsoft.AspNetCore.StaticWebAssets.props",

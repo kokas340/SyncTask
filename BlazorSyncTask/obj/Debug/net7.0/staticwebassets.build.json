@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "qdE57qV9Klt/K12JVCQOF6wGC6/sUtOsCQZ7vlaqjbw=",
+  "Hash": "WoXQUyLIGl2BgThUMiQCN267iyy4ZSgC1oAIG5yjQTQ=",
   "Source": "BlazorSyncTask",
   "BasePath": "/",
   "Mode": "Root",
@@ -7854,6 +7854,23 @@
       "OriginalItemSpec": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\BlazorSyncTask.bundle.scp.css"
     },
     {
+      "Identity": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\wwwroot\\about_pic.svg",
+      "SourceId": "BlazorSyncTask",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "about_pic.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\about_pic.svg"
+    },
+    {
       "Identity": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\wwwroot\\css\\app.css",
       "SourceId": "BlazorSyncTask",
       "SourceType": "Discovered",
@@ -8058,6 +8075,23 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\README.md"
     },
     {
+      "Identity": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\wwwroot\\cta-bg.jpg",
+      "SourceId": "BlazorSyncTask",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "cta-bg.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\cta-bg.jpg"
+    },
+    {
       "Identity": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\wwwroot\\favicon.png",
       "SourceId": "BlazorSyncTask",
       "SourceType": "Discovered",
@@ -8073,6 +8107,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.png"
+    },
+    {
+      "Identity": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\wwwroot\\hero-img.png",
+      "SourceId": "BlazorSyncTask",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "hero-img.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\hero-img.png"
     },
     {
       "Identity": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\wwwroot\\icon-192.png",
@@ -8124,6 +8175,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\sample-data\\weather.json"
+    },
+    {
+      "Identity": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\wwwroot\\why-us.png",
+      "SourceId": "BlazorSyncTask",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "why-us.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\why-us.png"
     }
   ]
 }

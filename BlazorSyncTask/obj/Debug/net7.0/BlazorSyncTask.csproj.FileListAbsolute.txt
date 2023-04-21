@@ -2586,3 +2586,5 @@ C:\Users\bumba\Documents\GitHub\SyncTask\BlazorSyncTask\bin\Debug\net7.0\Npgsql.
 C:\Users\bumba\Documents\GitHub\SyncTask\BlazorSyncTask\obj\Debug\net7.0\build-gz\JdvAUs+B.gz
 C:\Users\bumba\Documents\GitHub\SyncTask\BlazorSyncTask\obj\Debug\net7.0\build-gz\XXFQnZ0x.gz
 C:\Users\bumba\Documents\GitHub\SyncTask\BlazorSyncTask\obj\Debug\net7.0\scopedcss\Pages\Register.razor.rz.scp.css
+C:\Users\bumba\Documents\GitHub\SyncTask\BlazorSyncTask\obj\Debug\net7.0\scopedcss\Pages\About.razor.rz.scp.css
+C:\Users\bumba\Documents\GitHub\SyncTask\BlazorSyncTask\obj\Debug\net7.0\scopedcss\Pages\Index.razor.rz.scp.css

@@ -1,10 +1,8 @@
     
 
 .logo {
-    font-family: "Fira Code", sans-serif;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 20px;
+    display: none;
+    
 }
 
 .textbs h2,p,h5{
@@ -21,9 +19,9 @@ input, textarea {
     border:solid 1px #11104a;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     background: linear-gradient(to right, ghostwhite, #11104a);
-    
     transition:all 1.5s ease;
 }
+
 
 input:hover {
     padding: 9px;
