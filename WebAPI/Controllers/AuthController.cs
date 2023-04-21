@@ -3,8 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
+using DatabaseCon;
+using Npgsql;
 using Shared.Dtos;
 using Shared.Models;
+
 using WebAPI.Services;
 
 namespace WebAPI.Controllers;
@@ -15,7 +18,7 @@ public class AuthController : ControllerBase
 {
     private readonly IConfiguration config;
     private readonly IAuthService authService;
-
+    private NpgsqlConnection connection;
     public AuthController(IConfiguration config, IAuthService authService)
     {
         this.config = config;
@@ -29,12 +32,8 @@ public class AuthController : ControllerBase
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
             new Claim(ClaimTypes.Name, user.Username),
-            new Claim(ClaimTypes.Role, user.Role),
-            new Claim("DisplayName", user.Name),
-            new Claim("Email", user.Email),
-            new Claim("Age", user.Age.ToString()),
-            new Claim("Domain", user.Domain),
-            new Claim("SecurityLevel", user.SecurityLevel.ToString())
+            new Claim("DisplayName", user.FullName),
+            
         };
         return claims.ToList();
     }
@@ -69,6 +68,55 @@ public class AuthController : ControllerBase
             string token = GenerateJwt(user);
     
             return Ok(token);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
+    
+    [HttpPost, Route("register")]
+    public async Task<ActionResult> register([FromBody] UserRegisterDto userRegisterDto)
+    {
+        try
+        {
+            User u = new User
+            {
+                
+                FullName = userRegisterDto.FullName,
+                Password = userRegisterDto.Password,
+                Username = userRegisterDto.Username,
+                
+            };
+            User user = await authService.RegisterUser(u);
+
+            return Ok(user);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
+    [HttpGet, Route("test")]
+    public async Task<ActionResult> test()
+    {
+        try
+        {
+            //Connect to database
+            DatabaseConnection db = new DatabaseConnection();
+            connection= db.connect();
+            
+            //query
+            var reader = db.sql("SELECT username FROM users",connection);
+            var results = new List<string>();
+            while (reader.Read())
+            {
+                //get username
+                var username = reader.GetString(0);
+                results.Add(username);
+            }
+            
+            return Ok(results);
         }
         catch (Exception e)
         {
