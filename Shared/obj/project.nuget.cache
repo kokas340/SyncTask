@@ -1,18 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "MZxkHeGfQv2fArTNluJhLezzTBH3EnW/lXqdnDZKbJgs+JWnHBiDYy3DpoywzQT3azL67sFZqT/4mTIVxa9/AA==",
+  "dgSpecHash": "VoSVneopDrpLue/0VVvzDsg4NJ9zTzuaxdn0c8/fxSNL5IaTv9vUQbAMQrsMOtSKh31qX/X5AvZNJSi9laKZXg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj",
+  "projectFilePath": "C:\\Users\\Bruger\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\bumba\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.8\\microsoft.aspnetcore.authorization.6.0.8.nupkg.sha512",
-    "C:\\Users\\bumba\\.nuget\\packages\\microsoft.aspnetcore.metadata\\6.0.8\\microsoft.aspnetcore.metadata.6.0.8.nupkg.sha512",
-    "C:\\Users\\bumba\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
-    "C:\\Users\\bumba\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.0\\microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
-    "C:\\Users\\bumba\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
-    "C:\\Users\\bumba\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
-    "C:\\Users\\bumba\\.nuget\\packages\\mysqlconnector\\2.3.0-beta.2\\mysqlconnector.2.3.0-beta.2.nupkg.sha512",
-    "C:\\Users\\bumba\\.nuget\\packages\\npgsql\\8.0.0-preview.2\\npgsql.8.0.0-preview.2.nupkg.sha512",
-    "C:\\Users\\bumba\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+    "C:\\Users\\Bruger\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.8\\microsoft.aspnetcore.authorization.6.0.8.nupkg.sha512",
+    "C:\\Users\\Bruger\\.nuget\\packages\\microsoft.aspnetcore.metadata\\6.0.8\\microsoft.aspnetcore.metadata.6.0.8.nupkg.sha512",
+    "C:\\Users\\Bruger\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\Bruger\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.0\\microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\Bruger\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\Bruger\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\Bruger\\.nuget\\packages\\mysqlconnector\\2.3.0-beta.2\\mysqlconnector.2.3.0-beta.2.nupkg.sha512",
+    "C:\\Users\\Bruger\\.nuget\\packages\\npgsql\\8.0.0-preview.2\\npgsql.8.0.0-preview.2.nupkg.sha512",
+    "C:\\Users\\Bruger\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
   ],
   "logs": []
 }

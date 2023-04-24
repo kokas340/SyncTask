@@ -5,20 +5,28 @@
     <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
     <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
     <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
-    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\bumba\.nuget\packages\;C:\Program Files (x86)\Microsoft\Xamarin\NuGet</NuGetPackageFolders>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\Bruger\.nuget\packages\</NuGetPackageFolders>
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
-    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.4.0</NuGetToolVersion>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.5.0</NuGetToolVersion>
   </PropertyGroup>
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <SourceRoot Include="C:\Users\bumba\.nuget\packages\" />
-    <SourceRoot Include="C:\Program Files (x86)\Microsoft\Xamarin\NuGet\" />
+    <SourceRoot Include="C:\Users\Bruger\.nuget\packages\" />
   </ItemGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)syncfusion.blazor.core\21.1.41\buildTransitive\Syncfusion.Blazor.Core.props" Condition="Exists('$(NuGetPackageRoot)syncfusion.blazor.core\21.1.41\buildTransitive\Syncfusion.Blazor.Core.props')" />
+    <Import Project="$(NuGetPackageRoot)syncfusion.blazor.spinner\21.1.41\buildTransitive\Syncfusion.Blazor.Spinner.props" Condition="Exists('$(NuGetPackageRoot)syncfusion.blazor.spinner\21.1.41\buildTransitive\Syncfusion.Blazor.Spinner.props')" />
+    <Import Project="$(NuGetPackageRoot)syncfusion.blazor.buttons\21.1.41\buildTransitive\Syncfusion.Blazor.Buttons.props" Condition="Exists('$(NuGetPackageRoot)syncfusion.blazor.buttons\21.1.41\buildTransitive\Syncfusion.Blazor.Buttons.props')" />
+    <Import Project="$(NuGetPackageRoot)syncfusion.blazor.popups\21.1.41\buildTransitive\Syncfusion.Blazor.Popups.props" Condition="Exists('$(NuGetPackageRoot)syncfusion.blazor.popups\21.1.41\buildTransitive\Syncfusion.Blazor.Popups.props')" />
+    <Import Project="$(NuGetPackageRoot)syncfusion.blazor.splitbuttons\21.1.41\buildTransitive\Syncfusion.Blazor.SplitButtons.props" Condition="Exists('$(NuGetPackageRoot)syncfusion.blazor.splitbuttons\21.1.41\buildTransitive\Syncfusion.Blazor.SplitButtons.props')" />
+    <Import Project="$(NuGetPackageRoot)syncfusion.blazor.data\21.1.41\buildTransitive\Syncfusion.Blazor.Data.props" Condition="Exists('$(NuGetPackageRoot)syncfusion.blazor.data\21.1.41\buildTransitive\Syncfusion.Blazor.Data.props')" />
+    <Import Project="$(NuGetPackageRoot)syncfusion.blazor.lists\21.1.41\buildTransitive\Syncfusion.Blazor.Lists.props" Condition="Exists('$(NuGetPackageRoot)syncfusion.blazor.lists\21.1.41\buildTransitive\Syncfusion.Blazor.Lists.props')" />
+    <Import Project="$(NuGetPackageRoot)syncfusion.blazor.inputs\21.1.41\buildTransitive\Syncfusion.Blazor.Inputs.props" Condition="Exists('$(NuGetPackageRoot)syncfusion.blazor.inputs\21.1.41\buildTransitive\Syncfusion.Blazor.Inputs.props')" />
+    <Import Project="$(NuGetPackageRoot)syncfusion.blazor.calendars\21.1.41\buildTransitive\Syncfusion.Blazor.Calendars.props" Condition="Exists('$(NuGetPackageRoot)syncfusion.blazor.calendars\21.1.41\buildTransitive\Syncfusion.Blazor.Calendars.props')" />
     <Import Project="$(NuGetPackageRoot)microsoft.aspnetcore.components.webassembly\7.0.3\build\net7.0\Microsoft.AspNetCore.Components.WebAssembly.props" Condition="Exists('$(NuGetPackageRoot)microsoft.aspnetcore.components.webassembly\7.0.3\build\net7.0\Microsoft.AspNetCore.Components.WebAssembly.props')" />
     <Import Project="$(NuGetPackageRoot)blazorise\1.2.2\buildTransitive\Blazorise.props" Condition="Exists('$(NuGetPackageRoot)blazorise\1.2.2\buildTransitive\Blazorise.props')" />
     <Import Project="$(NuGetPackageRoot)blazorise.bootstrap\1.2.2\buildTransitive\Blazorise.Bootstrap.props" Condition="Exists('$(NuGetPackageRoot)blazorise.bootstrap\1.2.2\buildTransitive\Blazorise.Bootstrap.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgMicrosoft_AspNetCore_Components_WebAssembly_DevServer Condition=" '$(PkgMicrosoft_AspNetCore_Components_WebAssembly_DevServer)' == '' ">C:\Users\bumba\.nuget\packages\microsoft.aspnetcore.components.webassembly.devserver\7.0.3</PkgMicrosoft_AspNetCore_Components_WebAssembly_DevServer>
+    <PkgMicrosoft_AspNetCore_Components_WebAssembly_DevServer Condition=" '$(PkgMicrosoft_AspNetCore_Components_WebAssembly_DevServer)' == '' ">C:\Users\Bruger\.nuget\packages\microsoft.aspnetcore.components.webassembly.devserver\7.0.3</PkgMicrosoft_AspNetCore_Components_WebAssembly_DevServer>
   </PropertyGroup>
 </Project>

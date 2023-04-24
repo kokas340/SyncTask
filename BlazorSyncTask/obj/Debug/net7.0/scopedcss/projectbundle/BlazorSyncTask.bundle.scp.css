@@ -891,6 +891,26 @@ a:hover[b-xa5acrxc90]::before {
 a:hover[b-xa5acrxc90]::after {
     transform: scale(1);
 }
+/* /Pages/Tasks.razor.rz.scp.css */
+@media (max-width:575px) {
+    .display-4[b-7ix0rewx8i] {
+        font-size: 1.5rem;
+    }
+    .day h5[b-7ix0rewx8i] {
+        background-color: #f8f9fa;
+        padding: 3px 5px 5px;
+        margin: -8px -8px 8px -8px;
+    }
+    .date[b-7ix0rewx8i] {
+        padding-left: 4px;
+    }
+}
+
+@media (min-width: 576px) {
+    .day[b-7ix0rewx8i] {
+        height: 14.2857vw;
+    }
+}
 /* /Shared/MainLayout.razor.rz.scp.css */
 .page[b-10xswk6gls] {
     position: relative;
