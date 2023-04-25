@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using System.Reflection.Metadata;
 using System.Security.Claims;
 using System.Text;
@@ -15,6 +16,7 @@ public class JwtAuthService : IAuthService
     public static string? Jwt { get; private set; } = "";
 
     public Action<ClaimsPrincipal> OnAuthStateChanged { get; set; } = null!;
+   
 
     public async Task LoginAsync(string username, string password)
     {
@@ -42,10 +44,11 @@ public class JwtAuthService : IAuthService
 
         OnAuthStateChanged.Invoke(principal);
     }
-    public async Task RegisterAsync(string fullName, string username, string password)
+    public async Task RegisterAsync(string fullName, string username, string password,string email)
     {
         UserRegisterDto userRegisterDto = new()
         {
+            Email = email,
             FullName = fullName,
             Username = username,
             Password = password

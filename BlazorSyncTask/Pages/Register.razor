@@ -5,7 +5,7 @@
 
 <AuthorizeView>
     <NotAuthorized>
-        <div class="row textbs" style="padding-top: 2rem; padding-bottom: 6rem; display: flex; flex-direction: revert;">
+        <div class="row textbs" style="padding-top: 2rem; padding-bottom: 2rem; display: flex; flex-direction: revert;">
             <div class="offset-md-1 col-md-6">
                 <h2>Wish to Sign-Up?</h2>
             </div>
@@ -16,59 +16,54 @@
                 <h5>Sign up and start your journey</h5>
             </div>
         </div>
+        <TabPanel Name="register">
+                    <Card>
 
-        <div style="border-top: 3px solid white;  margin-right: 0; margin-left: 25%;"></div>
-
-        <div class="loginForm">
-            <div class="row">
-                <div class="offset-md-2 col-md-3">
-                    <div class="field">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Fullname</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <input type="text" @bind="fullName"/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="field">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Username</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <input type="text" @bind="userName"/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="field">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label style="text-align: center">Password</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <input type="password" @bind="password"/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                        <CardBody>
+                            <Validations @ref="@registerValidationsRef" Mode="ValidationMode.Manual" ValidateOnLoad="false">
+                                <Validation Validator="ValidationRule.IsNotEmpty">
+                                    <Field>
+                                        <FieldLabel style="color: #1a1e21">Name</FieldLabel>
+                                        <TextEdit @bind-Text="@fullName" Placeholder="Enter Your Name"/>
+                                    </Field>
+                                </Validation>
+                                <Validation Validator="ValidationRule.IsNotEmpty">
+                                    <Field>
+                                        <FieldLabel style="color: #1a1e21">Username</FieldLabel>
+                                        <TextEdit @bind-Text="@userName" Placeholder="Enter Your Username"/>
+                                    </Field>
+                                </Validation>
+                                <Validation Validator="ValidationRule.IsEmail">
+                                    <Field>
+                                        <FieldLabel style="color: #1a1e21">Email</FieldLabel>
+                                        <TextEdit @bind-Text="@email" Placeholder="Enter Your Email">
+                                            <Feedback>
+                                                <ValidationNone>Please Enter your email.</ValidationNone>
+                                                <ValidationSuccess>Email is valid</ValidationSuccess>
+                                                <ValidationError>Enter Valid email </ValidationError>
+                                            </Feedback>
+                                        </TextEdit>
+                                    </Field>
+                                </Validation>
+                                <Validation Validator="ValidationRule.IsNotEmpty">
+                                    <Field>
+                                        <FieldLabel style="color: #1a1e21">Password</FieldLabel>
+                                        <TextEdit @bind-Text="@password" Placeholder="Enter Password"/>
+                                    </Field>
+                                </Validation>
+                            </Validations>
+                        </CardBody>
+                        <CardBody>
+                            <Button Color="Color.Primary" Clicked="@OnRegisterClicked">
+                                Create Account
+                            </Button>
+                        </CardBody>
+                    </Card>
+                </TabPanel>
+     
+   
 
 
-        <div style="border-top: 3px solid white; margin-right: 25%; margin-left: 0;"></div>
 
         @if (!string.IsNullOrEmpty(errorLabel))
         {
@@ -79,11 +74,7 @@
             </div>
         }
         <div class="buttons" style="padding: 3rem 0 3rem 0">
-            <div class="offset-md-10 col-md-2" >
-                <div class="field">
-                    <a class="signupbtn" @onclick="RegisterAsync">Sign Up</a>
-                </div>
-            </div>
+          
             <div class="offset-md-10 col-md-2" style="padding-bottom: 2rem;">
                 <div class="field">
                     <a class="loginbtn" @onclick="LoginAsync">Log in</a>
@@ -104,29 +95,37 @@
 @code {
     private string fullName;
     private string userName;
+    private string email;
     private string password;
     private string errorLabel;
-
+    Validations registerValidationsRef;
+    
     private async Task LoginAsync()
     {
         navMgr.NavigateTo("/login");
     }
-
-
-    private async Task RegisterAsync()
+    
+    async Task OnRegisterClicked()
     {
-        errorLabel = "";
-        try
+        if (await registerValidationsRef.ValidateAll())
         {
-            await authService.RegisterAsync(fullName, userName, password);
-            navMgr.NavigateTo("/login");
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            errorLabel = $"Error: {e.Message}";
+            errorLabel = "";
+            try
+            {
+                await authService.RegisterAsync(fullName, userName, password, email);
+                navMgr.NavigateTo("/login");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                errorLabel = $"Error: {e.Message}";
+            }
+
+            await registerValidationsRef.ClearAll();
         }
     }
 
+
+ 
 
 }

@@ -10,5 +10,5 @@ public interface IAuthService
     public Task<ClaimsPrincipal> GetAuthAsync();
 
     public Action<ClaimsPrincipal> OnAuthStateChanged { get; set; }
-    Task RegisterAsync(string fullName, string userName, string password);
+    Task RegisterAsync(string fullName, string userName, string password,string email);
 }

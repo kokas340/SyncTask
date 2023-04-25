@@ -20,8 +20,8 @@ public class AuthController : ControllerBase
 {
     private readonly IConfiguration config;
     private readonly IAuthService authService;
-    private NpgsqlConnection connection;
-
+    private static AsyncTaskContext context = new AsyncTaskContext();
+    private UserEfcDao connectionDB = new UserEfcDao(context);
     public AuthController(IConfiguration config, IAuthService authService)
     {
         this.config = config;
@@ -81,36 +81,27 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost, Route("register")]
-    public async Task<ActionResult> register([FromBody] UserRegisterDto userRegisterDto)
+    public async Task<ActionResult> register([FromBody] UserRegisterDto user)
     {
         try
         {
-            User u = new User
-            {
-
-                FullName = userRegisterDto.FullName,
-                Password = userRegisterDto.Password,
-                Username = userRegisterDto.Username,
-
-            };
-            User user = await authService.RegisterUser(u);
-
-            return Ok(user);
+            await connectionDB.CreateAsync(user);
+            return Created($"/users/{user.Username}", user);
         }
         catch (Exception e)
         {
             return BadRequest(e.Message);
         }
+       
     }
 
     [HttpPost, Route("test")]
     public async Task<ActionResult> test(UserRegisterDto user)
     {
-        AsyncTaskContext context = new AsyncTaskContext();
-        UserEfcDao test = new UserEfcDao(context);
+       
         try
         {
-            await test.CreateAsync(user);
+            await connectionDB.CreateAsync(user);
             return Created($"/users/{user.Username}", user);
         }
         catch (Exception e)
