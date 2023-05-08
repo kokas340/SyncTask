@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Shared.Dtos;
 using Shared.Models;
 
 namespace EfcDataAccess.DAOs;
@@ -47,5 +48,20 @@ public class UserEfcDao
     public Task DeleteUser(int id)
     {
         throw new NotImplementedException();
+    }
+
+    public async Task<User> LoginAsync(UserLoginDto dto)
+    {
+        // Search for a user with the specified username and password
+        User user = await context.Users.FirstOrDefaultAsync(u => u.Username == dto.Username && u.Password == dto.Password);
+    
+        // If no user is found, return null to indicate that login failed
+        if (user == null)
+        {
+            return null;
+        }
+    
+        // Otherwise, return the user object to indicate successful login
+        return user;
     }
 }

@@ -67,11 +67,13 @@ public class AuthController : ControllerBase
     [HttpPost, Route("login")]
     public async Task<ActionResult> Login([FromBody] UserLoginDto userLoginDto)
     {
+        Console.WriteLine("testt");
         try
         {
-            User user = await authService.ValidateUser(userLoginDto.Username, userLoginDto.Password);
+            
+            User user = await connectionDB.LoginAsync(userLoginDto);
             string token = GenerateJwt(user);
-
+            
             return Ok(token);
         }
         catch (Exception e)
