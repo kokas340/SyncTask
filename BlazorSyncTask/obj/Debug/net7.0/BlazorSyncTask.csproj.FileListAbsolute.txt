@@ -2591,3 +2591,4 @@ C:\Users\jacks\Documents\GitHub\SyncTask\BlazorSyncTask\obj\Debug\net7.0\build-g
 C:\Users\jacks\Documents\GitHub\SyncTask\BlazorSyncTask\obj\Debug\net7.0\scopedcss\Pages\About.razor.rz.scp.css
 C:\Users\jacks\Documents\GitHub\SyncTask\BlazorSyncTask\obj\Debug\net7.0\scopedcss\Pages\Index.razor.rz.scp.css
 C:\Users\jacks\Documents\GitHub\SyncTask\BlazorSyncTask\obj\Debug\net7.0\scopedcss\Pages\Register.razor.rz.scp.css
+C:\Users\jacks\Documents\GitHub\SyncTask\BlazorSyncTask\obj\Debug\net7.0\scopedcss\Pages\Friends.razor.rz.scp.css
