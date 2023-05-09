@@ -15,4 +15,5 @@ public class User
   
     public ICollection<Tasks> Tasks { get; set; }
 
+    public ICollection<User> FriendsList { get; set; }
 }

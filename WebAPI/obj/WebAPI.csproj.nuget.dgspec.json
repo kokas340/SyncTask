@@ -1,21 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\WebAPI\\WebAPI.csproj": {}
+    "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\WebAPI\\WebAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj": {
+    "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj",
+        "projectUniqueName": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj",
         "projectName": "BlazorSyncTask",
-        "projectPath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj",
-        "packagesPath": "C:\\Users\\jacks\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\obj\\",
+        "projectPath": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj",
+        "packagesPath": "C:\\Users\\bumba\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet"
+        ],
         "configFilePaths": [
-          "C:\\Users\\jacks\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\bumba\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -28,8 +32,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj": {
-                "projectPath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj"
+              "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj": {
+                "projectPath": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj"
               }
             }
           }
@@ -92,7 +96,7 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-              "version": "[7.0.5, 7.0.5]"
+              "version": "[7.0.2, 7.0.2]"
             }
           ],
           "frameworkReferences": {
@@ -100,7 +104,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
@@ -109,18 +113,22 @@
         }
       }
     },
-    "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\EfcDataAccess\\EfcDataAccess.csproj": {
+    "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\EfcDataAccess\\EfcDataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\EfcDataAccess\\EfcDataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\EfcDataAccess\\EfcDataAccess.csproj",
         "projectName": "EfcDataAccess",
-        "projectPath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\EfcDataAccess\\EfcDataAccess.csproj",
-        "packagesPath": "C:\\Users\\jacks\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\EfcDataAccess\\obj\\",
+        "projectPath": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\EfcDataAccess\\EfcDataAccess.csproj",
+        "packagesPath": "C:\\Users\\bumba\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\EfcDataAccess\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet"
+        ],
         "configFilePaths": [
-          "C:\\Users\\jacks\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\bumba\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -133,11 +141,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj": {
-                "projectPath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj"
+              "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj": {
+                "projectPath": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj"
               },
-              "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj": {
-                "projectPath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj"
+              "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj": {
+                "projectPath": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj"
               }
             }
           }
@@ -183,22 +191,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj": {
+    "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj",
+        "projectUniqueName": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj",
         "projectName": "Shared",
-        "projectPath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj",
-        "packagesPath": "C:\\Users\\jacks\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\Shared\\obj\\",
+        "projectPath": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj",
+        "packagesPath": "C:\\Users\\bumba\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\Shared\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet"
+        ],
         "configFilePaths": [
-          "C:\\Users\\jacks\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\bumba\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -252,22 +264,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\WebAPI\\WebAPI.csproj": {
+    "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\WebAPI\\WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\WebAPI\\WebAPI.csproj",
+        "projectUniqueName": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\WebAPI\\WebAPI.csproj",
         "projectName": "WebAPI",
-        "projectPath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\WebAPI\\WebAPI.csproj",
-        "packagesPath": "C:\\Users\\jacks\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\WebAPI\\obj\\",
+        "projectPath": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\WebAPI\\WebAPI.csproj",
+        "packagesPath": "C:\\Users\\bumba\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\WebAPI\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet"
+        ],
         "configFilePaths": [
-          "C:\\Users\\jacks\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\bumba\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -280,11 +296,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\EfcDataAccess\\EfcDataAccess.csproj": {
-                "projectPath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\EfcDataAccess\\EfcDataAccess.csproj"
+              "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\EfcDataAccess\\EfcDataAccess.csproj": {
+                "projectPath": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\EfcDataAccess\\EfcDataAccess.csproj"
               },
-              "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj": {
-                "projectPath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj"
+              "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj": {
+                "projectPath": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj"
               }
             }
           }
@@ -339,7 +355,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

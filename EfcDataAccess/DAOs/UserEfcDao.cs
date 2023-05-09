@@ -29,8 +29,8 @@ public class UserEfcDao
 
     //public Task<IEnumerable<User>> GetUser(SearchTodoParametersDto searchParameters)
     //{
-   //     throw new NotImplementedException();
-   // }
+    //     throw new NotImplementedException();
+    // }
 
     public Task UpdateUser(User user)
     {
@@ -63,5 +63,14 @@ public class UserEfcDao
     
         // Otherwise, return the user object to indicate successful login
         return user;
+    }
+    
+    public List<User> GetFriendsList(int userId)
+    {
+        var friends = context.Set<Friends>()
+            .Where(f => f.UserId == userId)
+            .Select(f => f.Friend)
+            .ToList();
+        return friends;
     }
 }
