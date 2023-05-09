@@ -1,0 +1,115 @@
+@page "/Friends"
+
+@inject NavigationManager NavigationManager
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<h1>Friends</h1>
+
+@if (friends == null)
+{
+    <p>Loading...</p>
+}
+else if (friends.Count == 0)
+{
+    <p>No friends found.</p>
+}
+else
+{
+    <div>
+        <input type="text" @bind-value="searchId" placeholder="Search by ID" />
+        <button @onclick="AddFriend">Add Friend</button>
+    </div>
+    <ul>
+        @foreach (var friend in friends)
+        {
+            <li>
+                @friend.Name, @friend.Age, @friend.Email
+                <button @onclick="() => ViewFriend(friend)">View</button>
+                <button @onclick="() => RemoveFriend(friend)">Delete</button>
+            </li>
+        }
+    </ul>
+}
+
+<form @onsubmit="AddFriend">
+    <label>
+        Name:
+        <input type="text" @bind-value="newFriend.Name" />
+    </label>
+    <br />
+    <label>
+        Age:
+        <input type="number" @bind-value="newFriend.Age" />
+    </label>
+    <br />
+    <label>
+        Email:
+        <input type="email" @bind-value="newFriend.Email" />
+    </label>
+    <br />
+    <button type="submit">Add Friend</button>
+</form>
+
+@code {
+    private List<Friend> friends;
+    private Friend newFriend = new Friend();
+    private string searchId;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (user.Identity.IsAuthenticated)
+        {
+            // Dummy friends data
+            friends = new List<Friend>
+            {
+                new Friend { Id = 1, Name = "John Smith", Age = 30, Email = "john.smith@example.com" },
+                new Friend { Id = 2, Name = "Jane Doe", Age = 25, Email = "jane.doe@example.com" },
+                new Friend { Id = 3, Name = "Bob Johnson", Age = 40, Email = "bob.johnson@example.com" }
+            };
+        }
+    }
+
+    private void ViewFriend(Friend friend)
+    {
+        NavigationManager.NavigateTo($"/friends/{friend.Id}");
+    }
+
+    private void RemoveFriend(Friend friend)
+    {
+        friends.Remove(friend);
+    }
+
+    private void AddFriend()
+    {
+        if (!string.IsNullOrEmpty(searchId))
+        {
+            var friendId = int.Parse(searchId);
+            var existingFriend = friends.FirstOrDefault(f => f.Id == friendId);
+            if (existingFriend != null)
+            {
+                friends.Add(existingFriend);
+                searchId = string.Empty;
+            }
+            else
+            {
+                // Show an error message or handle the case where the friend ID doesn't exist
+            }
+        }
+        else
+        {
+            friends.Add(newFriend);
+            newFriend = new Friend();
+        }
+    }
+
+    private class Friend
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int Age { get; set; }
+        public string Email { get; set; }
+    }
+}
