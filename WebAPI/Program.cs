@@ -1,8 +1,11 @@
 using System.Text;
+using BlazorSyncTask.Services;
+using EfcDataAccess;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Shared.Auth;
 using WebAPI.Services;
+using IAuthService = WebAPI.Services.IAuthService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,8 +28,12 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
     };
 });
+
+
 AuthorizationPolicies.AddPolicies(builder.Services);
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddDbContext<AsyncTaskContext>();
+builder.Services.AddScoped<IFriendsService, FriendsService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
