@@ -16,20 +16,6 @@ public class AsyncTaskContext: DbContext
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        //overriding model
-        modelBuilder.Entity<User>().HasKey(user => user.Id);
-        
-        modelBuilder.Entity<Friends>()
-            .HasOne(p => p.User)
-            .WithMany()
-            .HasForeignKey(p => p.UserId)
-            .IsRequired()
-            .OnDelete(DeleteBehavior.Cascade);
-        modelBuilder.Entity<Friends>()
-            .HasOne(p => p.Friend)
-            .WithMany()
-            .HasForeignKey(p => p.FriendId)
-            .IsRequired()
-            .OnDelete(DeleteBehavior.Restrict);
+       
     }
 }

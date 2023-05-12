@@ -2591,3 +2591,4 @@ C:\Users\bumba\Documents\GitHub\SyncTask\BlazorSyncTask\obj\Debug\net7.0\build-g
 C:\Users\bumba\Documents\GitHub\SyncTask\BlazorSyncTask\obj\Debug\net7.0\build-gz\uLRNdt+t.gz
 C:\Users\bumba\Documents\GitHub\SyncTask\BlazorSyncTask\obj\Debug\net7.0\build-gz\4PXj26N4.gz
 C:\Users\bumba\Documents\GitHub\SyncTask\BlazorSyncTask\obj\Debug\net7.0\build-gz\dymDSjf+.gz
+C:\Users\jacks\Documents\GitHub\SyncTask\BlazorSyncTask\obj\Debug\net7.0\scopedcss\Pages\Friends.razor.rz.scp.css

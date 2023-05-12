@@ -18,7 +18,7 @@ public class TestController : ControllerBase
     [HttpGet("allowanon"), AllowAnonymous]
     public ActionResult GetAsAnon()
     {
-        return Ok("This was accepted as kdanijkufyutudguyiopifytsrdfhlijo;hgthdrsdghljo;gkghd anonymous");
+        return Ok("This was accepted as anonymous");
     }
     [HttpGet("mustbevia"), Authorize("MustBeVia")]
     public ActionResult GetAsVia()

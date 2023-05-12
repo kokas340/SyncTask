@@ -6,13 +6,8 @@ namespace Shared.Models;
 public class Friends
 {
     [Key]
-    [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
     public int RelationId { get; set; }
-
-    public int UserId { get; set; }
-    
-    public User User { get; set; } 
-
-    public int FriendId { get; set; }
-    public User Friend { get; set; }
+    public User FriendSender { get; set; }
+    public User FriendReceiver { get; set; }
+    public string status{ get; set; }
 }

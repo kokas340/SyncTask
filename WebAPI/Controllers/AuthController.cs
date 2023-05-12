@@ -81,6 +81,23 @@ public class AuthController : ControllerBase
             return BadRequest(e.Message);
         }
     }
+    
+    [HttpPost, Route("GetUser")]
+    public async Task<ActionResult> GetUser([FromBody] int id)
+    {
+        Console.WriteLine("testt");
+        try
+        {
+            
+            User user = await connectionDB.GetByIdAsync(id);
+            
+            return Ok(user);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
 
     [HttpPost, Route("register")]
     public async Task<ActionResult> register([FromBody] UserRegisterDto user)
