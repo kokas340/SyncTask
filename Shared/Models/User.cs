@@ -16,5 +16,7 @@ public class User
     [JsonIgnore]
     public ICollection<Tasks> Tasks { get; set; }
     [JsonIgnore]
-    public ICollection<User> Friends { get; set; }
+    // Navigation properties
+    public ICollection<Friends> Friends { get; set; }
+   
 }

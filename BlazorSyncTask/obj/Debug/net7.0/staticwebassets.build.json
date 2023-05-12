@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "nCWI5zun6Meuhxajc4x7wM1IheW+uIjRcKuyHhsxMag=",
+  "Hash": "iOa0KWlrUaPaMVuTLOEvwg/iD0Ldb/g//y/9r6CiLGQ=",
   "Source": "BlazorSyncTask",
   "BasePath": "/",
   "Mode": "Root",
@@ -1020,6 +1020,57 @@
       "OriginalItemSpec": "C:\\Users\\jacks\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly\\7.0.3\\lib\\net7.0\\Microsoft.AspNetCore.Components.WebAssembly.dll"
     },
     {
+      "Identity": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Http.Abstractions.dll",
+      "SourceId": "BlazorSyncTask",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Http.Abstractions.dll",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\jacks\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\lib\\netstandard2.0\\Microsoft.AspNetCore.Http.Abstractions.dll"
+    },
+    {
+      "Identity": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Http.dll",
+      "SourceId": "BlazorSyncTask",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Http.dll",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\jacks\\.nuget\\packages\\microsoft.aspnetcore.http\\2.2.2\\lib\\netstandard2.0\\Microsoft.AspNetCore.Http.dll"
+    },
+    {
+      "Identity": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Http.Features.dll",
+      "SourceId": "BlazorSyncTask",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Http.Features.dll",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\jacks\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\lib\\netstandard2.0\\Microsoft.AspNetCore.Http.Features.dll"
+    },
+    {
       "Identity": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Metadata.dll",
       "SourceId": "BlazorSyncTask",
       "SourceType": "Computed",
@@ -1035,6 +1086,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\jacks\\.nuget\\packages\\microsoft.aspnetcore.metadata\\7.0.4\\lib\\net7.0\\Microsoft.AspNetCore.Metadata.dll"
+    },
+    {
+      "Identity": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\_framework\\Microsoft.AspNetCore.WebUtilities.dll",
+      "SourceId": "BlazorSyncTask",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.WebUtilities.dll",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\jacks\\.nuget\\packages\\microsoft.aspnetcore.webutilities\\2.2.0\\lib\\netstandard2.0\\Microsoft.AspNetCore.WebUtilities.dll"
     },
     {
       "Identity": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\_framework\\Microsoft.CSharp.dll",
@@ -1258,6 +1326,23 @@
       "OriginalItemSpec": "C:\\Users\\jacks\\.nuget\\packages\\microsoft.extensions.logging\\7.0.0\\lib\\net7.0\\Microsoft.Extensions.Logging.dll"
     },
     {
+      "Identity": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\_framework\\Microsoft.Extensions.ObjectPool.dll",
+      "SourceId": "BlazorSyncTask",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.Extensions.ObjectPool.dll",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\jacks\\.nuget\\packages\\microsoft.extensions.objectpool\\2.2.0\\lib\\netstandard2.0\\Microsoft.Extensions.ObjectPool.dll"
+    },
+    {
       "Identity": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\_framework\\Microsoft.Extensions.Options.dll",
       "SourceId": "BlazorSyncTask",
       "SourceType": "Computed",
@@ -1324,6 +1409,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\jacks\\.nuget\\packages\\microsoft.jsinterop.webassembly\\7.0.3\\lib\\net7.0\\Microsoft.JSInterop.WebAssembly.dll"
+    },
+    {
+      "Identity": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\_framework\\Microsoft.Net.Http.Headers.dll",
+      "SourceId": "BlazorSyncTask",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.Net.Http.Headers.dll",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\jacks\\.nuget\\packages\\microsoft.net.http.headers\\2.2.0\\lib\\netstandard2.0\\Microsoft.Net.Http.Headers.dll"
     },
     {
       "Identity": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\_framework\\Microsoft.VisualBasic.Core.dll",
@@ -4318,6 +4420,23 @@
       "OriginalItemSpec": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\_framework\\System.Net.Requests.dll"
     },
     {
+      "Identity": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\obj\\Debug\\net7.0\\build-gz\\+txDizAQ.gz",
+      "SourceId": "BlazorSyncTask",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Http.Abstractions.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Http.Abstractions.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Http.Abstractions.dll"
+    },
+    {
       "Identity": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\obj\\Debug\\net7.0\\build-gz\\+zga2WYZ.gz",
       "SourceId": "BlazorSyncTask",
       "SourceType": "Computed",
@@ -4350,6 +4469,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\_framework\\System.IO.Compression.ZipFile.dll"
+    },
+    {
+      "Identity": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\obj\\Debug\\net7.0\\build-gz\\0czBWrEV.gz",
+      "SourceId": "BlazorSyncTask",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Http.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Http.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Http.dll"
     },
     {
       "Identity": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\obj\\Debug\\net7.0\\build-gz\\0iMUSHc3.gz",
@@ -4894,6 +5030,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\_framework\\System.Runtime.Extensions.dll"
+    },
+    {
+      "Identity": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\obj\\Debug\\net7.0\\build-gz\\agSFBX+S.gz",
+      "SourceId": "BlazorSyncTask",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.Net.Http.Headers.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\_framework\\Microsoft.Net.Http.Headers.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\_framework\\Microsoft.Net.Http.Headers.dll"
     },
     {
       "Identity": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\obj\\Debug\\net7.0\\build-gz\\aNCqm3DF.gz",
@@ -5661,6 +5814,23 @@
       "OriginalItemSpec": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\_framework\\Microsoft.JSInterop.WebAssembly.dll"
     },
     {
+      "Identity": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\obj\\Debug\\net7.0\\build-gz\\hpGJfARw.gz",
+      "SourceId": "BlazorSyncTask",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Http.Features.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Http.Features.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Http.Features.dll"
+    },
+    {
       "Identity": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\obj\\Debug\\net7.0\\build-gz\\hVp2lutP.gz",
       "SourceId": "BlazorSyncTask",
       "SourceType": "Computed",
@@ -6052,6 +6222,23 @@
       "OriginalItemSpec": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\_framework\\System.AppContext.dll"
     },
     {
+      "Identity": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\obj\\Debug\\net7.0\\build-gz\\LNJzlKyi.gz",
+      "SourceId": "BlazorSyncTask",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.WebUtilities.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\_framework\\Microsoft.AspNetCore.WebUtilities.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\_framework\\Microsoft.AspNetCore.WebUtilities.dll"
+    },
+    {
       "Identity": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\obj\\Debug\\net7.0\\build-gz\\m5hZngS4.gz",
       "SourceId": "BlazorSyncTask",
       "SourceType": "Computed",
@@ -6067,6 +6254,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Web.dll"
+    },
+    {
+      "Identity": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\obj\\Debug\\net7.0\\build-gz\\m6L2shCA.gz",
+      "SourceId": "BlazorSyncTask",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.Extensions.ObjectPool.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\_framework\\Microsoft.Extensions.ObjectPool.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\_framework\\Microsoft.Extensions.ObjectPool.dll"
     },
     {
       "Identity": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\obj\\Debug\\net7.0\\build-gz\\m7bPh4Cj.gz",
