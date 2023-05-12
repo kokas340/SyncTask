@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Shared.Models;
 
@@ -12,8 +13,10 @@ public class User
     public string Password { get; set; }
     public string FullName { get; set; }
     public string Email { get; set; }
-  
+    [JsonIgnore]
     public ICollection<Tasks> Tasks { get; set; }
-
-    public ICollection<User> FriendsList { get; set; }
+    [JsonIgnore]
+    // Navigation properties
+    public ICollection<Friends> Friends { get; set; }
+   
 }

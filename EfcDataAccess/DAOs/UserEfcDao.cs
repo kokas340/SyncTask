@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Shared.Dtos;
@@ -8,13 +9,30 @@ namespace EfcDataAccess.DAOs;
 public class UserEfcDao
 {
     private readonly AsyncTaskContext context;
-
+    public async Task<User?> GetByIdAsync(int id)
+    {
+        User? user = await context.Users.FindAsync(id);
+        return user;
+    }
     public UserEfcDao(AsyncTaskContext context)
     {
         this.context = context;
     }
     public async Task<User> CreateAsync(UserRegisterDto dto)
     {
+       
+        if (await context.Users.AnyAsync(u => u.Username == dto.Username))
+        {
+            throw new Exception("A user with this username already exists.");
+        }
+        if (await context.Users.AnyAsync(u => u.Email == dto.Email))
+        {
+            throw new Exception("A user with this email already exists.");
+        }
+        if (!IsValidEmail(dto.Email))
+        {
+            throw new Exception("The email address is not valid.");
+        }
         User toCreate = new User
         {
             Username = dto.Username,
@@ -26,12 +44,15 @@ public class UserEfcDao
         await context.SaveChangesAsync();
         return newUser.Entity;
     }
+    private bool IsValidEmail(string email)
+    {
+        // Regular expression pattern for validating email addresses
+        string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+        Regex regex = new Regex(pattern);
 
-    //public Task<IEnumerable<User>> GetUser(SearchTodoParametersDto searchParameters)
-    //{
-    //     throw new NotImplementedException();
-    // }
-
+        return regex.IsMatch(email);
+    }
+  
     public Task UpdateUser(User user)
     {
         throw new NotImplementedException();
@@ -52,25 +73,14 @@ public class UserEfcDao
 
     public async Task<User> LoginAsync(UserLoginDto dto)
     {
-        // Search for a user with the specified username and password
+     
         User user = await context.Users.FirstOrDefaultAsync(u => u.Username == dto.Username && u.Password == dto.Password);
-    
-        // If no user is found, return null to indicate that login failed
         if (user == null)
         {
             return null;
         }
-    
-        // Otherwise, return the user object to indicate successful login
         return user;
     }
     
-    public List<User> GetFriendsList(int userId)
-    {
-        var friends = context.Set<Friends>()
-            .Where(f => f.UserId == userId)
-            .Select(f => f.Friend)
-            .ToList();
-        return friends;
-    }
+   
 }

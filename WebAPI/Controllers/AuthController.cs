@@ -1,11 +1,14 @@
 using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
 using System.IdentityModel.Tokens.Jwt;
+using System.Net.Http.Headers;
 using System.Text;
+using BlazorSyncTask.Services.Http;
 using Microsoft.IdentityModel.Tokens;
-using DatabaseCon;
+
 using EfcDataAccess;
 using EfcDataAccess.DAOs;
+using Microsoft.AspNetCore.Authorization;
 using Npgsql;
 using Shared.Dtos;
 using Shared.Models;
@@ -65,9 +68,10 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost, Route("login")]
+    
     public async Task<ActionResult> Login([FromBody] UserLoginDto userLoginDto)
     {
-        Console.WriteLine("testt");
+      
         try
         {
             
@@ -82,8 +86,10 @@ public class AuthController : ControllerBase
         }
     }
 
+
+
     [HttpPost, Route("register")]
-    public async Task<ActionResult> register([FromBody] UserRegisterDto user)
+    public async Task<ActionResult> Register([FromBody] UserRegisterDto user)
     {
         try
         {
@@ -96,23 +102,10 @@ public class AuthController : ControllerBase
         }
        
     }
+    
+    
+   
 
-    [HttpPost, Route("test")]
-    public async Task<ActionResult> test(UserRegisterDto user)
-    {
-       
-        try
-        {
-            await connectionDB.CreateAsync(user);
-            return Created($"/users/{user.Username}", user);
-        }
-        catch (Exception e)
-        {
-            return BadRequest(e.Message);
-        }
-
-      
-    }
 
 
 }

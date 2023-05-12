@@ -12,7 +12,7 @@ public class JwtAuthService : IAuthService
 {
     private readonly HttpClient client = new ();
 
-    // this private variable for simple caching
+   
     public static string? Jwt { get; private set; } = "";
 
     public Action<ClaimsPrincipal> OnAuthStateChanged { get; set; } = null!;
@@ -38,7 +38,7 @@ public class JwtAuthService : IAuthService
         }
 
         string token = responseContent;
-        Jwt = token;
+       
 
         ClaimsPrincipal principal = CreateClaimsPrincipal();
 

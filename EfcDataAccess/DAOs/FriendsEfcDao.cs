@@ -1,52 +1,34 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Shared.Dtos;
 using Shared.Models;
+
 
 namespace EfcDataAccess.DAOs;
 
 public class FriendsEfcDao
 {
-    private readonly AsyncTaskContext dbContext;
-
+    private readonly AsyncTaskContext context;
+    
     public FriendsEfcDao(AsyncTaskContext dbContext)
     {
-        this.dbContext = dbContext;
-    }
-
-    public async Task AddFriendAsync(Friends friends)
-    {
-        await dbContext.Set<Friends>().AddAsync(friends);
-        await dbContext.SaveChangesAsync();
-    }
-
-    public async Task RemoveFriendAsync(Friends friends)
-    {
-        dbContext.Set<Friends>().Remove(friends);
-        await dbContext.SaveChangesAsync();
-    }
-
-    public async Task<Friends?> GetFriendsAsync(int userId, int friendId)
-    {
-        return await dbContext.Set<Friends>()
-            .Include(f => f.User)
-            .Include(f => f.Friend)
-            .FirstOrDefaultAsync(f => f.UserId == userId && f.FriendId == friendId);
-    }
-
-    public async Task<List<User>> GetFriendsListAsync(int userId)
-    {
-        return await dbContext.Set<Friends>()
-            .Include(f => f.Friend)
-            .Where(f => f.UserId == userId)
-            .Select(f => f.Friend)
-            .ToListAsync();
+        this.context = dbContext;
+      
     }
     
-    public async Task<User?> GetFriendByUsernameAsync(int userId, string username)
+
+    public async Task<Friends> AddFriendAsync(int user, User Friend, Boolean status)
     {
-        return await dbContext.Set<Friends>()
-            .Include(f => f.Friend)
-            .Where(f => f.UserId == userId && f.Friend.Username == username)
-            .Select(f => f.Friend)
-            .FirstOrDefaultAsync();
+       
+        Friends toCreate = new Friends()
+        {
+           UserId = user,
+           Friend = Friend,
+           IsAccepted = false
+        };
+        EntityEntry<Friends> newUser = await context.Friends.AddAsync(toCreate);
+        await context.SaveChangesAsync();
+        return newUser.Entity;
     }
+   
 }

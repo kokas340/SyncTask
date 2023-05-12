@@ -1,25 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj": {}
+    "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj": {
+    "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj",
+        "projectUniqueName": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj",
         "projectName": "BlazorSyncTask",
-        "projectPath": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj",
-        "packagesPath": "C:\\Users\\bumba\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\obj\\",
+        "projectPath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj",
+        "packagesPath": "C:\\Users\\jacks\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet"
-        ],
         "configFilePaths": [
-          "C:\\Users\\bumba\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\jacks\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -32,8 +28,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj": {
-                "projectPath": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj"
+              "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj": {
+                "projectPath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj"
               }
             }
           }
@@ -69,6 +65,10 @@
               "target": "Package",
               "version": "[7.0.3, )"
             },
+            "Microsoft.AspNetCore.Http": {
+              "target": "Package",
+              "version": "[2.2.2, )"
+            },
             "Microsoft.Extensions.Logging.Abstractions": {
               "target": "Package",
               "version": "[7.0.0, )"
@@ -96,7 +96,7 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-              "version": "[7.0.2, 7.0.2]"
+              "version": "[7.0.5, 7.0.5]"
             }
           ],
           "frameworkReferences": {
@@ -104,7 +104,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
@@ -113,22 +113,18 @@
         }
       }
     },
-    "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj": {
+    "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj",
+        "projectUniqueName": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj",
         "projectName": "Shared",
-        "projectPath": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj",
-        "packagesPath": "C:\\Users\\bumba\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bumba\\Documents\\GitHub\\SyncTask\\Shared\\obj\\",
+        "projectPath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj",
+        "packagesPath": "C:\\Users\\jacks\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\Shared\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet"
-        ],
         "configFilePaths": [
-          "C:\\Users\\bumba\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\jacks\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -157,6 +153,10 @@
               "target": "Package",
               "version": "[6.0.8, )"
             },
+            "Microsoft.AspNetCore.Http": {
+              "target": "Package",
+              "version": "[2.2.2, )"
+            },
             "MySqlConnector": {
               "target": "Package",
               "version": "[2.3.0-beta.2, )"
@@ -182,7 +182,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }
