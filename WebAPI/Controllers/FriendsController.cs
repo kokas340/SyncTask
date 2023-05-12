@@ -15,21 +15,21 @@ public class FriendsController : ControllerBase
         this.friendsService = friendsService;
     }
 
-    [HttpPost("{userId}/friends/{friendId}")]
+    [HttpPost("{userId}/addFriend")]
     public async Task<ActionResult> AddFriend(int userId, int friendId)
     {
         await friendsService.AddFriendAsync(userId, friendId);
         return Ok();
     }
 
-    [HttpDelete("{userId}/friends/{friendId}")]
+    [HttpDelete("{userId}/deleteFriend")]
     public async Task<ActionResult> RemoveFriend(int userId, int friendId)
     {
         await friendsService.RemoveFriendAsync(userId, friendId);
         return Ok();
     }
 
-    [HttpGet("{userId}/friends/{friendId}")]
+    [HttpGet("{userId}/getFriend")]
     public async Task<ActionResult<Friends>> GetFriend(int userId, int friendId)
     {
         var friends = await friendsService.GetFriendsAsync(userId, friendId);
@@ -47,7 +47,7 @@ public class FriendsController : ControllerBase
         return friendsList;
     }
 
-    [HttpGet("{userId}/friends/{username}")]
+    [HttpGet("{userId}/getFriendByUsername")]
     public async Task<ActionResult<User>> GetFriendByUsername(int userId, string username)
     {
         var friend = await friendsService.GetFriendByUsernameAsync(userId, username);
