@@ -2,15 +2,16 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
+using BlazorSyncTask.Services;
 using Microsoft.IdentityModel.Tokens;
-using DatabaseCon;
+
 using EfcDataAccess;
 using EfcDataAccess.DAOs;
 using Npgsql;
 using Shared.Dtos;
 using Shared.Models;
 
-using WebAPI.Services;
+
 
 namespace WebAPI.Controllers;
 
