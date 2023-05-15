@@ -4,7 +4,6 @@ using Shared.Dtos;
 using Shared.Models;
 
 namespace EfcDataAccess.DAOs;
-
 public class UserEfcDao
 {
     private readonly AsyncTaskContext context;
@@ -29,8 +28,8 @@ public class UserEfcDao
 
     //public Task<IEnumerable<User>> GetUser(SearchTodoParametersDto searchParameters)
     //{
-   //     throw new NotImplementedException();
-   // }
+    //     throw new NotImplementedException();
+    // }
 
     public Task UpdateUser(User user)
     {
@@ -63,5 +62,11 @@ public class UserEfcDao
     
         // Otherwise, return the user object to indicate successful login
         return user;
+    }
+
+    public async Task<User> GetByIdAsync(int dtoFriendId)
+    {
+        User? existing = await context.Users.FindAsync(dtoFriendId);
+        return existing;
     }
 }

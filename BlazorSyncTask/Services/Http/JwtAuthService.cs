@@ -3,6 +3,8 @@ using System.Reflection.Metadata;
 using System.Security.Claims;
 using System.Text;
 using System.Text.Json;
+using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
 using Shared.Dtos;
 using Shared.Models;
 
@@ -14,9 +16,26 @@ public class JwtAuthService : IAuthService
 
     // this private variable for simple caching
     public static string? Jwt { get; private set; } = "";
+    [CascadingParameter]
+    public  Action<ClaimsPrincipal> OnAuthStateChanged { get; set; } = null!;
+    private static Task<AuthenticationState> AuthState { get; set; } = null!;
+    private static List<GetUserDto> friends;
+    [Inject]
+    private static IFriendsService FriendsService { get; set; }
+    [Inject]
+    private static AuthenticationStateProvider AuthenticationStateProvider { get; set; }
+    public static async Task<string?> GetCurrentUserIdAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+        if (user.Identity.IsAuthenticated)
+        {
+            user.FindFirst(c => c.Type == "Id");
+            return user.FindFirst(c => c.Type == "Id")?.Value;
+        }
+        return null;
+    }
 
-    public Action<ClaimsPrincipal> OnAuthStateChanged { get; set; } = null!;
-   
 
     public async Task LoginAsync(string username, string password)
     {
