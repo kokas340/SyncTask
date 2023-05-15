@@ -67,6 +67,8 @@ public class UserEfcDao
     public async Task<User> GetByIdAsync(int dtoFriendId)
     {
         User? existing = await context.Users.FindAsync(dtoFriendId);
+       
         return existing;
+        
     }
 }

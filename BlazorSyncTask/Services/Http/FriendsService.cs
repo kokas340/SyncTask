@@ -41,21 +41,24 @@ public class FriendsService: IFriendsService
     {
         AddFriendDto addFriendDto = new()
         {
-            IsAccepted = false,
+           
             UserId = userId,
-            FriendId = friendId
+            FriendId = friendId,
+            IsAccepted = false
         };
 
         string userAsJson = JsonSerializer.Serialize(addFriendDto);
+     
         StringContent content = new(userAsJson, Encoding.UTF8, "application/json");
         client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", JwtAuthService.Jwt);
         HttpResponseMessage response = await client.PostAsync("http://localhost:5041/Friend/addFriend", content);
         string responseContent = await response.Content.ReadAsStringAsync();
-    
+     
         if (!response.IsSuccessStatusCode)
         {
             throw new Exception(responseContent);
         }
+        Console.WriteLine("heyy");
     }
     
     public User GetFriendId(int friendId)
@@ -114,7 +117,7 @@ public class FriendsService: IFriendsService
     public async Task DeletePending(int requestId)
     {
         client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", JwtAuthService.Jwt);
-        HttpResponseMessage response = await client.DeleteAsync("http://localhost:5041/Friend/deleteFriend?friendRequestId="+requestId);
+        HttpResponseMessage response = await client.DeleteAsync("http://localhost:5041/Friend/"+requestId);
         string responseContent = await response.Content.ReadAsStringAsync();
     
         if (!response.IsSuccessStatusCode)

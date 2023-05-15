@@ -18,12 +18,26 @@ public class FriendsEfcDao
     }
 
 
-    public async Task<Friends> AddFriendAsync(int user, GetUserDto friend)
+    public async Task<Friends> AddFriendAsync(int userId, GetUserDto friend)
     {
+        // Check if friendship already exists
+        bool friendshipExists = await _context.Friends
+            .AnyAsync(f => f.UserId == userId && f.FriendId == friend.id || f.UserId == friend.id && f.FriendId == userId);
+        if (friendshipExists)
+        {
+            throw new Exception("Friendship already exists.");
+        }
+        
+        User friendToAdd = await _context.Users.FindAsync(friend.id);
+        if (friendToAdd == null)
+        {
+            throw new Exception($"User with ID {friend.id} does not exist.");
+        }
+
         Friends toCreate = new Friends()
         {
-            UserId = user,
-            Friend = friend,
+            UserId = userId,
+            FriendId = friend.id,
             IsAccepted = false
         };
 
@@ -130,21 +144,17 @@ public class FriendsEfcDao
     public async Task DeleteFriend(int friendRequestId)
     {
         var friendRequest = await _context.Friends.FindAsync(friendRequestId);
-
         if (friendRequest == null)
         {
             throw new Exception($"Friend request with ID {friendRequestId} does not exist.");
         }
-
+        
         if (friendRequest.IsAccepted)
         {
             throw new Exception($"Friend request with ID {friendRequestId} has already been accepted.");
         }
-
-       
+        
         _context.Friends.Remove(friendRequest);
-
-     
         await _context.SaveChangesAsync();
     }
 }

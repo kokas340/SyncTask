@@ -35,7 +35,7 @@ public class FriendController : ControllerBase
     }
     
     [HttpPost, Route("addFriend")]
-    [Authorize]
+
     public async Task<ActionResult> AddFriend([FromBody] AddFriendDto dto)
     {
         try
@@ -120,20 +120,21 @@ public class FriendController : ControllerBase
         }
     }
     
-    [HttpDelete, Route("deleteFriend")]
-    [Authorize]
-    public async Task<ActionResult> DeleteFriend(int friendRequestId)
+
+    [HttpDelete("{friendRequestId:int}")]
+    public async Task<ActionResult> DeleteFriend([FromRoute] int friendRequestId)
     {
         try
         {
+            Console.WriteLine("!1");
              await _connectionDb.DeleteFriend(friendRequestId);
-
-             return Ok(200);
+             Console.WriteLine("!2");
+             return Ok();
 
         }
         catch (Exception e)
         {
-            return BadRequest(e.Message);
+            return StatusCode(500, e.Message);
         }
     }
 
