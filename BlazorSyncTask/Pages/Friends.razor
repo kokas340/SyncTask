@@ -6,39 +6,39 @@
 
 
 
-@if (friends == null)
-{
-    <p>Loading friends...</p>
-    
-}
-else if (friends.Count == 0)
-{
-    <p>You have no friends yet.</p>
-}
-else
-{
-    <ul>
-        @foreach (var friend in friends)
-        {
-            <li>@friend.username || @friend.email || @friend.fullName  </li>
-        }
-    </ul>
-}
+
 <AuthorizeView>
     <Authorized>
-        <h3>Hello @context.User.Identity.Name</h3>
-        <p>@context.User.FindFirst(c => c.Type == "Id")?.Value;</p>
-        <p>
-            Your claims include:
-            <ol>
-                @foreach (Claim claim in context.User.Claims)
+        <div>
+            <input type="text" @bind-value="searchTerm" />
+            <button @onclick="SearchFriends">Search</button>
+        </div>
+        <ul>
+            @foreach (var friend in filteredFriends)
+            {
+                <li>@friend.username <button @onclick="() => SendFriendRequest(friend.id)">Add Friend</button></li>
+            }
+        </ul>
+        
+        @if (friends == null)
+        {
+            <p>Loading friends...</p>
+
+        }
+        else if (friends.Count == 0)
+        {
+            <p>You have no friends yet.</p>
+        }
+        else
+        {
+            <ul>
+                @foreach (var friend in friends)
                 {
-                    <li>
-                        <label>@claim.Type: @claim.Value</label>
-                    </li>
+                    <li>@friend.username || @friend.email || @friend.fullName </li>
                 }
-            </ol>
-        </p>
+            </ul>
+        }
+       
     </Authorized>
     <NotAuthorized>
         <p>You are not logged in.</p>
@@ -49,20 +49,33 @@ else
     [CascadingParameter]
     public static Task<AuthenticationState> AuthState { get; set; } = null!;
     private List<GetUserDto> friends;
+    private List<GetUserDto> allUsers;
     [Inject]
     private IFriendsService FriendsService { get; set; }
     [Inject]
     public AuthenticationStateProvider AuthenticationStateProvider { get; set; }
-    
+    private List<GetUserDto> filteredFriends = new List<GetUserDto>();
+
+    private string searchTerm = "";
+
+    private void SearchFriends()
+    {
+        if(searchTerm!="")
+        filteredFriends = allUsers.Where(f => f.username.ToLower().Contains(searchTerm.ToLower())).ToList();
+    }
     protected override async Task OnInitializedAsync()
     {
         var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-        ;
+        Console.WriteLine(authState);
         friends = await FriendsService.GetAllFriends(Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value));
+        allUsers = await FriendsService.GetAllUsers();
     }
-    
 
 
-
+    private async Task SendFriendRequest(int friendId)
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        await FriendsService.AddFriend(Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value),friendId);
+    }
 
 }

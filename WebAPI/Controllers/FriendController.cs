@@ -35,6 +35,7 @@ public class FriendController : ControllerBase
     }
     
     [HttpPost, Route("addFriend")]
+    [Authorize]
     public async Task<ActionResult> addFriend([FromBody] AddFriendDto dto)
     {
         try
@@ -59,6 +60,7 @@ public class FriendController : ControllerBase
     }
     
     [HttpGet, Route("getAllFriends")]
+    [Authorize]
     public async Task<ActionResult> getAllFriends(int userId)
     {
         try
@@ -73,11 +75,27 @@ public class FriendController : ControllerBase
     }
     
     [HttpGet, Route("getAllPendingFriends")]
+    [Authorize]
     public async Task<ActionResult> getAllPendingFriends(int userId)
     {
         try
         {
-            List<User> listFriends = await connectionDB.getAllPendingFriendsAsync(userId);
+            List<GetUserDto> listFriends = await connectionDB.getAllPendingFriendsAsync(userId);
+            return Ok(listFriends);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
+    
+    [HttpGet, Route("getAllUsers")]
+    [Authorize]
+    public async Task<ActionResult> getAllUsers()
+    {
+        try
+        {
+            List<GetUserDto> listFriends = await connectionDB.getAllUsers();
             return Ok(listFriends);
         }
         catch (Exception e)

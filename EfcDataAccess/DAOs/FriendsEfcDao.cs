@@ -57,7 +57,7 @@ public class FriendsEfcDao
 
     }
 
-    public async Task<List<User>> getAllPendingFriendsAsync(int userId)
+    public async Task<List<GetUserDto>> getAllPendingFriendsAsync(int userId)
     {
         List<int> friendIds = await context.Friends
             .Where(f => f.FriendId == userId && !f.IsAccepted)
@@ -67,7 +67,29 @@ public class FriendsEfcDao
         List<User> friends = await context.Users
             .Where(u => friendIds.Contains(u.Id))
             .ToListAsync();
+        List<GetUserDto> friendDtos = friends.Select(f => new GetUserDto
+        {
+            id = f.Id,
+            username = f.Username,
+            fullName = f.FullName,
+            email = f.Email,
+            
+        }).ToList();
 
-        return friends;
+        return friendDtos;
+    }
+
+    public async Task<List<GetUserDto>> getAllUsers()
+    {
+        List<User> users = await context.Users.ToListAsync();
+        List<GetUserDto> friendDtos = users.Select(f => new GetUserDto
+        {
+            id = f.Id,
+            username = f.Username,
+            fullName = f.FullName,
+            email = f.Email,
+            
+        }).ToList();
+        return friendDtos;
     }
 }
