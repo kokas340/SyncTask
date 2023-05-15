@@ -56,9 +56,6 @@ public class FriendsService: IFriendsService
         {
             throw new Exception(responseContent);
         }
-
-    
-
     }
     
     public User GetFriendId(int friendId)
@@ -82,5 +79,47 @@ public class FriendsService: IFriendsService
             PropertyNameCaseInsensitive = true
         }) ?? throw new InvalidOperationException();
         return allUsers;
+    }
+    public async Task<List<GetFriendsDto>> GetAllFriendsPending(int userId)
+    {
+        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", JwtAuthService.Jwt);
+        HttpResponseMessage response = await client.GetAsync("http://localhost:5041/Friend/getAllPendingFriends?userId="+userId);
+        string responseContent = await response.Content.ReadAsStringAsync();
+    
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(responseContent);
+        }
+
+        List<GetFriendsDto> pendingUsers = JsonSerializer.Deserialize<List<GetFriendsDto>>(responseContent, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        }) ?? throw new InvalidOperationException();
+        return pendingUsers;
+    }
+
+    public async Task AcceptPending(int requestId)
+    {
+        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", JwtAuthService.Jwt);
+        HttpResponseMessage response = await client.GetAsync("http://localhost:5041/Friend/acceptFriendsRequest?FriendRequestId="+requestId);
+        string responseContent = await response.Content.ReadAsStringAsync();
+    
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(responseContent);
+        }
+        
+    }
+
+    public async Task DeletePending(int requestId)
+    {
+        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", JwtAuthService.Jwt);
+        HttpResponseMessage response = await client.DeleteAsync("http://localhost:5041/Friend/deleteFriend?friendRequestId="+requestId);
+        string responseContent = await response.Content.ReadAsStringAsync();
+    
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(responseContent);
+        }
     }
 }

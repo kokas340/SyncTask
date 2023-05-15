@@ -6,4 +6,6 @@ public class GetUserDto
     public string fullName { get; init; }
     public string username { get; init; }
     public string email { get; init; }
+    
+    
 }

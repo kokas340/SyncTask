@@ -10,4 +10,7 @@ public interface IFriendsService
     User GetFriendId(int friendId);
 
     Task<List<GetUserDto>> GetAllUsers();
+    Task<List<GetFriendsDto>> GetAllFriendsPending(int toInt32);
+    Task AcceptPending(int requestId);
+    Task DeletePending(int requestId);
 }

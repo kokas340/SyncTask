@@ -20,6 +20,13 @@
             }
         </ul>
         
+        <ul>
+                    @foreach (var friend in pendingFriends)
+                    {
+                        <li>@friend.username <button @onclick="() => AcceptPendingFriends(friend.friendRequstId)">Accept Request</button><button @onclick="() => DeletePendingFriends(friend.friendRequstId)">Decline Request</button></li>
+                    }
+                </ul>
+        
         @if (friends == null)
         {
             <p>Loading friends...</p>
@@ -50,32 +57,53 @@
     public static Task<AuthenticationState> AuthState { get; set; } = null!;
     private List<GetUserDto> friends;
     private List<GetUserDto> allUsers;
+    private List<GetFriendsDto> pendingFriends;
     [Inject]
     private IFriendsService FriendsService { get; set; }
     [Inject]
     public AuthenticationStateProvider AuthenticationStateProvider { get; set; }
     private List<GetUserDto> filteredFriends = new List<GetUserDto>();
-
     private string searchTerm = "";
-
+    
+    protected override async Task OnInitializedAsync()
+    {
+        await GetFriendsInfo();
+    }
+    
+    private async Task GetFriendsInfo()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        friends = await FriendsService.GetAllFriends(Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value));
+        allUsers = await FriendsService.GetAllUsers();
+        pendingFriends = await FriendsService.GetAllFriendsPending(Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value));
+    }
+ 
     private void SearchFriends()
     {
         if(searchTerm!="")
-        filteredFriends = allUsers.Where(f => f.username.ToLower().Contains(searchTerm.ToLower())).ToList();
+            filteredFriends = allUsers.Where(f => f.username.ToLower().Contains(searchTerm.ToLower())).ToList();
     }
-    protected override async Task OnInitializedAsync()
+    
+    private async Task AcceptPendingFriends(int requestId)
     {
-        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-        Console.WriteLine(authState);
-        friends = await FriendsService.GetAllFriends(Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value));
-        allUsers = await FriendsService.GetAllUsers();
+        await FriendsService.AcceptPending( requestId);
+
     }
-
-
+    
     private async Task SendFriendRequest(int friendId)
     {
         var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         await FriendsService.AddFriend(Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value),friendId);
+      
+      
     }
+    
+    private async Task DeletePendingFriends(int requestId)
+    {
+        await FriendsService.DeletePending( requestId);
+ 
+   
+    }
+   
 
 }
