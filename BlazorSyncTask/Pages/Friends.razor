@@ -45,7 +45,7 @@ else
     </NotAuthorized>
 </AuthorizeView>
 
-@code {
+@code { 
     [CascadingParameter]
     public static Task<AuthenticationState> AuthState { get; set; } = null!;
     private List<GetUserDto> friends;
