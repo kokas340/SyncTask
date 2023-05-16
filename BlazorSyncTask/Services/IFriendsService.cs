@@ -13,4 +13,5 @@ public interface IFriendsService
     Task<List<GetFriendsDto>> GetAllFriendsPending(int toInt32);
     Task AcceptPending(int requestId);
     Task DeletePending(int requestId);
+    Task RemoveFriend(int userId, int friendId);
 }

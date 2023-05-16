@@ -125,4 +125,17 @@ public class FriendsService: IFriendsService
             throw new Exception(responseContent);
         }
     }
+
+    public async Task RemoveFriend(int userId, int friendId)
+    {
+    
+        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", JwtAuthService.Jwt);
+        HttpResponseMessage response = await client.DeleteAsync("http://localhost:5041/Friend?userId="+userId+"&friendId="+friendId);
+        string responseContent = await response.Content.ReadAsStringAsync();
+    
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(responseContent);
+        }
+    }
 }

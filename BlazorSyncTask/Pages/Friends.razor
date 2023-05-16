@@ -53,7 +53,7 @@
             <ul>
                 @foreach (var friend in friends)
                 {
-                    <li>@friend.username || @friend.email || @friend.fullName </li>
+                    <li>@friend.username || @friend.email || @friend.fullName <button @onclick="() => RemoveFriends(friend.id)">Remove</button></li>
                 }
             </ul>
         }
@@ -107,6 +107,7 @@
     {
         var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         await FriendsService.AddFriend(Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value),friendId);
+        searchTerm = "";
     }
     
     private async Task DeletePendingFriends(int requestId)
@@ -115,4 +116,13 @@
         await GetFriendsInfo();
    
     }
+
+    private async Task RemoveFriends(int friendId)
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+ 
+        await FriendsService.RemoveFriend(Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value), friendId);
+        await GetFriendsInfo();
+    }
+
 }

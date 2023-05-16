@@ -157,4 +157,18 @@ public class FriendsEfcDao
         _context.Friends.Remove(friendRequest);
         await _context.SaveChangesAsync();
     }
+
+    public async Task RemoveFriend(int userId, int friendId)
+    {
+        var friendRequest = await _context.Friends
+            .FirstOrDefaultAsync(f => (f.UserId == userId && f.FriendId == friendId) || 
+                                      (f.UserId == friendId && f.FriendId == userId));
+
+        if (friendRequest == null)
+        {
+            throw new Exception($"Friend relationship between user ID {userId} and friend ID {friendId} does not exist.");
+        }
+        _context.Friends.Remove(friendRequest);
+        await _context.SaveChangesAsync();
+    }
 }

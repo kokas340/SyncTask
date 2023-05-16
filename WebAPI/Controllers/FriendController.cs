@@ -122,15 +122,26 @@ public class FriendController : ControllerBase
     
 
     [HttpDelete("{friendRequestId:int}")]
-    public async Task<ActionResult> DeleteFriend([FromRoute] int friendRequestId)
+    public async Task<ActionResult> DeletePendingRequest([FromRoute] int friendRequestId)
     {
         try
         {
-            Console.WriteLine("!1");
-             await _connectionDb.DeleteFriend(friendRequestId);
-             Console.WriteLine("!2");
+            await _connectionDb.DeleteFriend(friendRequestId);
              return Ok();
-
+        }
+        catch (Exception e)
+        {
+            return StatusCode(500, e.Message);
+        }
+    }
+    
+    [HttpDelete]
+    public async Task<ActionResult> RemoveFriend(int userId, int friendId)
+    {
+        try
+        {
+            await _connectionDb.RemoveFriend(userId,friendId);
+            return Ok();
         }
         catch (Exception e)
         {
