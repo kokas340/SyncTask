@@ -11,8 +11,8 @@ The SyncTask project aims to provide a user-friendly productivity tool that can 
 - [ ] As a user, I want to be able to create tasks, in order to build a schedule.
 - [ ] As a user, I want to be able to edit tasks, in order to modify a schedule.
 - [ ] As a user, I want to be able to delete tasks, in order to remove them from the schedule.
-- [ ] As a user, I want to be able to add friends, in order to share schedules.
-- [ ] As a user, I want to be able to remove a friend, in order to separete schedules.
+- [x] As a user, I want to be able to add friends, in order to share schedules.
+- [x] As a user, I want to be able to remove a friend, in order to separete schedules.
 - [ ] As a user, I want to create groups, in order to assign tasks to a group.  
 - [ ] As a user, I want to delete groups, in order to remove the group.
 - [ ] As a user with admin permisions of the group, I want to edit the group, in order to add or remove users.
