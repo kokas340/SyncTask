@@ -3,7 +3,7 @@
 @using global::Shared.Dtos
 @using System.Security.Claims
 @using BlazorSyncTask.Services.Http
-
+@inject NavigationManager NavMgr
 
 
 
@@ -53,7 +53,7 @@
             <ul>
                 @foreach (var friend in friends)
                 {
-                    <li>@friend.username || @friend.email || @friend.fullName <button @onclick="() => RemoveFriends(friend.id)">Remove</button></li>
+                    <li>@friend.username || @friend.email || @friend.fullName <button @onclick="() => RemoveFriends(friend.id)">Remove</button>  <button @onclick="()=> ViewFriend(friend.id)">View Details</button></li>
                 }
             </ul>
         }
@@ -123,6 +123,10 @@
  
         await FriendsService.RemoveFriend(Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value), friendId);
         await GetFriendsInfo();
+    }
+    private async Task ViewFriend(int friendId)
+    {
+        NavMgr.NavigateTo("/Friend?id="+friendId+"");
     }
 
 }

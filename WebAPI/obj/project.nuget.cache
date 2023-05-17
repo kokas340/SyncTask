@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "qmgncNtI7nJlhqFSsqr39jhGjUTqaEkhlAHFL9vevGeLFfw7yw97pBWfWQlDXmA5Ga532uLV5Xb8BRiRulDmFQ==",
+  "dgSpecHash": "u54/IjncrGmpntLHmCY9ruiWAWL7swO/6L8bot3OsYs415BtMRGvaE66VGaiq0hFPM1BRFxMUEfPoGWzUWgHzw==",
   "success": true,
   "projectFilePath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\WebAPI\\WebAPI.csproj",
   "expectedPackageFiles": [
@@ -18,6 +18,7 @@
     "C:\\Users\\jacks\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly\\7.0.3\\microsoft.aspnetcore.components.webassembly.7.0.3.nupkg.sha512",
     "C:\\Users\\jacks\\.nuget\\packages\\microsoft.aspnetcore.metadata\\7.0.4\\microsoft.aspnetcore.metadata.7.0.4.nupkg.sha512",
     "C:\\Users\\jacks\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.3\\microsoft.aspnetcore.openapi.7.0.3.nupkg.sha512",
+    "C:\\Users\\jacks\\.nuget\\packages\\microsoft.aspnetcore.webutilities\\2.2.0\\microsoft.aspnetcore.webutilities.2.2.0.nupkg.sha512",
     "C:\\Users\\jacks\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\jacks\\.nuget\\packages\\microsoft.data.sqlite.core\\7.0.5\\microsoft.data.sqlite.core.7.0.5.nupkg.sha512",
     "C:\\Users\\jacks\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.5\\microsoft.entityframeworkcore.7.0.5.nupkg.sha512",
@@ -51,6 +52,7 @@
     "C:\\Users\\jacks\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.10.0\\microsoft.identitymodel.tokens.6.10.0.nupkg.sha512",
     "C:\\Users\\jacks\\.nuget\\packages\\microsoft.jsinterop\\7.0.4\\microsoft.jsinterop.7.0.4.nupkg.sha512",
     "C:\\Users\\jacks\\.nuget\\packages\\microsoft.jsinterop.webassembly\\7.0.3\\microsoft.jsinterop.webassembly.7.0.3.nupkg.sha512",
+    "C:\\Users\\jacks\\.nuget\\packages\\microsoft.net.http.headers\\2.2.0\\microsoft.net.http.headers.2.2.0.nupkg.sha512",
     "C:\\Users\\jacks\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
     "C:\\Users\\jacks\\.nuget\\packages\\mysqlconnector\\2.3.0-beta.2\\mysqlconnector.2.3.0-beta.2.nupkg.sha512",
     "C:\\Users\\jacks\\.nuget\\packages\\npgsql\\8.0.0-preview.2\\npgsql.8.0.0-preview.2.nupkg.sha512",
@@ -62,6 +64,7 @@
     "C:\\Users\\jacks\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
     "C:\\Users\\jacks\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
     "C:\\Users\\jacks\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.4.0\\swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512",
+    "C:\\Users\\jacks\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
     "C:\\Users\\jacks\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.10.0\\system.identitymodel.tokens.jwt.6.10.0.nupkg.sha512",
     "C:\\Users\\jacks\\.nuget\\packages\\system.io.pipelines\\7.0.0\\system.io.pipelines.7.0.0.nupkg.sha512",
     "C:\\Users\\jacks\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",

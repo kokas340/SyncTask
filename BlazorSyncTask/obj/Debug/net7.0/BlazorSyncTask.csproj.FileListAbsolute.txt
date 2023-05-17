@@ -2592,3 +2592,12 @@ C:\Users\jacks\Documents\GitHub\SyncTask\BlazorSyncTask\obj\Debug\net7.0\scopedc
 C:\Users\jacks\Documents\GitHub\SyncTask\BlazorSyncTask\obj\Debug\net7.0\scopedcss\Pages\Index.razor.rz.scp.css
 C:\Users\jacks\Documents\GitHub\SyncTask\BlazorSyncTask\obj\Debug\net7.0\scopedcss\Pages\Register.razor.rz.scp.css
 C:\Users\jacks\Documents\GitHub\SyncTask\BlazorSyncTask\obj\Debug\net7.0\scopedcss\Pages\Friends.razor.rz.scp.css
+C:\Users\jacks\Documents\GitHub\SyncTask\BlazorSyncTask\bin\Debug\net7.0\wwwroot\_framework\Microsoft.AspNetCore.WebUtilities.dll
+C:\Users\jacks\Documents\GitHub\SyncTask\BlazorSyncTask\bin\Debug\net7.0\wwwroot\_framework\Microsoft.Net.Http.Headers.dll
+C:\Users\jacks\Documents\GitHub\SyncTask\BlazorSyncTask\bin\Debug\net7.0\wwwroot\_framework\Microsoft.Net.Http.Headers.dll.gz
+C:\Users\jacks\Documents\GitHub\SyncTask\BlazorSyncTask\bin\Debug\net7.0\wwwroot\_framework\Microsoft.AspNetCore.WebUtilities.dll.gz
+C:\Users\jacks\Documents\GitHub\SyncTask\BlazorSyncTask\bin\Debug\net7.0\Microsoft.AspNetCore.WebUtilities.dll
+C:\Users\jacks\Documents\GitHub\SyncTask\BlazorSyncTask\bin\Debug\net7.0\Microsoft.Net.Http.Headers.dll
+C:\Users\jacks\Documents\GitHub\SyncTask\BlazorSyncTask\obj\Debug\net7.0\build-gz\LNJzlKyi.gz
+C:\Users\jacks\Documents\GitHub\SyncTask\BlazorSyncTask\obj\Debug\net7.0\build-gz\agSFBX+S.gz
+C:\Users\jacks\Documents\GitHub\SyncTask\BlazorSyncTask\obj\Debug\net7.0\scopedcss\Pages\Friend.razor.rz.scp.css

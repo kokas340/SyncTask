@@ -1,7 +1,7 @@
 @page "/Login"
 @using BlazorSyncTask.Services
-@inject IAuthService authService
-@inject NavigationManager navMgr
+@inject IAuthService AuthService
+@inject NavigationManager NavMgr
 <AuthorizeView>
     <NotAuthorized>
         <div class="row textbs" style="padding-top: 2rem; padding-bottom: 6rem; display: flex; flex-direction: revert;">
@@ -95,8 +95,8 @@
         errorLabel = "";
         try
         {
-            await authService.LoginAsync(userName, password);
-            navMgr.NavigateTo("/");
+            await AuthService.LoginAsync(userName, password);
+            NavMgr.NavigateTo("/");
         }
         catch (Exception e)
         {
@@ -107,7 +107,7 @@
 
     private async Task RegisterAsync()
     {
-        navMgr.NavigateTo("/register");
+        NavMgr.NavigateTo("/register");
     }
 
 }

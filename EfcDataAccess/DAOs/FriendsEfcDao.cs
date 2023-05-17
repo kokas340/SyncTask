@@ -171,4 +171,23 @@ public class FriendsEfcDao
         _context.Friends.Remove(friendRequest);
         await _context.SaveChangesAsync();
     }
+
+    public async Task<GetUserDto> GetFriendAsync(int friendId)
+    {
+        User? friend = await _context.Users.FindAsync(friendId);
+        if (friend == null)
+        {
+            throw new Exception($"User with ID {friendId} does not exist.");
+        }
+        var friendDto = new GetUserDto()
+        {
+            id = friend.Id,
+            username = friend.Username,
+            fullName = friend.FullName,
+            email = friend.Email,
+        };
+
+
+        return friendDto;
+    }
 }

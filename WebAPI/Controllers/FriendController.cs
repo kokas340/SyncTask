@@ -72,6 +72,20 @@ public class FriendController : ControllerBase
             return BadRequest(e.Message);
         }
     }
+    [HttpGet, Route("getFriend")]
+    [Authorize]
+    public async Task<ActionResult> GetFriend(int friendId)
+    {
+        try
+        {
+            GetUserDto friend = await _connectionDb.GetFriendAsync(friendId);
+            return Ok(friend);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
     
     [HttpGet, Route("getAllPendingFriends")]
     [Authorize]

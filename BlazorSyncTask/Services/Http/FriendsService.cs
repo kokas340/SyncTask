@@ -138,4 +138,21 @@ public class FriendsService: IFriendsService
             throw new Exception(responseContent);
         }
     }
+
+    public async Task<GetUserDto> GetFriendById(int friendId)
+    {
+        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", JwtAuthService.Jwt);
+        HttpResponseMessage response = await client.GetAsync("http://localhost:5041/Friend/getFriend?friendId="+friendId);
+        string responseContent = await response.Content.ReadAsStringAsync();
+    
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(responseContent);
+        }
+        GetUserDto friend = JsonSerializer.Deserialize<GetUserDto>(responseContent, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        }) ?? throw new InvalidOperationException();
+        return friend;
+    }
 }
