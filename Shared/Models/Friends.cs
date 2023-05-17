@@ -11,7 +11,7 @@ public class Friends
     
     public int UserId { get; set; }
     public int FriendId { get; set; }
-    public GetUserDto Friend { get; set; }
+    public User Friend { get; set; }
     
     public bool IsAccepted { get; set; }
     

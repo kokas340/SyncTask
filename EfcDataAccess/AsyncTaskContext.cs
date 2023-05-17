@@ -12,8 +12,10 @@ public class AsyncTaskContext: DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlite("Data Source = ../EfcDataAccess/AsyncTask.db");
-    
+      
+      
+        string connectionString = "Host=localhost;Port=5432;Database=postgres;Username=postgres;Password=12344;SearchPath=synctask";
+        optionsBuilder.UseNpgsql(connectionString);
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

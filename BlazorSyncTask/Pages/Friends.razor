@@ -108,6 +108,7 @@
         var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         await FriendsService.AddFriend(Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value),friendId);
         searchTerm = "";
+        filteredFriends = null;
     }
     
     private async Task DeletePendingFriends(int requestId)
