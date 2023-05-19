@@ -2633,3 +2633,7 @@ C:\Users\jacks\Documents\GitHub\SyncTask\BlazorSyncTask\obj\Debug\net7.0\build-g
 C:\Users\jacks\Documents\GitHub\SyncTask\BlazorSyncTask\obj\Debug\net7.0\build-gz\axS7k9qg.gz
 C:\Users\jacks\Documents\GitHub\SyncTask\BlazorSyncTask\obj\Debug\net7.0\build-gz\uVc9M9Iz.gz
 C:\Users\jacks\Documents\GitHub\SyncTask\BlazorSyncTask\obj\Debug\net7.0\build-gz\0HvW2yEw.gz
+C:\Users\jacks\Documents\GitHub\SyncTask\BlazorSyncTask\bin\Debug\net7.0\wwwroot\_framework\BCrypt.Net.dll
+C:\Users\jacks\Documents\GitHub\SyncTask\BlazorSyncTask\bin\Debug\net7.0\wwwroot\_framework\BCrypt.Net.dll.gz
+C:\Users\jacks\Documents\GitHub\SyncTask\BlazorSyncTask\bin\Debug\net7.0\BCrypt.Net.dll
+C:\Users\jacks\Documents\GitHub\SyncTask\BlazorSyncTask\obj\Debug\net7.0\build-gz\CmztA8uz.gz
