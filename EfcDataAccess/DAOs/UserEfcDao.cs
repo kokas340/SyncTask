@@ -15,12 +15,12 @@ public class UserEfcDao
     }
     public async Task<User> CreateAsync(UserRegisterDto dto)
     {
-        string hashedPassword = BCrypt.Net.BCrypt.HashPassword(dto.Password);
+        string hashPassword = BCrypt.Net.BCrypt.HashPassword(dto.Password);
 
         User toCreate = new User
         {
             Username = dto.Username,
-            Password = hashedPassword,
+            Password = hashPassword,
             Email = dto.Email,
             FullName = dto.FullName,
         };
@@ -55,14 +55,11 @@ public class UserEfcDao
 
     public async Task<User> LoginAsync(UserLoginDto dto)
     {
-        // Find the user by the specified username
         User user = await context.Users.FirstOrDefaultAsync(u => u.Username == dto.Username);
-        // If no user is found or the password doesn't match, return null to indicate that login failed
         if (user == null || !BCrypt.Net.BCrypt.Verify(dto.Password, user.Password))
         {
             return null;
         }
-        // Password is correct, return the user object to indicate successful login
         return user;
     }
 
