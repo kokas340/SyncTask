@@ -6,63 +6,79 @@
 @inject NavigationManager NavMgr
 
 
-
 <AuthorizeView>
     <Authorized>
-        <div>
-            <input type="text" @bind-value="searchTerm" />
-            <button @onclick="SearchFriends">Search</button>
-        </div>
-        <ul>
-            @foreach (var friend in filteredFriends)
-            {
-                <li>@friend.username <button @onclick="() => SendFriendRequest(friend.id)">Add Friend</button></li>
-            }
-        </ul>
-         @if (pendingFriends == null)
-                {
-                    <p>Loading friend requests...</p>
-        
-                }
-                else if (pendingFriends.Count == 0)
-                {
-                    <p>You have no friend requests.</p>
-                }
-                else
-                {
-                    <ul>
-                        @foreach (var friend in pendingFriends)
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="search-bar">
+                        <input type="text" @bind-value="searchTerm" />
+                        <button class="btn btn-primary" @onclick="SearchFriends">Search</button>
+                    </div>
+                    <ul class="friend-list">
+                        @foreach (var friend in filteredFriends)
                         {
-                            <li>@friend.username <button @onclick="() => AcceptPendingFriends(friend.friendRequstId)">Accept Request</button><button @onclick="() => DeletePendingFriends(friend.friendRequstId)">Decline Request</button></li>
+                            <li>@friend.username <button class="btn btn-success" @onclick="() => SendFriendRequest(friend.id)">Add Friend</button></li>
                         }
                     </ul>
-                }
-    
-        
-        @if (friends == null)
-        {
-            <p>Loading friends...</p>
-
-        }
-        else if (friends.Count == 0)
-        {
-            <p>You have no friends yet.</p>
-        }
-        else
-        {
-            <ul>
-                @foreach (var friend in friends)
-                {
-                    <li>@friend.username || @friend.email || @friend.fullName <button @onclick="() => RemoveFriends(friend.id)">Remove</button>  <button @onclick="()=> ViewFriend(friend.id)">View Details</button></li>
-                }
-            </ul>
-        }
-       
+                </div>
+                <div class="col-md-4">
+                    <h3>Pending Friend Requests</h3>
+                    @if (pendingFriends == null)
+                    {
+                        <p>Loading friend requests...</p>
+                    }
+                    else if (pendingFriends.Count == 0)
+                    {
+                        <p>You have no friend requests.</p>
+                    }
+                    else
+                    {
+                        <ul class="pending-friend-list">
+                            @foreach (var friend in pendingFriends)
+                            {
+                                <li>@friend.username 
+                                    <button class="btn btn-success" @onclick="() => AcceptPendingFriends(friend.friendRequstId)">Accept</button>
+                                    <button class="btn btn-danger" @onclick="() => DeletePendingFriends(friend.friendRequstId)">Decline</button>
+                                </li>
+                            }
+                        </ul>
+                    }
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Your Friends</h3>
+                    @if (friends == null)
+                    {
+                        <p>Loading friends...</p>
+                    }
+                    else if (friends.Count == 0)
+                    {
+                        <p>You have no friends yet.</p>
+                    }
+                    else
+                    {
+                        <ul class="friend-list">
+                            @foreach (var friend in friends)
+                            {
+                                <li>
+                                    @friend.username | @friend.email | @friend.fullName
+                                    <button class="btn btn-danger" @onclick="() => RemoveFriends(friend.id)">Remove</button>
+                                    <button class="btn btn-primary" @onclick="()=> ViewFriend(friend.id)">View Details</button>
+                                </li>
+                            }
+                        </ul>
+                    }
+                </div>
+            </div>
+        </div>
     </Authorized>
     <NotAuthorized>
         <p>You are not logged in.</p>
     </NotAuthorized>
 </AuthorizeView>
+
 
 @code { 
     [CascadingParameter]

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Re8tdK+K7rzerabGkPQjzqjCsSWOWSnLN0jK5sDCwTQ=",
+  "Hash": "CIvW8qOj8nEC43zAfgKNllp8J5kbB6IpOhONPTxBtWw=",
   "Source": "BlazorSyncTask",
   "BasePath": "/",
   "Mode": "Root",
@@ -661,6 +661,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\jacks\\.nuget\\packages\\blazorise\\1.2.2\\staticwebassets\\vendors\\sha512.js"
+    },
+    {
+      "Identity": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\_framework\\BCrypt.Net.dll",
+      "SourceId": "BlazorSyncTask",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/BCrypt.Net.dll",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\jacks\\.nuget\\packages\\bcrypt.net\\0.1.0\\lib\\net35\\BCrypt.Net.dll"
     },
     {
       "Identity": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\_framework\\blazor.boot.json",
@@ -5353,6 +5370,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\_framework\\System.Threading.Channels.dll"
+    },
+    {
+      "Identity": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\obj\\Debug\\net7.0\\build-gz\\CmztA8uz.gz",
+      "SourceId": "BlazorSyncTask",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/BCrypt.Net.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\_framework\\BCrypt.Net.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\bin\\Debug\\net7.0\\wwwroot\\_framework\\BCrypt.Net.dll"
     },
     {
       "Identity": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\obj\\Debug\\net7.0\\build-gz\\CSq+CzNE.gz",

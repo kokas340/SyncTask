@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Shared.Dtos;
 using Shared.Models;
+using BCrypt.Net;
 
 namespace EfcDataAccess.DAOs;
 public class UserEfcDao
@@ -14,13 +15,16 @@ public class UserEfcDao
     }
     public async Task<User> CreateAsync(UserRegisterDto dto)
     {
+        string hashedPassword = BCrypt.Net.BCrypt.HashPassword(dto.Password);
+
         User toCreate = new User
         {
             Username = dto.Username,
-            Password = dto.Password,
+            Password = hashedPassword,
             Email = dto.Email,
             FullName = dto.FullName,
         };
+
         EntityEntry<User> newUser = await context.Users.AddAsync(toCreate);
         await context.SaveChangesAsync();
         return newUser.Entity;
@@ -51,16 +55,14 @@ public class UserEfcDao
 
     public async Task<User> LoginAsync(UserLoginDto dto)
     {
-        // Search for a user with the specified username and password
-        User user = await context.Users.FirstOrDefaultAsync(u => u.Username == dto.Username && u.Password == dto.Password);
-    
-        // If no user is found, return null to indicate that login failed
-        if (user == null)
+        // Find the user by the specified username
+        User user = await context.Users.FirstOrDefaultAsync(u => u.Username == dto.Username);
+        // If no user is found or the password doesn't match, return null to indicate that login failed
+        if (user == null || !BCrypt.Net.BCrypt.Verify(dto.Password, user.Password))
         {
             return null;
         }
-    
-        // Otherwise, return the user object to indicate successful login
+        // Password is correct, return the user object to indicate successful login
         return user;
     }
 
