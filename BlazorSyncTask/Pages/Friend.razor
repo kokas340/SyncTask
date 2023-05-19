@@ -9,10 +9,13 @@
 
 <AuthorizeView>
     <Authorized>
+        @if (friend != null)
+        {
             <p>Name: @friend.fullName</p>
             <p>Username: @friend.username</p>
             <p>Email: @friend.email</p>
             <p>Id: @friend.id</p>
+        }
     </Authorized>
     <NotAuthorized>
         <p>You are not logged in.</p>

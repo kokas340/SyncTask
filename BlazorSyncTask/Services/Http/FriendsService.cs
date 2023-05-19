@@ -42,9 +42,9 @@ public class FriendsService: IFriendsService
         AddFriendDto addFriendDto = new()
         {
            
-            UserId = userId,
-            FriendId = friendId,
-            IsAccepted = false
+            user_id = userId,
+            friend_id = friendId,
+            is_accepted = false
         };
 
         string userAsJson = JsonSerializer.Serialize(addFriendDto);
@@ -61,7 +61,7 @@ public class FriendsService: IFriendsService
         Console.WriteLine("heyy");
     }
     
-    public User GetFriendId(int friendId)
+    public UserT GetFriendId(int friendId)
     {
         throw new NotImplementedException();
     }

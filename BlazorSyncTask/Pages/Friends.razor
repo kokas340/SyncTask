@@ -14,10 +14,14 @@
             <button @onclick="SearchFriends">Search</button>
         </div>
         <ul>
-            @foreach (var friend in filteredFriends)
+            @if (filteredFriends != null)
             {
-                <li>@friend.username <button @onclick="() => SendFriendRequest(friend.id)">Add Friend</button></li>
+                @foreach (var friend in filteredFriends)
+                {
+                    <li>@friend.username <button @onclick="() => SendFriendRequest(friend.id)">Add Friend</button></li>
+                }
             }
+            
         </ul>
          @if (pendingFriends == null)
                 {
@@ -51,10 +55,14 @@
         else
         {
             <ul>
-                @foreach (var friend in friends)
+                @if (friends != null)
                 {
-                    <li>@friend.username || @friend.email || @friend.fullName <button @onclick="() => RemoveFriends(friend.id)">Remove</button>  <button @onclick="()=> ViewFriend(friend.id)">View Details</button></li>
+                    @foreach (var friend in friends)
+                    {
+                        <li>@friend.username || @friend.email || @friend.fullName <button @onclick="() => RemoveFriends(friend.id)">Remove</button>  <button @onclick="()=> ViewFriend(friend.id)">View Details</button></li>
+                    }
                 }
+                
             </ul>
         }
        

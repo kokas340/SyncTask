@@ -5,19 +5,19 @@ namespace Shared.Models;
 public class Tasks
 {
     [Key]
-    public int Id { get; set; }
-    public User Owner { get;  private set;  }
+    public int id { get; set; }
+    public UserT owner { get;  private set;  }
     [MaxLength(15)]
-    public string Title { get;  private set;  }
+    public string title { get;  private set;  }
   
-    public string Description { get;  private set;  }
-    public DateTime DueDate { get; set; }
-  
-    public Tasks(User owner, string title, string description)
+    public string description { get;  private set;  }
+    public DateTime endDate { get; set; }
+    public DateTime startDate { get; set; }
+    public Tasks(UserT owner, string title, string description)
     {
-        Owner = owner;
-        Title = title;
-        Description = description;
+        this.owner = owner;
+        this.title = title;
+        this.description = description;
     }
     private Tasks(){}
 }

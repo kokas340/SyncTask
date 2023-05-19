@@ -29,22 +29,22 @@ public class AuthController : ControllerBase
         this.authService = authService;
     }
 
-    private List<Claim> GenerateClaims(User user)
+    private List<Claim> GenerateClaims(UserT user)
     {
         var claims = new[]
         {
             new Claim(JwtRegisteredClaimNames.Sub, config["Jwt:Subject"]),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
-            new Claim(ClaimTypes.Name, user.Username),
-            new Claim("Id", user.Id.ToString()),
-            new Claim("DisplayName", user.FullName),
+            new Claim(ClaimTypes.Name, user.username),
+            new Claim("Id", user.id.ToString()),
+            new Claim("DisplayName", user.fullName),
 
         };
         return claims.ToList();
     }
 
-    private string GenerateJwt(User user)
+    private string GenerateJwt(UserT user)
     {
         List<Claim> claims = GenerateClaims(user);
 
@@ -73,7 +73,7 @@ public class AuthController : ControllerBase
         try
         {
             
-            User user = await connectionDB.LoginAsync(userLoginDto);
+            UserT user = await connectionDB.LoginAsync(userLoginDto);
             string token = GenerateJwt(user);
             
             return Ok(token);
@@ -90,7 +90,7 @@ public class AuthController : ControllerBase
         try
         {
             await connectionDB.CreateAsync(user);
-            return Created($"/users/{user.Username}", user);
+            return Created($"/users/{user.username}", user);
         }
         catch (Exception e)
         {
@@ -106,7 +106,7 @@ public class AuthController : ControllerBase
         try
         {
             await connectionDB.CreateAsync(user);
-            return Created($"/users/{user.Username}", user);
+            return Created($"/users/{user.username}", user);
         }
         catch (Exception e)
         {

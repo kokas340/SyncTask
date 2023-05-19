@@ -7,12 +7,12 @@ namespace Shared.Models;
 public class Friends
 {
     [Key]
-    public int Id { get; set; }
+    public int id { get; set; }
     
-    public int UserId { get; set; }
-    public int FriendId { get; set; }
-    public User Friend { get; set; }
+    public int user_id { get; set; }
+    public int friend_id { get; set; }
+   
     
-    public bool IsAccepted { get; set; }
+    public bool is_accepted { get; set; }
     
 }

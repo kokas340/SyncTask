@@ -7,7 +7,7 @@ public interface IFriendsService
 {
     Task<List<GetUserDto>> GetAllFriends(int userId);
     Task AddFriend(int userId, int friendId);
-    User GetFriendId(int friendId);
+    UserT GetFriendId(int friendId);
 
     Task<List<GetUserDto>> GetAllUsers();
     Task<List<GetFriendsDto>> GetAllFriendsPending(int toInt32);

@@ -40,16 +40,16 @@ public class FriendController : ControllerBase
     {
         try
         {
-            User user = await _connectionDbUser.GetByIdAsync(dto.FriendId);
+            UserT user = await _connectionDbUser.GetByIdAsync(dto.friend_id);
             
             GetUserDto userdto = new GetUserDto()
             {
-                fullName = user.FullName,
-                email = user.Email,
-                id = user.Id,
-                username = user.Username
+                fullName = user.fullName,
+                email = user.email,
+                id = user.id,
+                username = user.username
             };
-            Friends friend = await _connectionDb.AddFriendAsync( dto.UserId,userdto);
+            Friends friend = await _connectionDb.AddFriendAsync( dto.user_id,userdto);
             return Ok(friend);
         }
         catch (Exception e)
@@ -123,7 +123,7 @@ public class FriendController : ControllerBase
     {
         try
         {
-            User user = await _connectionDb.AcceptFriendRequest(friendRequestId);
+            UserT user = await _connectionDb.AcceptFriendRequest(friendRequestId);
             
          
             return Ok(user);

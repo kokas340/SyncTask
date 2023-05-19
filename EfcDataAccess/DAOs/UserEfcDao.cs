@@ -12,17 +12,20 @@ public class UserEfcDao
     {
         this.context = context;
     }
-    public async Task<User> CreateAsync(UserRegisterDto dto)
+    public async Task<UserT> CreateAsync(UserRegisterDto dto)
     {
-        User toCreate = new User
+        UserT toCreate = new UserT
         {
-            Username = dto.Username,
-            Password = dto.Password,
-            Email = dto.Email,
-            FullName = dto.FullName,
+            username = dto.username,
+            password = dto.password,
+            email = dto.email,
+            fullName = dto.fullName,
         };
-        EntityEntry<User> newUser = await context.Users.AddAsync(toCreate);
+        Console.WriteLine("TEST 111111");
+        EntityEntry<UserT> newUser = await context.usert.AddAsync(toCreate);
+        Console.WriteLine("TEST 222222");
         await context.SaveChangesAsync();
+        Console.WriteLine("TEST 3333333");
         return newUser.Entity;
     }
 
@@ -31,15 +34,15 @@ public class UserEfcDao
     //     throw new NotImplementedException();
     // }
 
-    public Task UpdateUser(User user)
+    public Task UpdateUser(UserT user)
     {
         throw new NotImplementedException();
     }
 
-    public async Task<User?> GetByUsername(string userName)
+    public async Task<UserT?> GetByUsername(string userName)
     {
-        User? existing = await context.Users.FirstOrDefaultAsync(u =>
-            u.Username.ToLower().Equals(userName.ToLower())
+        UserT? existing = await context.usert.FirstOrDefaultAsync(u =>
+            u.username.ToLower().Equals(userName.ToLower())
         );
         return existing;
     }
@@ -49,10 +52,10 @@ public class UserEfcDao
         throw new NotImplementedException();
     }
 
-    public async Task<User> LoginAsync(UserLoginDto dto)
+    public async Task<UserT> LoginAsync(UserLoginDto dto)
     {
         // Search for a user with the specified username and password
-        User user = await context.Users.FirstOrDefaultAsync(u => u.Username == dto.Username && u.Password == dto.Password);
+        UserT user = await context.usert.FirstOrDefaultAsync(u => u.username == dto.username && u.password == dto.password);
     
         // If no user is found, return null to indicate that login failed
         if (user == null)
@@ -64,9 +67,9 @@ public class UserEfcDao
         return user;
     }
 
-    public async Task<User> GetByIdAsync(int dtoFriendId)
+    public async Task<UserT> GetByIdAsync(int dtoFriendId)
     {
-        User? existing = await context.Users.FindAsync(dtoFriendId);
+        UserT? existing = await context.usert.FindAsync(dtoFriendId);
        
         return existing;
         

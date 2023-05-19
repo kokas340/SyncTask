@@ -6,9 +6,9 @@ namespace EfcDataAccess;
 
 public class AsyncTaskContext: DbContext
 {
-    public DbSet<User> Users { get; set; }
-    public DbSet<Tasks> Tasks { get; set; }
-    public DbSet<Friends> Friends { get; set; }
+    public DbSet<UserT> usert { get; set; }
+    public DbSet<Tasks> task { get; set; }
+    public DbSet<Friends> friends { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

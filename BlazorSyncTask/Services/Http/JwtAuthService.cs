@@ -41,8 +41,8 @@ public class JwtAuthService : IAuthService
     {
         UserLoginDto userLoginDto = new()
         {
-            Username = username,
-            Password = password
+            username = username,
+            password = password
         };
 
         string userAsJson = JsonSerializer.Serialize(userLoginDto);
@@ -67,10 +67,10 @@ public class JwtAuthService : IAuthService
     {
         UserRegisterDto userRegisterDto = new()
         {
-            Email = email,
-            FullName = fullName,
-            Username = username,
-            Password = password
+            email = email,
+            fullName = fullName,
+            username = username,
+            password = password
         };
 
         string userAsJson = JsonSerializer.Serialize(userRegisterDto);
@@ -109,18 +109,7 @@ public class JwtAuthService : IAuthService
         return Task.CompletedTask;
     }
 
-    public async Task RegisterAsync(User user)
-    {
-        string userAsJson = JsonSerializer.Serialize(user);
-        StringContent content = new(userAsJson, Encoding.UTF8, "application/json");
-        HttpResponseMessage response = await client.PostAsync("https://localhost:7130/auth/register", content);
-        string responseContent = await response.Content.ReadAsStringAsync();
-
-        if (!response.IsSuccessStatusCode)
-        {
-            throw new Exception(responseContent);
-        }
-    }
+   
 
     public Task<ClaimsPrincipal> GetAuthAsync()
     {

@@ -21,14 +21,14 @@ public class FriendsEfcDao
     public async Task<Friends> AddFriendAsync(int userId, GetUserDto friend)
     {
         // Check if friendship already exists
-        bool friendshipExists = await _context.Friends
-            .AnyAsync(f => f.UserId == userId && f.FriendId == friend.id || f.UserId == friend.id && f.FriendId == userId);
+        bool friendshipExists = await _context.friends
+            .AnyAsync(f => f.user_id == userId && f.friend_id == friend.id || f.user_id == friend.id && f.friend_id == userId);
         if (friendshipExists)
         {
             throw new Exception("Friendship already exists.");
         }
         
-        User friendToAdd = await _context.Users.FindAsync(friend.id);
+        UserT friendToAdd = await _context.usert.FindAsync(friend.id);
         if (friendToAdd == null)
         {
             throw new Exception($"User with ID {friend.id} does not exist.");
@@ -36,12 +36,12 @@ public class FriendsEfcDao
 
         Friends toCreate = new Friends()
         {
-            UserId = userId,
-            FriendId = friend.id,
-            IsAccepted = false
+            user_id = userId,
+            friend_id = friend.id,
+            is_accepted = false
         };
 
-        EntityEntry<Friends> newFriend = await _context.Friends.AddAsync(toCreate);
+        EntityEntry<Friends> newFriend = await _context.friends.AddAsync(toCreate);
         await _context.SaveChangesAsync();
         return newFriend.Entity;
     }
@@ -49,20 +49,20 @@ public class FriendsEfcDao
 
     public async Task<List<GetUserDto>> GetFriendsAsync(int userId)
     {
-        List<int> friendIds = await _context.Friends
-            .Where(f => (f.UserId == userId || f.FriendId == userId) && f.IsAccepted)
-            .Select(f => f.UserId == userId ? f.FriendId : f.UserId)
+        List<int> friendIds = await _context.friends
+            .Where(f => (f.user_id == userId || f.friend_id == userId) && f.is_accepted)
+            .Select(f => f.user_id == userId ? f.friend_id : f.user_id)
             .ToListAsync();
 
-        List<User> friends = await _context.Users
-            .Where(u => friendIds.Contains(u.Id))
+        List<UserT> friends = await _context.usert
+            .Where(u => friendIds.Contains(u.id))
             .ToListAsync();
         List<GetUserDto> friendDtos = friends.Select(f => new GetUserDto
         {
-            id = f.Id,
-            username = f.Username,
-            fullName = f.FullName,
-            email = f.Email,
+            id = f.id,
+            username = f.username,
+            fullName = f.fullName,
+            email = f.email,
             
         }).ToList();
 
@@ -73,30 +73,30 @@ public class FriendsEfcDao
 
     public async Task<List<GetFriendsDto>> GetAllPendingFriendsAsync(int userId)
     {
-        List<int> friendIds = await _context.Friends
-            .Where(f => f.FriendId == userId && !f.IsAccepted)
-            .Select(f => f.UserId)
+        List<int> friendIds = await _context.friends
+            .Where(f => f.friend_id == userId && !f.is_accepted)
+            .Select(f => f.user_id)
             .ToListAsync();
         
-        List<User> friends = await _context.Users
-            .Where(u => friendIds.Contains(u.Id))
+        List<UserT> friends = await _context.usert
+            .Where(u => friendIds.Contains(u.id))
             .ToListAsync();
 
         List<GetFriendsDto> friendDtos = new List<GetFriendsDto>();
         foreach (var friend in friends)
         {
-            var friendRequest = await _context.Friends.FirstOrDefaultAsync(f => f.UserId == friend.Id && f.FriendId == userId);
+            var friendRequest = await _context.friends.FirstOrDefaultAsync(f => f.user_id == friend.id && f.friend_id == userId);
             if (friendRequest == null)
             {
-                throw new Exception($"No friend request found for user {friend.Id}");
+                throw new Exception($"No friend request found for user {friend.id}");
             }
             var friendDto = new GetFriendsDto()
             {
-                id = friend.Id,
-                username = friend.Username,
-                fullName = friend.FullName,
-                email = friend.Email,
-                friendRequstId = friendRequest.Id
+                id = friend.id,
+                username = friend.username,
+                fullName = friend.fullName,
+                email = friend.email,
+                friendRequstId = friendRequest.id
             };
             friendDtos.Add(friendDto);
         }
@@ -106,85 +106,85 @@ public class FriendsEfcDao
 
     public async Task<List<GetUserDto>> GetAllUsers()
     {
-        List<User> users = await _context.Users.ToListAsync();
+        List<UserT> users = await _context.usert.ToListAsync();
         List<GetUserDto> friendDtos = users.Select(f => new GetUserDto
         {
-            id = f.Id,
-            username = f.Username,
-            fullName = f.FullName,
-            email = f.Email,
+            id = f.id,
+            username = f.username,
+            fullName = f.fullName,
+            email = f.email,
             
         }).ToList();
         return friendDtos;
     }
 
-    public async Task<User> AcceptFriendRequest(int friendRequestId)
+    public async Task<UserT> AcceptFriendRequest(int friendRequestId)
     {
-        var friendRequest = await _context.Friends.FindAsync(friendRequestId);
+        var friendRequest = await _context.friends.FindAsync(friendRequestId);
 
         if (friendRequest == null)
         {
             throw new Exception($"Friend request with ID {friendRequestId} does not exist.");
         }
 
-        if (friendRequest.IsAccepted)
+        if (friendRequest.is_accepted)
         {
             throw new Exception($"Friend request with ID {friendRequestId} has already been accepted.");
         }
 
-        friendRequest.IsAccepted = true;
+        friendRequest.is_accepted = true;
 
         await _context.SaveChangesAsync();
 
-        var friend = await _context.Users.FindAsync(friendRequest.FriendId);
+        var friend = await _context.usert.FindAsync(friendRequest.friend_id);
 
         return friend;
     }
     
     public async Task DeleteFriend(int friendRequestId)
     {
-        var friendRequest = await _context.Friends.FindAsync(friendRequestId);
+        var friendRequest = await _context.friends.FindAsync(friendRequestId);
         if (friendRequest == null)
         {
             throw new Exception($"Friend request with ID {friendRequestId} does not exist.");
         }
         
-        if (friendRequest.IsAccepted)
+        if (friendRequest.is_accepted)
         {
             throw new Exception($"Friend request with ID {friendRequestId} has already been accepted.");
         }
         
-        _context.Friends.Remove(friendRequest);
+        _context.friends.Remove(friendRequest);
         await _context.SaveChangesAsync();
     }
 
     public async Task RemoveFriend(int userId, int friendId)
     {
-        var friendRequest = await _context.Friends
-            .FirstOrDefaultAsync(f => (f.UserId == userId && f.FriendId == friendId) || 
-                                      (f.UserId == friendId && f.FriendId == userId));
+        var friendRequest = await _context.friends
+            .FirstOrDefaultAsync(f => (f.user_id == userId && f.friend_id == friendId) || 
+                                      (f.user_id == friendId && f.friend_id == userId));
 
         if (friendRequest == null)
         {
             throw new Exception($"Friend relationship between user ID {userId} and friend ID {friendId} does not exist.");
         }
-        _context.Friends.Remove(friendRequest);
+        _context.friends.Remove(friendRequest);
         await _context.SaveChangesAsync();
     }
 
     public async Task<GetUserDto> GetFriendAsync(int friendId)
     {
-        User? friend = await _context.Users.FindAsync(friendId);
+        UserT? friend = await _context.usert.FindAsync(friendId);
         if (friend == null)
         {
             throw new Exception($"User with ID {friendId} does not exist.");
         }
         var friendDto = new GetUserDto()
         {
-            id = friend.Id,
-            username = friend.Username,
-            fullName = friend.FullName,
-            email = friend.Email,
+            id = friend.id,
+            username = friend.username,
+            fullName = friend.fullName,
+            email = friend.email,
         };
 
 

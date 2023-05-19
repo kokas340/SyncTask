@@ -4,9 +4,9 @@ public class AddFriendDto
 {
 
     
-    public int UserId { get; init; }
+    public int user_id { get; init; }
     
-    public int FriendId { get; init; }
+    public int friend_id { get; init; }
     
-    public bool IsAccepted { get; init; }
+    public bool is_accepted { get; init; }
 }
