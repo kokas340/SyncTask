@@ -28,6 +28,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWJvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-54xmlosrtd
 
+[C:/Users/jacks/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/CreateGroup.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JlYXRlR3JvdXAucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-ak0iydaric
+
+[C:/Users/jacks/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/CreateTask.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JlYXRlVGFzay5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-58rdjert4f
+
 [C:/Users/jacks/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/Friend.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRnJpZW5kLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-3m8hozqle2
@@ -35,6 +43,14 @@ build_metadata.AdditionalFiles.CssScope = b-3m8hozqle2
 [C:/Users/jacks/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/Friends.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRnJpZW5kcy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-5y1hkpzxib
+
+[C:/Users/jacks/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/GroupInfo.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR3JvdXBJbmZvLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-0o9vtdl3r2
+
+[C:/Users/jacks/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/Groups.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR3JvdXBzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-o6cuw3rm22
 
 [C:/Users/jacks/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
@@ -47,6 +63,14 @@ build_metadata.AdditionalFiles.CssScope = b-uejfjchll3
 [C:/Users/jacks/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/Register.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-xa5acrxc90
+
+[C:/Users/jacks/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/Tasks.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGFza3MucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-7ix0rewx8i
+
+[C:/Users/jacks/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/ViewTask.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmlld1Rhc2sucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-zf0ol6zhc0
 
 [C:/Users/jacks/Documents/GitHub/SyncTask/BlazorSyncTask/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=

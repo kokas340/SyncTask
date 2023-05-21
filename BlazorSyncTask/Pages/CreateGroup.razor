@@ -1,0 +1,40 @@
+@page "/CreateGroup"
+@using global::Shared.Dtos
+@using BlazorSyncTask.Services
+@inject NavigationManager NavMgr
+@inject IGroupsService GroupsService
+
+<AuthorizeView>
+    <Authorized>
+       <h3>Create Group</h3>
+    
+       <div>
+           <label for="name">Group Name:</label>
+           <input id="name" @bind="@createGroupDto.groupName" />
+       </div>
+       
+  
+       
+       <button @onclick="CreateGroups">Create</button>
+    </Authorized>
+    <NotAuthorized>
+        <p>You are not logged in.</p>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+    [CascadingParameter]
+    public static Task<AuthenticationState> AuthState { get; set; } = null!;
+    private CreateGroupDto createGroupDto = new CreateGroupDto();
+    DateTime startD, endD;
+    [Inject]
+    public AuthenticationStateProvider AuthenticationStateProvider { get; set; }
+    
+    private async Task CreateGroups() {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        createGroupDto.owner = Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value);
+
+        await GroupsService.CreateGroup(createGroupDto);
+        NavMgr.NavigateTo("/Groups");
+    }
+}

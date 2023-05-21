@@ -58,7 +58,7 @@ public class FriendsService: IFriendsService
         {
             throw new Exception(responseContent);
         }
-        Console.WriteLine("heyy");
+       
     }
     
     public UserT GetFriendId(int friendId)

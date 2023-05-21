@@ -18,6 +18,8 @@ builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthProvider>();
 
 builder.Services.AddScoped<IAuthService, JwtAuthService>();
 builder.Services.AddScoped<IFriendsService, FriendsService>();
+builder.Services.AddScoped<ITasksService, TasksService>();
+builder.Services.AddScoped<IGroupsService, GroupsService>();
 
 AuthorizationPolicies.AddPolicies(builder.Services);
 

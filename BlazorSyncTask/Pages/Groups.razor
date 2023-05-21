@@ -1,0 +1,65 @@
+@page "/Groups"
+@using BlazorSyncTask.Services
+@using global::Shared.Dtos
+@using System.Security.Claims
+@using BlazorSyncTask.Services.Http
+@inject NavigationManager NavigationManager
+@using Microsoft.AspNetCore.WebUtilities
+
+<AuthorizeView>
+    <Authorized>
+        <div>
+            <button @onclick="()=> CreateGroup()">Create Group</button>
+        </div>
+         @if (groups != null)
+                {
+                    <div>
+                        <h3>Groups:</h3>
+                        @foreach (var group in groups)
+                        {
+                            <p>--------------------------------</p>
+                            <h4>@group.id - @group.groupName</h4>
+                            <p>Members: @group.members.Count</p>
+                            <p>Tasks: @group.tasks.Count</p>
+                            <button @onclick="() => OpenGroupInfo(group.id)">View Details</button>
+                        }
+                    </div>
+                }
+    </Authorized>
+    <NotAuthorized>
+        <p>You are not logged in.</p>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code { 
+    [CascadingParameter]
+    public static Task<AuthenticationState> AuthState { get; set; } = null!;
+    [Inject]
+    private IGroupsService GroupsService { get; set; }
+    [Inject]
+    public AuthenticationStateProvider AuthenticationStateProvider { get; set; }
+    [Parameter] 
+    public string Id { get; set; }
+    private List<GroupDTO> groups;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        await getGoups();
+    }
+    
+    private async Task getGoups()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        groups = await GroupsService.GetAllGroupsByUserId(Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value));
+    }
+    
+    private async Task CreateGroup()
+    {
+        NavigationManager.NavigateTo("/CreateGroup");
+    }
+    
+    private void OpenGroupInfo(int groupId)
+    {
+        NavigationManager.NavigateTo($"/GroupInfo?id="+groupId+"");
+    }
+}

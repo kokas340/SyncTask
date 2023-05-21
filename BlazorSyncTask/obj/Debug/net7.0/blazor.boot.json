@@ -7,6 +7,7 @@
   "linkerEnabled": false,
   "resources": {
     "assembly": {
+      "BCrypt.Net.dll": "sha256-4fD2q9W5QhcuwA+LajQdyeSE5qYwMbdpnFtB8C35zVU=",
       "Blazorise.dll": "sha256-WlWSTypjn2dDeA\/PLD3dKCmhDg+mKHv8Lhk2CuurQ0I=",
       "Blazorise.Bootstrap.dll": "sha256-iw5zEWAQLtXEMQ6Uh4oeP9QU2U8gvThmiEtQETLIdhY=",
       "Blazorise.Icons.FontAwesome.dll": "sha256-gjoQcPfcEpuUUCV9uXaOwjiCTmQYkCGrW3cykhF2HcU=",
@@ -215,15 +216,15 @@
       "mscorlib.dll": "sha256-qqpKd+W+AFb6UxudEYEKzrz7ma81p5LrWUwPBVvHV4U=",
       "netstandard.dll": "sha256-OYYuPT3JUknj4LdYIa58zF7kDB3tCnLzjCSuhEjtKXM=",
       "System.Private.CoreLib.dll": "sha256-EVS7zPxPV\/41g2mzPwdXtwiigWxI\/SeAHme1IgyD6tc=",
-      "Shared.dll": "sha256-QamVLJUydNhfQsA\/h9Bwv5e0HZwB4F3Xusy+ypTMUj8=",
-      "BlazorSyncTask.dll": "sha256-E4wh2RH48tEb4OIxRQAWXuP0t2G+2F\/gd+HnXfLnU24="
+      "Shared.dll": "sha256-RZ6+1NnPqb3Zz80T1jxT263htkK1su2FEw1xlD6oaas=",
+      "BlazorSyncTask.dll": "sha256-XWfjJs2hBXh9X5EJ3wa3vlI4X2jp3brKqt9o6XwaoOI="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "Shared.pdb": "sha256-8n9leCvpZYya0ILSabJJPkPPUs14RvQBs92zyo63vvY=",
-      "BlazorSyncTask.pdb": "sha256-XdJbEGEK+s9o3oKMpHQ39Hsplpc0FxCMOH6wohKXr3M="
+      "Shared.pdb": "sha256-hBAEOymzJjehyWvpWEWw+6UqPOb84N+wuGuT4dpEmrU=",
+      "BlazorSyncTask.pdb": "sha256-CiHx9MVDLEQPRfpOfL4d3w2Fu3kem0h\/4TcOKi7m27M="
     },
     "runtime": {
       "dotnet.7.0.5.cqa40936h9.js": "sha256-codB25EodaFEP43MDCfMBuKXU4LqurUKnQrpoMIFnPs=",

@@ -1,0 +1,71 @@
+@page "/GroupInfo"
+@using BlazorSyncTask.Services
+@using global::Shared.Dtos
+@using System.Security.Claims
+@using BlazorSyncTask.Services.Http
+@inject NavigationManager NavigationManager
+@using Microsoft.AspNetCore.WebUtilities
+
+<h3>Group Information</h3>
+
+@if (group != null)
+{
+    <h4>Group Name: @group.groupName</h4>
+
+    @if (group.members != null && group.members.Count > 0)
+    {
+        <p>Members:</p>
+        <ul>
+            @foreach (var member in group.members)
+            {
+                <li>@member.User.fullName - @member.User.email</li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>No members in the group.</p>
+    }
+
+    @if (group.tasks != null && group.tasks.Count > 0)
+    {
+        <p>Tasks:</p>
+        <ul>
+            @foreach (var task in group.tasks)
+            {
+                <li>@task.name - @task.description</li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>No tasks in the group.</p>
+    }
+}
+else
+{
+    <p>Loading group information...</p>
+}
+@code {
+    [CascadingParameter]
+    public static Task<AuthenticationState> AuthState { get; set; } = null!;
+    [Inject]
+    private IGroupsService GroupsService { get; set; }
+    [Inject]
+    public AuthenticationStateProvider AuthenticationStateProvider { get; set; }
+    [Parameter]
+    public int GroupId { get; set; }
+    private string Id;
+    private GroupDTO group;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var uri = new Uri(NavigationManager.Uri);
+        var query = QueryHelpers.ParseQuery(uri.Query);
+        Id = query["id"];
+        group = await GroupsService.GetGroupById(Convert.ToInt32(Id));
+      
+    }
+
+  
+}

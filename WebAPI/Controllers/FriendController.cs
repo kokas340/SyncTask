@@ -44,7 +44,7 @@ public class FriendController : ControllerBase
             
             GetUserDto userdto = new GetUserDto()
             {
-                fullName = user.fullName,
+                fullName = user.fullname,
                 email = user.email,
                 id = user.id,
                 username = user.username

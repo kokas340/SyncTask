@@ -289,6 +289,214 @@ section[b-54xmlosrtd] {
     transition: all 300ms ease;
 }
 
+/* /Pages/CreateGroup.razor.rz.scp.css */
+.logo[b-ak0iydaric] {
+    font-family: "Fira Code", sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.textbs h2[b-ak0iydaric],p[b-ak0iydaric],h5[b-ak0iydaric]{
+    cursor: crosshair;
+}
+.field[b-ak0iydaric] {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+input[b-ak0iydaric], textarea[b-ak0iydaric] {
+    padding: 9px;
+    border-radius:3px;
+    border:solid 1px #11104a;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: linear-gradient(to right, ghostwhite, #11104a);
+
+    transition:all 1.5s ease;
+}
+
+input:hover[b-ak0iydaric] {
+    padding: 9px;
+    border-radius:3px;
+    box-shadow: inset 0 0 10px #11104a;
+    transition: all 0.3s ease;
+}
+input[b-ak0iydaric] {
+    padding: 9px;
+    border-radius:5px;
+    transition: all 0.3s ease;
+}
+label[b-ak0iydaric] {
+    margin-left: 10px;
+    color: white;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.loginForm[b-ak0iydaric] {
+    padding: 5rem 0 5rem 0;
+}
+
+a[b-ak0iydaric] {
+    cursor: zoom-in;
+    width: 140px;
+    height: 26px;
+    text-align: center;
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: ghostwhite;
+    text-transform: uppercase;
+    font-family: "open sans", sans-serif;
+    position: relative;
+    top: 30%;
+    line-height: 1.7em;
+    left: 30%;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0);
+    background: none;
+    transition: all 0.2s ease-in-out;
+}
+a[b-ak0iydaric]::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: -2px;
+    background: ghostwhite;
+    width: 142px;
+    height: 30px;
+    z-index: -1;
+    transform: scale(0);
+    transform-origin: bottom left;
+    transition: all 0.3s ease-in-out 0.1s;
+}
+a[b-ak0iydaric]::after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background: ghostwhite;
+    width: 142px;
+    height: 30px;
+    z-index: -2;
+    transform: scale(0);
+    transform-origin: top right;
+    transition: all 0.3s ease-in-out 0.1s;
+}
+a:hover[b-ak0iydaric] {
+    box-shadow: 0 0 0 2px ghostwhite;
+    transition: all 0.4s ease-out;
+    text-decoration: none;
+    color: ghostwhite;
+}
+a:hover[b-ak0iydaric]::before {
+    transform: scale(1);
+}
+a:hover[b-ak0iydaric]::after {
+    transform: scale(1);
+}
+/* /Pages/CreateTask.razor.rz.scp.css */
+.logo[b-58rdjert4f] {
+    font-family: "Fira Code", sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.textbs h2[b-58rdjert4f],p[b-58rdjert4f],h5[b-58rdjert4f]{
+    cursor: crosshair;
+}
+.field[b-58rdjert4f] {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+input[b-58rdjert4f], textarea[b-58rdjert4f] {
+    padding: 9px;
+    border-radius:3px;
+    border:solid 1px #11104a;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: linear-gradient(to right, ghostwhite, #11104a);
+
+    transition:all 1.5s ease;
+}
+
+input:hover[b-58rdjert4f] {
+    padding: 9px;
+    border-radius:3px;
+    box-shadow: inset 0 0 10px #11104a;
+    transition: all 0.3s ease;
+}
+input[b-58rdjert4f] {
+    padding: 9px;
+    border-radius:5px;
+    transition: all 0.3s ease;
+}
+label[b-58rdjert4f] {
+    margin-left: 10px;
+    color: white;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.loginForm[b-58rdjert4f] {
+    padding: 5rem 0 5rem 0;
+}
+
+a[b-58rdjert4f] {
+    cursor: zoom-in;
+    width: 140px;
+    height: 26px;
+    text-align: center;
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: ghostwhite;
+    text-transform: uppercase;
+    font-family: "open sans", sans-serif;
+    position: relative;
+    top: 30%;
+    line-height: 1.7em;
+    left: 30%;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0);
+    background: none;
+    transition: all 0.2s ease-in-out;
+}
+a[b-58rdjert4f]::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: -2px;
+    background: ghostwhite;
+    width: 142px;
+    height: 30px;
+    z-index: -1;
+    transform: scale(0);
+    transform-origin: bottom left;
+    transition: all 0.3s ease-in-out 0.1s;
+}
+a[b-58rdjert4f]::after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background: ghostwhite;
+    width: 142px;
+    height: 30px;
+    z-index: -2;
+    transform: scale(0);
+    transform-origin: top right;
+    transition: all 0.3s ease-in-out 0.1s;
+}
+a:hover[b-58rdjert4f] {
+    box-shadow: 0 0 0 2px ghostwhite;
+    transition: all 0.4s ease-out;
+    text-decoration: none;
+    color: ghostwhite;
+}
+a:hover[b-58rdjert4f]::before {
+    transform: scale(1);
+}
+a:hover[b-58rdjert4f]::after {
+    transform: scale(1);
+}
 /* /Pages/Friend.razor.rz.scp.css */
 .logo[b-3m8hozqle2] {
     font-family: "Fira Code", sans-serif;
@@ -495,6 +703,214 @@ a:hover[b-5y1hkpzxib]::before {
     transform: scale(1);
 }
 a:hover[b-5y1hkpzxib]::after {
+    transform: scale(1);
+}
+/* /Pages/GroupInfo.razor.rz.scp.css */
+.logo[b-0o9vtdl3r2] {
+    font-family: "Fira Code", sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.textbs h2[b-0o9vtdl3r2],p[b-0o9vtdl3r2],h5[b-0o9vtdl3r2]{
+    cursor: crosshair;
+}
+.field[b-0o9vtdl3r2] {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+input[b-0o9vtdl3r2], textarea[b-0o9vtdl3r2] {
+    padding: 9px;
+    border-radius:3px;
+    border:solid 1px #11104a;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: linear-gradient(to right, ghostwhite, #11104a);
+
+    transition:all 1.5s ease;
+}
+
+input:hover[b-0o9vtdl3r2] {
+    padding: 9px;
+    border-radius:3px;
+    box-shadow: inset 0 0 10px #11104a;
+    transition: all 0.3s ease;
+}
+input[b-0o9vtdl3r2] {
+    padding: 9px;
+    border-radius:5px;
+    transition: all 0.3s ease;
+}
+label[b-0o9vtdl3r2] {
+    margin-left: 10px;
+    color: white;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.loginForm[b-0o9vtdl3r2] {
+    padding: 5rem 0 5rem 0;
+}
+
+a[b-0o9vtdl3r2] {
+    cursor: zoom-in;
+    width: 140px;
+    height: 26px;
+    text-align: center;
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: ghostwhite;
+    text-transform: uppercase;
+    font-family: "open sans", sans-serif;
+    position: relative;
+    top: 30%;
+    line-height: 1.7em;
+    left: 30%;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0);
+    background: none;
+    transition: all 0.2s ease-in-out;
+}
+a[b-0o9vtdl3r2]::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: -2px;
+    background: ghostwhite;
+    width: 142px;
+    height: 30px;
+    z-index: -1;
+    transform: scale(0);
+    transform-origin: bottom left;
+    transition: all 0.3s ease-in-out 0.1s;
+}
+a[b-0o9vtdl3r2]::after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background: ghostwhite;
+    width: 142px;
+    height: 30px;
+    z-index: -2;
+    transform: scale(0);
+    transform-origin: top right;
+    transition: all 0.3s ease-in-out 0.1s;
+}
+a:hover[b-0o9vtdl3r2] {
+    box-shadow: 0 0 0 2px ghostwhite;
+    transition: all 0.4s ease-out;
+    text-decoration: none;
+    color: ghostwhite;
+}
+a:hover[b-0o9vtdl3r2]::before {
+    transform: scale(1);
+}
+a:hover[b-0o9vtdl3r2]::after {
+    transform: scale(1);
+}
+/* /Pages/Groups.razor.rz.scp.css */
+.logo[b-o6cuw3rm22] {
+    font-family: "Fira Code", sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.textbs h2[b-o6cuw3rm22],p[b-o6cuw3rm22],h5[b-o6cuw3rm22]{
+    cursor: crosshair;
+}
+.field[b-o6cuw3rm22] {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+input[b-o6cuw3rm22], textarea[b-o6cuw3rm22] {
+    padding: 9px;
+    border-radius:3px;
+    border:solid 1px #11104a;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: linear-gradient(to right, ghostwhite, #11104a);
+
+    transition:all 1.5s ease;
+}
+
+input:hover[b-o6cuw3rm22] {
+    padding: 9px;
+    border-radius:3px;
+    box-shadow: inset 0 0 10px #11104a;
+    transition: all 0.3s ease;
+}
+input[b-o6cuw3rm22] {
+    padding: 9px;
+    border-radius:5px;
+    transition: all 0.3s ease;
+}
+label[b-o6cuw3rm22] {
+    margin-left: 10px;
+    color: white;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.loginForm[b-o6cuw3rm22] {
+    padding: 5rem 0 5rem 0;
+}
+
+a[b-o6cuw3rm22] {
+    cursor: zoom-in;
+    width: 140px;
+    height: 26px;
+    text-align: center;
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: ghostwhite;
+    text-transform: uppercase;
+    font-family: "open sans", sans-serif;
+    position: relative;
+    top: 30%;
+    line-height: 1.7em;
+    left: 30%;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0);
+    background: none;
+    transition: all 0.2s ease-in-out;
+}
+a[b-o6cuw3rm22]::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: -2px;
+    background: ghostwhite;
+    width: 142px;
+    height: 30px;
+    z-index: -1;
+    transform: scale(0);
+    transform-origin: bottom left;
+    transition: all 0.3s ease-in-out 0.1s;
+}
+a[b-o6cuw3rm22]::after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background: ghostwhite;
+    width: 142px;
+    height: 30px;
+    z-index: -2;
+    transform: scale(0);
+    transform-origin: top right;
+    transition: all 0.3s ease-in-out 0.1s;
+}
+a:hover[b-o6cuw3rm22] {
+    box-shadow: 0 0 0 2px ghostwhite;
+    transition: all 0.4s ease-out;
+    text-decoration: none;
+    color: ghostwhite;
+}
+a:hover[b-o6cuw3rm22]::before {
+    transform: scale(1);
+}
+a:hover[b-o6cuw3rm22]::after {
     transform: scale(1);
 }
 /* /Pages/Index.razor.rz.scp.css */
@@ -1097,6 +1513,214 @@ a:hover[b-xa5acrxc90]::before {
     transform: scale(1);
 }
 a:hover[b-xa5acrxc90]::after {
+    transform: scale(1);
+}
+/* /Pages/Tasks.razor.rz.scp.css */
+.logo[b-7ix0rewx8i] {
+    font-family: "Fira Code", sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.textbs h2[b-7ix0rewx8i],p[b-7ix0rewx8i],h5[b-7ix0rewx8i]{
+    cursor: crosshair;
+}
+.field[b-7ix0rewx8i] {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+input[b-7ix0rewx8i], textarea[b-7ix0rewx8i] {
+    padding: 9px;
+    border-radius:3px;
+    border:solid 1px #11104a;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: linear-gradient(to right, ghostwhite, #11104a);
+
+    transition:all 1.5s ease;
+}
+
+input:hover[b-7ix0rewx8i] {
+    padding: 9px;
+    border-radius:3px;
+    box-shadow: inset 0 0 10px #11104a;
+    transition: all 0.3s ease;
+}
+input[b-7ix0rewx8i] {
+    padding: 9px;
+    border-radius:5px;
+    transition: all 0.3s ease;
+}
+label[b-7ix0rewx8i] {
+    margin-left: 10px;
+    color: white;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.loginForm[b-7ix0rewx8i] {
+    padding: 5rem 0 5rem 0;
+}
+
+a[b-7ix0rewx8i] {
+    cursor: zoom-in;
+    width: 140px;
+    height: 26px;
+    text-align: center;
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: ghostwhite;
+    text-transform: uppercase;
+    font-family: "open sans", sans-serif;
+    position: relative;
+    top: 30%;
+    line-height: 1.7em;
+    left: 30%;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0);
+    background: none;
+    transition: all 0.2s ease-in-out;
+}
+a[b-7ix0rewx8i]::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: -2px;
+    background: ghostwhite;
+    width: 142px;
+    height: 30px;
+    z-index: -1;
+    transform: scale(0);
+    transform-origin: bottom left;
+    transition: all 0.3s ease-in-out 0.1s;
+}
+a[b-7ix0rewx8i]::after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background: ghostwhite;
+    width: 142px;
+    height: 30px;
+    z-index: -2;
+    transform: scale(0);
+    transform-origin: top right;
+    transition: all 0.3s ease-in-out 0.1s;
+}
+a:hover[b-7ix0rewx8i] {
+    box-shadow: 0 0 0 2px ghostwhite;
+    transition: all 0.4s ease-out;
+    text-decoration: none;
+    color: ghostwhite;
+}
+a:hover[b-7ix0rewx8i]::before {
+    transform: scale(1);
+}
+a:hover[b-7ix0rewx8i]::after {
+    transform: scale(1);
+}
+/* /Pages/ViewTask.razor.rz.scp.css */
+.logo[b-zf0ol6zhc0] {
+    font-family: "Fira Code", sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.textbs h2[b-zf0ol6zhc0],p[b-zf0ol6zhc0],h5[b-zf0ol6zhc0]{
+    cursor: crosshair;
+}
+.field[b-zf0ol6zhc0] {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+input[b-zf0ol6zhc0], textarea[b-zf0ol6zhc0] {
+    padding: 9px;
+    border-radius:3px;
+    border:solid 1px #11104a;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: linear-gradient(to right, ghostwhite, #11104a);
+
+    transition:all 1.5s ease;
+}
+
+input:hover[b-zf0ol6zhc0] {
+    padding: 9px;
+    border-radius:3px;
+    box-shadow: inset 0 0 10px #11104a;
+    transition: all 0.3s ease;
+}
+input[b-zf0ol6zhc0] {
+    padding: 9px;
+    border-radius:5px;
+    transition: all 0.3s ease;
+}
+label[b-zf0ol6zhc0] {
+    margin-left: 10px;
+    color: white;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.loginForm[b-zf0ol6zhc0] {
+    padding: 5rem 0 5rem 0;
+}
+
+a[b-zf0ol6zhc0] {
+    cursor: zoom-in;
+    width: 140px;
+    height: 26px;
+    text-align: center;
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: ghostwhite;
+    text-transform: uppercase;
+    font-family: "open sans", sans-serif;
+    position: relative;
+    top: 30%;
+    line-height: 1.7em;
+    left: 30%;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0);
+    background: none;
+    transition: all 0.2s ease-in-out;
+}
+a[b-zf0ol6zhc0]::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: -2px;
+    background: ghostwhite;
+    width: 142px;
+    height: 30px;
+    z-index: -1;
+    transform: scale(0);
+    transform-origin: bottom left;
+    transition: all 0.3s ease-in-out 0.1s;
+}
+a[b-zf0ol6zhc0]::after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background: ghostwhite;
+    width: 142px;
+    height: 30px;
+    z-index: -2;
+    transform: scale(0);
+    transform-origin: top right;
+    transition: all 0.3s ease-in-out 0.1s;
+}
+a:hover[b-zf0ol6zhc0] {
+    box-shadow: 0 0 0 2px ghostwhite;
+    transition: all 0.4s ease-out;
+    text-decoration: none;
+    color: ghostwhite;
+}
+a:hover[b-zf0ol6zhc0]::before {
+    transform: scale(1);
+}
+a:hover[b-zf0ol6zhc0]::after {
     transform: scale(1);
 }
 /* /Shared/MainLayout.razor.rz.scp.css */

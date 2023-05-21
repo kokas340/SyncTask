@@ -1,0 +1,20 @@
+@page "/Tasks"
+@inject NavigationManager NavMgr
+
+<AuthorizeView>
+    <Authorized>
+        <div>
+            <button @onclick="()=> CreateTask()">Create Task</button>
+        </div>
+    </Authorized>
+    <NotAuthorized>
+        <p>You are not logged in.</p>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code { 
+    private async Task CreateTask()
+    {
+        NavMgr.NavigateTo("/CreateTask");
+    }
+}

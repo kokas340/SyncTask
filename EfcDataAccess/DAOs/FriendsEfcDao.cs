@@ -61,7 +61,7 @@ public class FriendsEfcDao
         {
             id = f.id,
             username = f.username,
-            fullName = f.fullName,
+            fullName = f.fullname,
             email = f.email,
             
         }).ToList();
@@ -94,7 +94,7 @@ public class FriendsEfcDao
             {
                 id = friend.id,
                 username = friend.username,
-                fullName = friend.fullName,
+                fullName = friend.fullname,
                 email = friend.email,
                 friendRequstId = friendRequest.id
             };
@@ -111,7 +111,7 @@ public class FriendsEfcDao
         {
             id = f.id,
             username = f.username,
-            fullName = f.fullName,
+            fullName = f.fullname,
             email = f.email,
             
         }).ToList();
@@ -183,7 +183,7 @@ public class FriendsEfcDao
         {
             id = friend.id,
             username = friend.username,
-            fullName = friend.fullName,
+            fullName = friend.fullname,
             email = friend.email,
         };
 

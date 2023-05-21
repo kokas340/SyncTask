@@ -1,0 +1,57 @@
+@page "/CreateTask"
+@using global::Shared.Dtos
+@using BlazorSyncTask.Services
+@inject NavigationManager NavMgr
+@inject ITasksService TasksService
+
+<AuthorizeView>
+    <Authorized>
+       <h3>Create Task</h3>
+    
+       <div>
+           <label for="name">Name:</label>
+           <input id="name" @bind="@createTaskDto.name" />
+       </div>
+       
+       <div>
+           <label for="description">Description:</label>
+           <input id="description" @bind="@createTaskDto.description" />
+       </div>
+       
+       <div>
+           <label for="startDate">Start Date:</label>
+           <input id="startDate" type="date" @bind="@startD" />
+       </div>
+       
+       <div>
+           <label for="endDate">End Date:</label>
+           <input id="endDate" type="date" @bind="@endD" />
+       </div>
+       
+       <button @onclick="CreateTasks">Create</button>
+    </Authorized>
+    <NotAuthorized>
+        <p>You are not logged in.</p>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+    [CascadingParameter]
+    public static Task<AuthenticationState> AuthState { get; set; } = null!;
+    private CreateTaskDto createTaskDto = new CreateTaskDto();
+    DateTime startD, endD;
+    [Inject]
+    public AuthenticationStateProvider AuthenticationStateProvider { get; set; }
+    
+    private async Task CreateTasks() {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        createTaskDto.userId = Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value);
+    
+      
+        createTaskDto.startDate = startD.ToString();
+        createTaskDto.endDate = endD.ToString();
+        TasksService.CreateTask(createTaskDto);
+    }
+
+    
+}

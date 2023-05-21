@@ -21,7 +21,7 @@ public class UserEfcDao
             username = dto.username,
             password = hashPassword,
             email = dto.email,
-            fullName = dto.fullName,
+            fullname = dto.fullName,
         };
 
         EntityEntry<UserT> newUser = await context.usert.AddAsync(toCreate);
