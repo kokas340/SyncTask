@@ -1,10 +1,14 @@
 @page "/Tasks"
+@using global::Shared.Dtos
+@using BlazorSyncTask.Services
 @inject NavigationManager NavMgr
+
+<h3>All Tasks</h3>
 
 <AuthorizeView>
     <Authorized>
         <div>
-            <button @onclick="()=> CreateTask()">Create Task</button>
+            <button @onclick="CreateTask">Create Task</button>
         </div>
     </Authorized>
     <NotAuthorized>
@@ -12,7 +16,40 @@
     </NotAuthorized>
 </AuthorizeView>
 
+@if (tasks != null)
+{
+    <ul>
+        @foreach (var task in tasks)
+        {
+            <li>@task.id -@task.name - @task.description - @task.startDate - @task.endDate</li>
+        }
+    </ul>
+}
+else
+{
+    <p>Loading tasks...</p>
+}
+
 @code { 
+    [CascadingParameter]
+    public static Task<AuthenticationState> AuthState { get; set; } = null!;
+    [Inject]
+    private ITasksService TasksService { get; set; }
+    [Inject]
+    public AuthenticationStateProvider AuthenticationStateProvider { get; set; }
+    private List<TaskDTO> tasks;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadTasks();
+    }
+
+    private async Task LoadTasks()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        tasks = await TasksService.GetAllTasksByUserId(Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value));
+    }
+
     private async Task CreateTask()
     {
         NavMgr.NavigateTo("/CreateTask");

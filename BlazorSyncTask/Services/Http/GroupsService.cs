@@ -47,12 +47,16 @@ public class GroupsService: IGroupsService
             throw new Exception(responseContent);
         }
 
-        List<GroupDTO> groups = JsonSerializer.Deserialize<List<GroupDTO>>(responseContent, new JsonSerializerOptions
+        List<GroupDTO> allGroups = JsonSerializer.Deserialize<List<GroupDTO>>(responseContent, new JsonSerializerOptions
         {
             PropertyNameCaseInsensitive = true
         }) ?? throw new InvalidOperationException();
-    
-        return groups;
+
+        List<GroupDTO> acceptedGroups = allGroups
+            .Where(group => group.members.Any(member => member.User.id == userId && member.Accepted))
+            .ToList();
+
+        return acceptedGroups;
     }
 
     public async Task<GroupDTO> GetGroupById(int groupId)
@@ -72,5 +76,57 @@ public class GroupsService: IGroupsService
         }) ?? throw new InvalidOperationException();
 
         return group;
+    }
+    
+    public async Task<List<GroupInviteDTO>> GetAllGroupInvitesByUserId(int userId)
+    {
+        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", JwtAuthService.Jwt);
+        HttpResponseMessage response = await client.GetAsync("http://localhost:8080/api/groups/user/"+userId+"/invites");
+        string responseContent = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(responseContent);
+        }
+        List<GroupInviteDTO> pendingGroups = JsonSerializer.Deserialize<List<GroupInviteDTO>>(responseContent, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        }) ?? throw new InvalidOperationException();
+        return pendingGroups;
+    }
+
+    public async Task AcceptInvite(int userId, int invite)
+    {
+        GroupOptionsDTOP dto = new GroupOptionsDTOP
+        {
+            userId = userId,
+            groupId = invite
+        };
+        string taskAsJson = JsonSerializer.Serialize(dto);
+        StringContent content = new(taskAsJson, Encoding.UTF8, "application/json");
+        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", JwtAuthService.Jwt);
+        HttpResponseMessage response = await client.PostAsync("http://localhost:8080/api/groups/"+invite+"/members/"+userId+"/accept", content);
+        string responseContent = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(responseContent);
+        }
+    }
+
+    public async Task DeclineInvite(int userId, int invite)
+    {
+        GroupOptionsDTOP dto = new GroupOptionsDTOP
+        {
+            userId = userId,
+            groupId = invite
+        };
+        string taskAsJson = JsonSerializer.Serialize(dto);
+        StringContent content = new(taskAsJson, Encoding.UTF8, "application/json");
+        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", JwtAuthService.Jwt);
+        HttpResponseMessage response = await client.PostAsync("http://localhost:8080/api/groups/"+invite+"/members/2"+userId+"/deny", content);
+        string responseContent = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(responseContent);
+        }
     }
 }

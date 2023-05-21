@@ -39,7 +39,8 @@
     [CascadingParameter]
     public static Task<AuthenticationState> AuthState { get; set; } = null!;
     private CreateTaskDto createTaskDto = new CreateTaskDto();
-    DateTime startD, endD;
+    DateTime startD=DateTime.Now.Date, endD = DateTime.Now.Date;
+    
     [Inject]
     public AuthenticationStateProvider AuthenticationStateProvider { get; set; }
     
@@ -51,6 +52,7 @@
         createTaskDto.startDate = startD.ToString();
         createTaskDto.endDate = endD.ToString();
         TasksService.CreateTask(createTaskDto);
+        NavMgr.NavigateTo("/Tasks");
     }
 
     

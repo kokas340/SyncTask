@@ -64,8 +64,5 @@ else
         var query = QueryHelpers.ParseQuery(uri.Query);
         Id = query["id"];
         group = await GroupsService.GetGroupById(Convert.ToInt32(Id));
-      
     }
-
-  
 }

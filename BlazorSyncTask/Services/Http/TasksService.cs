@@ -43,4 +43,22 @@ public class TasksService: ITasksService
         }
       
     }
+
+    public async Task<List<TaskDTO>> GetAllTasksByUserId(int userId)
+    {
+        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", JwtAuthService.Jwt);
+        HttpResponseMessage response = await client.GetAsync("http://localhost:8080/api/tasks/byUser/"+userId);
+        string responseContent = await response.Content.ReadAsStringAsync();
+    
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(responseContent);
+        }
+
+        List<TaskDTO> pendingUsers = JsonSerializer.Deserialize<List<TaskDTO>>(responseContent, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        }) ?? throw new InvalidOperationException();
+        return pendingUsers;
+    }
 }

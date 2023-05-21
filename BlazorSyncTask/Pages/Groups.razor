@@ -8,58 +8,118 @@
 
 <AuthorizeView>
     <Authorized>
-        <div>
-            <button @onclick="()=> CreateGroup()">Create Group</button>
-        </div>
-         @if (groups != null)
-                {
-                    <div>
-                        <h3>Groups:</h3>
-                        @foreach (var group in groups)
-                        {
-                            <p>--------------------------------</p>
-                            <h4>@group.id - @group.groupName</h4>
-                            <p>Members: @group.members.Count</p>
-                            <p>Tasks: @group.tasks.Count</p>
-                            <button @onclick="() => OpenGroupInfo(group.id)">View Details</button>
-                        }
-                    </div>
-                }
+   <div>
+       <button @onclick="CreateGroup">Create Group</button>
+   </div>
+   
+   @if (groups != null || pendingInvites != null)
+   {
+       <div style="display: flex;">
+           @if (groups != null)
+           {
+               <div>
+                   <h3>Groups:</h3>
+                   @foreach (var group in groups)
+                   {
+                       <p>--------------------------------</p>
+                       <h4>@group.id - @group.groupName</h4>
+                       <p>Members: @group.members.Count</p>
+                       <p>Tasks: @group.tasks.Count</p>
+                       <button @onclick="() => OpenGroupInfo(group.id)">View Details</button>
+                   }
+               </div>
+           }
+   
+           @if (pendingInvites != null && pendingInvites.Any())
+           {
+               <div>
+                   <h3>Pending Invites:</h3>
+                   @foreach (var invite in pendingInvites)
+                   {
+                       <p>//////////////////////////////</p>
+                       <h4>@invite.Group.id - @invite.Group.groupName</h4>
+                       <p>Owner: @invite.Group.owner</p>
+                       <button @onclick="() => AcceptInvite(invite.Group.id)">Accept</button>
+                       <button @onclick="() => DeclineInvite(invite.Group.id)">Decline</button>
+                   }
+               </div>
+           }
+       </div>
+   }
+   else
+   {
+       <p>No groups or pending invites available.</p>
+   }
     </Authorized>
     <NotAuthorized>
         <p>You are not logged in.</p>
     </NotAuthorized>
 </AuthorizeView>
 
-@code { 
+@code {
+
     [CascadingParameter]
     public static Task<AuthenticationState> AuthState { get; set; } = null!;
+
     [Inject]
     private IGroupsService GroupsService { get; set; }
+
     [Inject]
     public AuthenticationStateProvider AuthenticationStateProvider { get; set; }
-    [Parameter] 
+
+    [Parameter]
     public string Id { get; set; }
+
     private List<GroupDTO> groups;
-    
+    public List<GroupInviteDTO> pendingInvites;
+
     protected override async Task OnInitializedAsync()
     {
         await getGoups();
+        await getPendingInvites();
     }
-    
+
+    private async Task getPendingInvites()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        pendingInvites = await GroupsService.GetAllGroupInvitesByUserId(Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value));
+    }
+
     private async Task getGoups()
     {
         var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         groups = await GroupsService.GetAllGroupsByUserId(Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value));
     }
-    
+
     private async Task CreateGroup()
     {
         NavigationManager.NavigateTo("/CreateGroup");
     }
-    
+
     private void OpenGroupInfo(int groupId)
     {
-        NavigationManager.NavigateTo($"/GroupInfo?id="+groupId+"");
+        NavigationManager.NavigateTo($"/GroupInfo?id=" + groupId + "");
     }
+
+    private async Task getPendingRequests()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        groups = await GroupsService.GetAllGroupsByUserId(Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value));
+    }
+
+    private async Task AcceptInvite(int invite)
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        int userId=Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value);
+        await GroupsService.AcceptInvite( userId,invite);
+    }
+
+    private async Task DeclineInvite(int invite)
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        int userId=Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value);
+        await GroupsService.DeclineInvite( userId,invite);
+        
+    }
+
 }
