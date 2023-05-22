@@ -6,16 +6,24 @@
 
 <AuthorizeView>
     <Authorized>
-       <h3>Create Group</h3>
-    
-       <div>
-           <label for="name">Group Name:</label>
-           <input id="name" @bind="@createGroupDto.groupName" />
-       </div>
+        @if (showLoading)
+        {
+            <div class="loading-screen">
+                <div class="spinner"></div>
+                <div>Loading...</div>
+            </div>
+        }
+        else
+        {
+            <h3>Create Group</h3>
+
+            <div>
+                <label for="name">Group Name:</label>
+                <input id="name" @bind="@createGroupDto.groupName"/>
+            </div>
+            <button @onclick="CreateGroups">Create</button>
+        }
        
-  
-       
-       <button @onclick="CreateGroups">Create</button>
     </Authorized>
     <NotAuthorized>
         <p>You are not logged in.</p>
@@ -27,6 +35,8 @@
     public static Task<AuthenticationState> AuthState { get; set; } = null!;
     private CreateGroupDto createGroupDto = new CreateGroupDto();
     DateTime startD, endD;
+    private bool showLoading = false;
+
     [Inject]
     public AuthenticationStateProvider AuthenticationStateProvider { get; set; }
     
@@ -35,6 +45,16 @@
         createGroupDto.owner = Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value);
 
         await GroupsService.CreateGroup(createGroupDto);
-        NavMgr.NavigateTo("/Groups");
+        await ShowLoading();
+    }
+    private async Task ShowLoading()
+    {
+        //loading test
+        showLoading = true;
+        StateHasChanged();
+        await Task.Delay(500);
+        showLoading = false;
+        StateHasChanged();
+        NavMgr.NavigateTo($"/Groups");
     }
 }

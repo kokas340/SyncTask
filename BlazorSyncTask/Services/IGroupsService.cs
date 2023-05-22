@@ -12,4 +12,6 @@ public interface IGroupsService
     Task<List<GroupInviteDTO>> GetAllGroupInvitesByUserId(int userId);
     Task AcceptInvite(int userId, int invite);
     Task DeclineInvite(int userId, int invite);
+    Task CreateTaskGroup(CreateTaskDto createTaskDto, int groupId);
+    Task LeaveGroup(int userId, int gorupId);
 }

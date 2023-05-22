@@ -21,7 +21,7 @@
     <ul>
         @foreach (var task in tasks)
         {
-            <li>@task.id -@task.name - @task.description - @task.startDate - @task.endDate</li>
+            <li>@task.id -@task.name - @task.description - @task.startDate - @task.endDate  <button @onclick="() => DeleteTask(task.id )">Delete Task</button><button @onclick="() => EditTask(task.id )">Edit Task</button></li>
         }
     </ul>
 }
@@ -54,4 +54,19 @@ else
     {
         NavMgr.NavigateTo("/CreateTask");
     }
+    private async Task DeleteTask(int taskId)
+    {
+        await TasksService.DeleteTask(taskId);
+        await LoadTasks();
+        StateHasChanged();
+        
+    }
+
+    private async Task EditTask(int taskId)
+    {
+   
+        NavMgr.NavigateTo($"/EditTask?id=" + taskId + "");
+     
+    }
+
 }

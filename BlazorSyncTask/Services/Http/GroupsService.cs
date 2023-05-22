@@ -32,7 +32,7 @@ public class GroupsService: IGroupsService
      
         if (!response.IsSuccessStatusCode)
         {
-            throw new Exception(responseContent);
+            //throw new Exception(responseContent);
         }
     }
 
@@ -122,7 +122,35 @@ public class GroupsService: IGroupsService
         string taskAsJson = JsonSerializer.Serialize(dto);
         StringContent content = new(taskAsJson, Encoding.UTF8, "application/json");
         client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", JwtAuthService.Jwt);
-        HttpResponseMessage response = await client.PostAsync("http://localhost:8080/api/groups/"+invite+"/members/2"+userId+"/deny", content);
+        HttpResponseMessage response = await client.PostAsync("http://localhost:8080/api/groups/"+invite+"/members/"+userId+"/deny", content);
+        string responseContent = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(responseContent);
+        }
+    }
+    
+    public async Task CreateTaskGroup(CreateTaskDto createTaskDto,int groupId)
+    {
+        string taskAsJson = JsonSerializer.Serialize(createTaskDto);
+        StringContent content = new(taskAsJson, Encoding.UTF8, "application/json");
+        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", JwtAuthService.Jwt);
+        HttpResponseMessage response = await client.PostAsync("http://localhost:8080/api/groups/"+groupId+"/"+createTaskDto.userId+"/task/", content);
+        string responseContent = await response.Content.ReadAsStringAsync();
+     
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(responseContent);
+        }
+    }
+    
+    public async Task LeaveGroup(int userId, int groupId)
+    {
+  
+        string send = JsonSerializer.Serialize(userId);
+        StringContent content = new(send, Encoding.UTF8, "application/json");
+        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", JwtAuthService.Jwt);
+        HttpResponseMessage response = await client.PostAsync("http://localhost:8080/api/groups/"+groupId+"/members/"+userId+"/leave", content);
         string responseContent = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {

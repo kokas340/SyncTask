@@ -7,7 +7,8 @@
 @using Microsoft.AspNetCore.WebUtilities
 
 <h3>Group Information</h3>
-
+<button @onclick="() => AddTaskGroup()">Add Task</button>
+ <button @onclick="() => LeaveGroup()">Leave Group</button>
 @if (group != null)
 {
     <h4>Group Name: @group.groupName</h4>
@@ -64,5 +65,16 @@ else
         var query = QueryHelpers.ParseQuery(uri.Query);
         Id = query["id"];
         group = await GroupsService.GetGroupById(Convert.ToInt32(Id));
+    }
+
+    private void AddTaskGroup()
+    {
+        NavigationManager.NavigateTo($"/AddTaskGroup?id=" + Convert.ToInt32(Id) + "");
+    }
+    private async Task LeaveGroup()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        await GroupsService.LeaveGroup( Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value),Convert.ToInt32(Id));
+        NavigationManager.NavigateTo($"/Groups");
     }
 }

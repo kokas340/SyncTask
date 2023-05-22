@@ -2643,3 +2643,4 @@ C:\Users\jacks\Documents\GitHub\SyncTask\BlazorSyncTask\obj\Debug\net7.0\scopedc
 C:\Users\jacks\Documents\GitHub\SyncTask\BlazorSyncTask\obj\Debug\net7.0\scopedcss\Pages\CreateGroup.razor.rz.scp.css
 C:\Users\jacks\Documents\GitHub\SyncTask\BlazorSyncTask\obj\Debug\net7.0\scopedcss\Pages\Groups.razor.rz.scp.css
 C:\Users\jacks\Documents\GitHub\SyncTask\BlazorSyncTask\obj\Debug\net7.0\scopedcss\Pages\GroupInfo.razor.rz.scp.css
+C:\Users\jacks\Documents\GitHub\SyncTask\BlazorSyncTask\obj\Debug\net7.0\scopedcss\Pages\AddTaskGroup.razor.rz.scp.css

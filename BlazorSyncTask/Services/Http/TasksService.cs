@@ -61,4 +61,35 @@ public class TasksService: ITasksService
         }) ?? throw new InvalidOperationException();
         return pendingUsers;
     }
+
+    public async Task DeleteTask(int taskId)
+    {
+        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", JwtAuthService.Jwt);
+        HttpResponseMessage response = await client.DeleteAsync("http://localhost:8080/api/tasks/"+taskId);
+        string responseContent = await response.Content.ReadAsStringAsync();
+    
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(responseContent);
+        }
+    }
+
+    public async Task<TaskDTO> GetTaskById(int taskId)
+    {
+        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", JwtAuthService.Jwt);
+        HttpResponseMessage response = await client.GetAsync("http://localhost:8080/api/tasks/" + taskId);
+        string responseContent = await response.Content.ReadAsStringAsync();
+
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(responseContent);
+        }
+
+        TaskDTO task = JsonSerializer.Deserialize<TaskDTO>(responseContent, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        }) ?? throw new InvalidOperationException();
+
+        return task;
+    }
 }

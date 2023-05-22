@@ -1,12 +1,13 @@
-@page "/CreateTask"
+@page "/EditTask"
 @using global::Shared.Dtos
 @using BlazorSyncTask.Services
+@using Microsoft.AspNetCore.WebUtilities
 @inject NavigationManager NavMgr
 @inject ITasksService TasksService
 
 <AuthorizeView>
     <Authorized>
-       <h3>Create Task</h3>
+       <h3>Edit Task</h3>
        @if (showLoading)
             {
                 <div class="loading-screen">
@@ -36,7 +37,7 @@
                <input id="endDate" type="date" @bind="@endD"/>
            </div>
 
-           <button @onclick="CreateTasks">Create</button>
+           <button @onclick="EditTasks">Edit</button>
        }
     </Authorized>
     <NotAuthorized>
@@ -50,17 +51,29 @@
     private CreateTaskDto createTaskDto = new CreateTaskDto();
     DateTime startD=DateTime.Now.Date, endD = DateTime.Now.Date;
     private bool showLoading = false;
+    private string Id;
     [Inject]
     public AuthenticationStateProvider AuthenticationStateProvider { get; set; }
     
-    private async Task CreateTasks() {
-        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-        createTaskDto.userId = Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value);
+    protected override async Task OnInitializedAsync()
+    {
+        var uri = new Uri(NavMgr.Uri);
+        var query = QueryHelpers.ParseQuery(uri.Query);
+        Id = query["id"];
+        await TasksService.GetTaskById(Convert.ToInt32(Id));
+        
+    }
     
-      
-        createTaskDto.startDate = startD.ToString();
-        createTaskDto.endDate = endD.ToString();
-        TasksService.CreateTask(createTaskDto);
+    private async Task EditTasks() {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        //USER ID
+        Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value);
+        var uri = new Uri(NavMgr.Uri);
+        var query = QueryHelpers.ParseQuery(uri.Query);
+        Id = query["id"];
+
+
+        await ShowLoading();
         NavMgr.NavigateTo("/Tasks");
     }
     private async Task ShowLoading()
