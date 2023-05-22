@@ -4,6 +4,18 @@
     font-weight: bold;
     font-size: 20px;
 }
+.tit {
+    font-family: "Fira Code", sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 30px;
+}
+.sub {
+    font-family: "Fira Code", sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 15px;
+}
 
 .textbs h2,p,h5{
     cursor: crosshair;
@@ -101,3 +113,4 @@ a:hover::before {
 a:hover::after {
     transform: scale(1);
 }
+

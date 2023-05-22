@@ -6,60 +6,50 @@
 <AuthorizeView>
     <NotAuthorized>
         <div class="row textbs" style="padding-top: 2rem; padding-bottom: 2rem; display: flex; flex-direction: revert;">
-            <div class="offset-md-1 col-md-6">
-                <h2>Wish to Sign-Up?</h2>
+            <div class="offset-md-1 col-md-6 tit">
+                <p>Wish to Sign-Up?</p>
             </div>
             <div class="offset-md-3 col-md-2 logo">
                 <p>synctask</p>
             </div>
-            <div class="offset-md-1 col-md-6">
-                <h5>Sign up and start your journey</h5>
+            <div class="offset-md-1 col-md-6 sub">
+                <p>Sign up and start your journey</p>
+            </div>
+            <div class="offset-md-1 col-md-6 sub">
+                           <img src="reg.png" class="img-fluid" alt="Image description">
+
+                        </div>
+        </div>
+        
+        
+        <div class="tab-panel bg-transparent" id="register">
+            <div class="card bg-transparent border-0">
+                <div class="card-body">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label text-white" >Name</label>
+                            <input type="text" class="form-control" placeholder="Enter Your Name" @bind="@fullName" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label text-white" >Username</label>
+                            <input type="text" class="form-control" placeholder="Enter Your Username" @bind="@userName" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label text-white">Email</label>
+                            <input type="email" class="form-control text-white" placeholder="Enter Your Email" @bind="@email">
+                            <div class="invalid-feedback">
+                                Enter a valid email.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label text-white">Password</label>
+                            <input type="password" class="form-control " placeholder="Enter Password" @bind="@password" />
+                        </div>
+                        <button type="button" class="btn btn-primary btn-rounded btn-shadow" style="background-color: #00aeef;" @onclick="@OnRegisterClicked">Create Account</button>
+                    </form>
+                </div>
             </div>
         </div>
-        <TabPanel Name="register">
-                    <Card>
-
-                        <CardBody>
-                            <Validations @ref="@registerValidationsRef" Mode="ValidationMode.Manual" ValidateOnLoad="false">
-                                <Validation Validator="ValidationRule.IsNotEmpty">
-                                    <Field>
-                                        <FieldLabel style="color: #1a1e21">Name</FieldLabel>
-                                        <TextEdit @bind-Text="@fullName" Placeholder="Enter Your Name"/>
-                                    </Field>
-                                </Validation>
-                                <Validation Validator="ValidationRule.IsNotEmpty">
-                                    <Field>
-                                        <FieldLabel style="color: #1a1e21">Username</FieldLabel>
-                                        <TextEdit @bind-Text="@userName" Placeholder="Enter Your Username"/>
-                                    </Field>
-                                </Validation>
-                                <Validation Validator="ValidationRule.IsEmail">
-                                    <Field>
-                                        <FieldLabel style="color: #1a1e21">Email</FieldLabel>
-                                        <TextEdit @bind-Text="@email" Placeholder="Enter Your Email">
-                                            <Feedback>
-                                                <ValidationNone>Please Enter your email.</ValidationNone>
-                                                <ValidationSuccess>Email is valid</ValidationSuccess>
-                                                <ValidationError>Enter Valid email </ValidationError>
-                                            </Feedback>
-                                        </TextEdit>
-                                    </Field>
-                                </Validation>
-                                <Validation Validator="ValidationRule.IsNotEmpty">
-                                    <Field>
-                                        <FieldLabel style="color: #1a1e21">Password</FieldLabel>
-                                        <TextEdit @bind-Text="@password" Placeholder="Enter Password"/>
-                                    </Field>
-                                </Validation>
-                            </Validations>
-                        </CardBody>
-                        <CardBody>
-                            <Button Color="Color.Primary" Clicked="@OnRegisterClicked">
-                                Create Account
-                            </Button>
-                        </CardBody>
-                    </Card>
-                </TabPanel>
      
    
 

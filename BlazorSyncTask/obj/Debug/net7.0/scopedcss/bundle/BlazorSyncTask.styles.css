@@ -1418,6 +1418,18 @@ a:hover[b-uejfjchll3]::after {
     font-weight: bold;
     font-size: 20px;
 }
+.tit[b-xa5acrxc90] {
+    font-family: "Fira Code", sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 30px;
+}
+.sub[b-xa5acrxc90] {
+    font-family: "Fira Code", sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 15px;
+}
 
 .textbs h2[b-xa5acrxc90],p[b-xa5acrxc90],h5[b-xa5acrxc90]{
     cursor: crosshair;
@@ -1515,6 +1527,7 @@ a:hover[b-xa5acrxc90]::before {
 a:hover[b-xa5acrxc90]::after {
     transform: scale(1);
 }
+
 /* /Pages/Tasks.razor.rz.scp.css */
 .logo[b-7ix0rewx8i] {
     font-family: "Fira Code", sans-serif;
