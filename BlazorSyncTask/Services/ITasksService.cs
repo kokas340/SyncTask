@@ -12,4 +12,5 @@ public interface ITasksService
 
     Task DeleteTask(int taskId);
     Task<TaskDTO> GetTaskById(int toInt32);
+    Task EditTaskById(CreateTaskDto task, int userId);
 }

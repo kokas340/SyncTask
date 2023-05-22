@@ -79,17 +79,30 @@ public class TasksService: ITasksService
         client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", JwtAuthService.Jwt);
         HttpResponseMessage response = await client.GetAsync("http://localhost:8080/api/tasks/" + taskId);
         string responseContent = await response.Content.ReadAsStringAsync();
-
         if (!response.IsSuccessStatusCode)
         {
             throw new Exception(responseContent);
         }
-
         TaskDTO task = JsonSerializer.Deserialize<TaskDTO>(responseContent, new JsonSerializerOptions
         {
             PropertyNameCaseInsensitive = true
         }) ?? throw new InvalidOperationException();
-
         return task;
+    }
+
+    public async Task EditTaskById(CreateTaskDto task, int userId)
+    {
+        string taskAsJson = JsonSerializer.Serialize(task);
+     
+        StringContent content = new(taskAsJson, Encoding.UTF8, "application/json");
+        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", JwtAuthService.Jwt);
+        HttpResponseMessage response = await client.PutAsync("http://localhost:8080/api/tasks/"+userId, content);
+        string responseContent = await response.Content.ReadAsStringAsync();
+     
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(responseContent);
+        }
+       
     }
 }

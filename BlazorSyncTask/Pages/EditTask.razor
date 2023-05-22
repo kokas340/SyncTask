@@ -19,7 +19,7 @@
        {
            <div>
                <label for="name">Name:</label>
-               <input id="name" @bind="@createTaskDto.name"/>
+               <input id="name" @bind="@createTaskDto.name" />
            </div>
 
            <div>
@@ -29,15 +29,15 @@
 
            <div>
                <label for="startDate">Start Date:</label>
-               <input id="startDate" type="date" @bind="@startD"/>
+               <input id="startDate" type="date" @bind="@startD" />
            </div>
 
            <div>
                <label for="endDate">End Date:</label>
-               <input id="endDate" type="date" @bind="@endD"/>
+               <input id="endDate" type="date" @bind="@endD" />
            </div>
 
-           <button @onclick="EditTasks">Edit</button>
+           <button @onclick="()=>EditTasks(createTaskDto)">Edit</button>
        }
     </Authorized>
     <NotAuthorized>
@@ -49,9 +49,11 @@
     [CascadingParameter]
     public static Task<AuthenticationState> AuthState { get; set; } = null!;
     private CreateTaskDto createTaskDto = new CreateTaskDto();
+    private TaskDTO taskDto = new TaskDTO();
     DateTime startD=DateTime.Now.Date, endD = DateTime.Now.Date;
     private bool showLoading = false;
     private string Id;
+  
     [Inject]
     public AuthenticationStateProvider AuthenticationStateProvider { get; set; }
     
@@ -60,19 +62,21 @@
         var uri = new Uri(NavMgr.Uri);
         var query = QueryHelpers.ParseQuery(uri.Query);
         Id = query["id"];
-        await TasksService.GetTaskById(Convert.ToInt32(Id));
+        taskDto = await TasksService.GetTaskById(Convert.ToInt32(Id));
+        createTaskDto.name = taskDto.name;
+        createTaskDto.startDate = taskDto.startDate;
+        createTaskDto.endDate = taskDto.endDate;
+        createTaskDto.description = taskDto.description;
+        createTaskDto.userId = taskDto.userId;
         
     }
     
-    private async Task EditTasks() {
-        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-        //USER ID
-        Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value);
+    private async Task EditTasks(CreateTaskDto task) {
         var uri = new Uri(NavMgr.Uri);
         var query = QueryHelpers.ParseQuery(uri.Query);
         Id = query["id"];
 
-
+        await TasksService.EditTaskById(task,Convert.ToInt32(Id));
         await ShowLoading();
         NavMgr.NavigateTo("/Tasks");
     }
