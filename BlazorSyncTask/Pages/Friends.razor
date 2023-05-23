@@ -98,10 +98,10 @@
         pendingFriends = await FriendsService.GetAllFriendsPending(Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value));
     }
  
-    private void SearchFriends()
-    {
+    private async Task SearchFriends()
+    { var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         if(searchTerm!="")
-            filteredFriends = allUsers.Where(f => f.username.ToLower().Contains(searchTerm.ToLower())).ToList();
+            filteredFriends = allUsers.Where(f => f.username.ToLower().Contains(searchTerm.ToLower())&& f.id != Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value)).ToList();
     }
     
     private async Task AcceptPendingFriends(int requestId)

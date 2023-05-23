@@ -217,14 +217,14 @@
       "netstandard.dll": "sha256-OYYuPT3JUknj4LdYIa58zF7kDB3tCnLzjCSuhEjtKXM=",
       "System.Private.CoreLib.dll": "sha256-EVS7zPxPV\/41g2mzPwdXtwiigWxI\/SeAHme1IgyD6tc=",
       "Shared.dll": "sha256-XAMMiIvOw4uWOU9jOttc7XrGA3In2vdg\/elW35YOAPQ=",
-      "BlazorSyncTask.dll": "sha256-VdY7kJKqJp0x1HAjyZCvDOVba\/fYNmHiNASeeOoXI3s="
+      "BlazorSyncTask.dll": "sha256-4EKQ40b9Am8X+cr8jNIZYZfWTskixGxz6O7GZ0IV4zA="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
       "Shared.pdb": "sha256-ENmdeHse1rlIG95m3TWL9iEdaI2lfKan0qmkmyBN\/ME=",
-      "BlazorSyncTask.pdb": "sha256-Pj9osKHgydQfNjB4yZo6G3q7ee+9HLUYRfSIVdsSDns="
+      "BlazorSyncTask.pdb": "sha256-RDIRFENHV7Wwb5omc3v9ROcEXY0S5e5TRa0W1YWALGY="
     },
     "runtime": {
       "dotnet.7.0.5.cqa40936h9.js": "sha256-codB25EodaFEP43MDCfMBuKXU4LqurUKnQrpoMIFnPs=",
