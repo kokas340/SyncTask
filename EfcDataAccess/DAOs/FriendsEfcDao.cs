@@ -25,7 +25,8 @@ public class FriendsEfcDao
             .AnyAsync(f => f.user_id == userId && f.friend_id == friend.id || f.user_id == friend.id && f.friend_id == userId);
         if (friendshipExists)
         {
-            throw new Exception("Friendship already exists.");
+            return null;
+            //throw new Exception("Friendship already exists.");
         }
         
         UserT friendToAdd = await _context.usert.FindAsync(friend.id);

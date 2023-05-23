@@ -15,6 +15,18 @@
             <p>Username: @friend.username</p>
             <p>Email: @friend.email</p>
             <p>Id: @friend.id</p>
+            <h3>User Tasks:</h3>
+            @foreach (var task in tasks)
+            {
+                <p>Task ID: @task.id</p>
+                <p>Task Name: @task.name</p>
+                <p>Task Description: @task.description</p>
+                <p>Start Date: @task.startDate</p>
+                <p>End Date: @task.endDate</p>
+                <p>User ID: @task.userId</p>
+                <p>Group Task: @task.group</p>
+                <br />
+            }
         }
     </Authorized>
     <NotAuthorized>
@@ -28,8 +40,11 @@
     public static Task<AuthenticationState> AuthState { get; set; } = null!;
     [Inject]
     private IFriendsService FriendsService { get; set; }
+    [Inject]
+    private ITasksService TasksService { get; set; }
     private GetUserDto friend;
     [Parameter] public string Id { get; set; }
+    private List<TaskDTO> tasks;
     
 
     protected override async Task OnInitializedAsync()
@@ -38,7 +53,7 @@
         var query = QueryHelpers.ParseQuery(uri.Query);
         Id = query["id"];
         friend = await FriendsService.GetFriendById(Convert.ToInt32(Id));
-        
+        tasks = await TasksService.GetAllTasksByUserId(Convert.ToInt32(Id));
     }
 
 
