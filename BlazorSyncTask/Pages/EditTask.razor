@@ -7,38 +7,57 @@
 
 <AuthorizeView>
     <Authorized>
-       <h3>Edit Task</h3>
-       @if (showLoading)
-            {
-                <div class="loading-screen">
-                    <div class="spinner"></div>
-                    <div>Loading...</div>
-                </div>
-            }
-       else
-       {
-           <div>
-               <label for="name">Name:</label>
-               <input id="name" @bind="@createTaskDto.name" />
-           </div>
-
-           <div>
-               <label for="description">Description:</label>
-               <input id="description" @bind="@createTaskDto.description"/>
-           </div>
-
-           <div>
-               <label for="startDate">Start Date:</label>
-               <input id="startDate" type="date" @bind="@startD" />
-           </div>
-
-           <div>
-               <label for="endDate">End Date:</label>
-               <input id="endDate" type="date" @bind="@endD" />
-           </div>
-
-           <button @onclick="()=>EditTasks(createTaskDto)">Edit</button>
-       }
+        <h3>Edit Task</h3>
+        @if (showLoading)
+        {
+            <div class="loading-screen">
+                <div class="spinner"></div>
+                <div>Loading...</div>
+            </div>
+        }
+        else
+        {
+            <table style="border-collapse: separate; border-spacing: 0 10px;">
+                <tr>
+                    <td>
+                        <label for="name" class="form-label">Name:</label>
+                    </td>
+                    <td>
+                        <input id="name" class="form-input" @bind="@createTaskDto.name" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="description" class="form-label">Description:</label>
+                    </td>
+                    <td>
+                        <input id="description" class="form-input" @bind="@createTaskDto.description" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="startDate" class="form-label">Start Date:</label>
+                    </td>
+                    <td>
+                        <input id="startDate" class="form-input" type="date" @bind="@startD" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="endDate" class="form-label">End Date:</label>
+                    </td>
+                    <td>
+                        <input id="endDate" class="form-input" type="date" @bind="@endD" />
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="text-align: right;">
+                        <button class=" btn btn-primary btn-rounded" @onclick="()=>EditTasks(createTaskDto)">Edit</button>
+                    </td>
+                </tr>
+            </table>
+        }
     </Authorized>
     <NotAuthorized>
         <p>You are not logged in.</p>

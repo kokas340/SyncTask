@@ -23,6 +23,7 @@ input, textarea {
     transition:all 1.5s ease;
 }
 
+
 input:hover {
     padding: 9px;
     border-radius:3px;
@@ -100,4 +101,8 @@ a:hover::before {
 }
 a:hover::after {
     transform: scale(1);
+}
+.button-group {
+   
+    gap: 5px; /* Adjust the value as per your desired spacing */
 }

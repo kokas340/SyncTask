@@ -705,6 +705,7 @@ a:hover[b-xzzivi1iwm]::before {
 a:hover[b-xzzivi1iwm]::after {
     transform: scale(1);
 }
+
 /* /Pages/Friend.razor.rz.scp.css */
 .logo[b-3m8hozqle2] {
     font-family: "Fira Code", sans-serif;
@@ -1749,6 +1750,7 @@ input[b-7ix0rewx8i], textarea[b-7ix0rewx8i] {
     transition:all 1.5s ease;
 }
 
+
 input:hover[b-7ix0rewx8i] {
     padding: 9px;
     border-radius:3px;
@@ -1826,6 +1828,10 @@ a:hover[b-7ix0rewx8i]::before {
 }
 a:hover[b-7ix0rewx8i]::after {
     transform: scale(1);
+}
+.button-group[b-7ix0rewx8i] {
+   
+    gap: 5px; /* Adjust the value as per your desired spacing */
 }
 /* /Pages/ViewTask.razor.rz.scp.css */
 .logo[b-zf0ol6zhc0] {

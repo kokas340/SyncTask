@@ -9,81 +9,81 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = browser
 build_property.RootNamespace = BlazorSyncTask
 build_property.RootNamespace = BlazorSyncTask
-build_property.ProjectDir = C:\Users\jacks\Documents\GitHub\SyncTask\BlazorSyncTask\
+build_property.ProjectDir = C:\Users\Bruger\Documents\GitHub\SyncTask\BlazorSyncTask\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\jacks\Documents\GitHub\SyncTask\BlazorSyncTask
+build_property.MSBuildProjectDirectory = C:\Users\Bruger\Documents\GitHub\SyncTask\BlazorSyncTask
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/jacks/Documents/GitHub/SyncTask/BlazorSyncTask/App.razor]
+[C:/Users/Bruger/Documents/GitHub/SyncTask/BlazorSyncTask/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jacks/Documents/GitHub/SyncTask/BlazorSyncTask/_Imports.razor]
+[C:/Users/Bruger/Documents/GitHub/SyncTask/BlazorSyncTask/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jacks/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/About.razor]
+[C:/Users/Bruger/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/About.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWJvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-54xmlosrtd
 
-[C:/Users/jacks/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/AddTaskGroup.razor]
+[C:/Users/Bruger/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/AddTaskGroup.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkVGFza0dyb3VwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-a6kaxb70na
 
-[C:/Users/jacks/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/CreateGroup.razor]
+[C:/Users/Bruger/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/CreateGroup.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JlYXRlR3JvdXAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-ak0iydaric
 
-[C:/Users/jacks/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/CreateTask.razor]
+[C:/Users/Bruger/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/CreateTask.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JlYXRlVGFzay5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-58rdjert4f
 
-[C:/Users/jacks/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/EditTask.razor]
+[C:/Users/Bruger/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/EditTask.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdFRhc2sucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-xzzivi1iwm
 
-[C:/Users/jacks/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/Friend.razor]
+[C:/Users/Bruger/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/Friend.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRnJpZW5kLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-3m8hozqle2
 
-[C:/Users/jacks/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/Friends.razor]
+[C:/Users/Bruger/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/Friends.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRnJpZW5kcy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-5y1hkpzxib
 
-[C:/Users/jacks/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/GroupInfo.razor]
+[C:/Users/Bruger/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/GroupInfo.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR3JvdXBJbmZvLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-0o9vtdl3r2
 
-[C:/Users/jacks/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/Groups.razor]
+[C:/Users/Bruger/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/Groups.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR3JvdXBzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-o6cuw3rm22
 
-[C:/Users/jacks/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/Index.razor]
+[C:/Users/Bruger/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-dwq30geoee
 
-[C:/Users/jacks/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/Login.razor]
+[C:/Users/Bruger/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/Login.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-uejfjchll3
 
-[C:/Users/jacks/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/Register.razor]
+[C:/Users/Bruger/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/Register.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-xa5acrxc90
 
-[C:/Users/jacks/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/Tasks.razor]
+[C:/Users/Bruger/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/Tasks.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGFza3MucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-7ix0rewx8i
 
-[C:/Users/jacks/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/ViewTask.razor]
+[C:/Users/Bruger/Documents/GitHub/SyncTask/BlazorSyncTask/Pages/ViewTask.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmlld1Rhc2sucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-zf0ol6zhc0
 
-[C:/Users/jacks/Documents/GitHub/SyncTask/BlazorSyncTask/Shared/MainLayout.razor]
+[C:/Users/Bruger/Documents/GitHub/SyncTask/BlazorSyncTask/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-10xswk6gls
 
-[C:/Users/jacks/Documents/GitHub/SyncTask/BlazorSyncTask/Shared/NavMenu.razor]
+[C:/Users/Bruger/Documents/GitHub/SyncTask/BlazorSyncTask/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-w1gechgd97

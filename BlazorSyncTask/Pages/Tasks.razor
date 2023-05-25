@@ -4,41 +4,89 @@
 @inject NavigationManager NavMgr
 
 <h3>All Tasks</h3>
+<div class="grid">
+    <div class="row">
+        <div class="col-6">
+            <AuthorizeView>
+                <Authorized>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" @bind="@createTaskDto.name" placeholder="Task Name"/>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control " @bind="@createTaskDto.description" placeholder="Task Description"/>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="date" class="form-control" @bind="@startD" placeholder="Start Date"/>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="date" class="form-control " @bind="@endD" placeholder="End Date"/>
+                        </div>
+                        <div class="col-md-12 mt-2 text-right">
+                            <button class="btn btn-primary" @onclick="CreateTask">Create Task</button>
+                        </div>
+                    </div>
+                </Authorized>
+                <NotAuthorized>
+                    <p>You are not logged in.</p>
+                </NotAuthorized>
+            </AuthorizeView>
 
-<AuthorizeView>
-    <Authorized>
-        <div>
-            <button @onclick="CreateTask">Create Task</button>
+
+            @if (tasks != null)
+            {
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <ul class="list-group">
+                            @foreach (var task in tasks)
+                            {
+                                <li class="list-group-item d-flex justify-content-between">
+                                    <div>
+                                        <span>@task.name - @task.description - @task.startDate - @task.endDate</span>
+                                    </div>
+                                    <div class="button-group">
+                                        <div class="row">
+                                            <button class="btn btn-sm btn-danger" @onclick="() => DeleteTask(task.id)">Delete Task</button>
+                                            <button class="btn btn-sm btn-primary" @onclick="() => EditTask(task.id)">Edit Task</button>
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <p>Loading tasks...</p>
+            }
         </div>
-    </Authorized>
-    <NotAuthorized>
-        <p>You are not logged in.</p>
-    </NotAuthorized>
-</AuthorizeView>
+        <div class="col-6">
+            <img src="calendar.png" class="img-fluid" alt="Image description">
+        </div>
+    </div>
+</div>
 
-@if (tasks != null)
-{
-    <ul>
-        @foreach (var task in tasks)
-        {
-            <li>@task.id -@task.name - @task.description - @task.startDate - @task.endDate  <button @onclick="() => DeleteTask(task.id )">Delete Task</button><button @onclick="() => EditTask(task.id )">Edit Task</button></li>
-        }
-    </ul>
-}
-else
-{
-    <p>Loading tasks...</p>
-}
+@code {
 
-@code { 
     [CascadingParameter]
     public static Task<AuthenticationState> AuthState { get; set; } = null!;
+
     [Inject]
     private ITasksService TasksService { get; set; }
+
     [Inject]
     public AuthenticationStateProvider AuthenticationStateProvider { get; set; }
+
     private List<TaskDTO> tasks;
-    
+    private string name;
+    private string description;
+    private DateTime startDate;
+    private DateTime endDate;
+
+    private CreateTaskDto createTaskDto = new CreateTaskDto();
+    DateTime startD = DateTime.Now.Date, endD = DateTime.Now.Date;
+
     protected override async Task OnInitializedAsync()
     {
         await LoadTasks();
@@ -52,21 +100,25 @@ else
 
     private async Task CreateTask()
     {
-        NavMgr.NavigateTo("/CreateTask");
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        createTaskDto.userId = Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value);
+
+
+        createTaskDto.startDate = startD.ToString();
+        createTaskDto.endDate = endD.ToString();
+        TasksService.CreateTask(createTaskDto);
     }
+
     private async Task DeleteTask(int taskId)
     {
         await TasksService.DeleteTask(taskId);
         await LoadTasks();
         StateHasChanged();
-        
     }
 
     private async Task EditTask(int taskId)
     {
-   
-        NavMgr.NavigateTo($"/EditTask?id=" + taskId + "");
-     
+        NavMgr.NavigateTo($"/EditTask?id={taskId}");
     }
 
 }
