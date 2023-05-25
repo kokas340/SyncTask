@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "CIvW8qOj8nEC43zAfgKNllp8J5kbB6IpOhONPTxBtWw=",
+  "Hash": "0VFcsqhkGQOvA+ov6zNOkLi8Q/dJQd07B0rGfggscIg=",
   "Source": "BlazorSyncTask",
   "BasePath": "/",
   "Mode": "Root",
@@ -8532,6 +8532,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\wwwroot\\reg.png",
+      "SourceId": "BlazorSyncTask",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "reg.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\reg.png"
     },
     {
       "Identity": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\wwwroot\\sample-data\\weather.json",

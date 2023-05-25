@@ -56,7 +56,7 @@ public class FriendsService: IFriendsService
      
         if (!response.IsSuccessStatusCode)
         {
-            throw new Exception(responseContent);
+            // throw new Exception(responseContent);
         }
        
     }

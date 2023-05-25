@@ -5,72 +5,124 @@
 @using BlazorSyncTask.Services.Http
 @inject NavigationManager NavMgr
 
-
-
 <AuthorizeView>
     <Authorized>
-        <div>
-            <input type="text" @bind-value="searchTerm" />
-            <button @onclick="SearchFriends">Search</button>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1 class="display-4">Connect with Friends</h1>
+                    <p class="lead">Discover and connect with friends from all around the world</p>
+                </div>
+            </div>
         </div>
-        <ul>
-            @if (filteredFriends != null)
-            {
-                @foreach (var friend in filteredFriends)
-                {
-                    <li>@friend.username <button @onclick="() => SendFriendRequest(friend.id)">Add Friend</button></li>
-                }
-            }
-            
-        </ul>
-         @if (pendingFriends == null)
-                {
-                    <p>Loading friend requests...</p>
-        
-                }
-                else if (pendingFriends.Count == 0)
-                {
-                    <p>You have no friend requests.</p>
-                }
-                else
-                {
-                    <ul>
-                        @foreach (var friend in pendingFriends)
-                        {
-                            <li>@friend.username <button @onclick="() => AcceptPendingFriends(friend.friendRequstId)">Accept Request</button><button @onclick="() => DeletePendingFriends(friend.friendRequstId)">Decline Request</button></li>
-                        }
-                    </ul>
-                }
-    
-        
-        @if (friends == null)
-        {
-            <p>Loading friends...</p>
+         <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="d-flex justify-content-center">
+                                  <Popup @ref="popupRef"/>
+                            </div>
+                          
+                        </div>
+                    </div>
+                </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="search-input">Search Friends:</label>
+                        <input id="search-input" type="text" class="form-control" @bind="@searchTerm" placeholder="Enter a username"/>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <button class="btn btn-primary" @onclick="SearchFriends">Search</button>
+                </div>
+            </div>
 
-        }
-        else if (friends.Count == 0)
-        {
-            <p>You have no friends yet.</p>
-        }
-        else
-        {
-            <ul>
-                @if (friends != null)
-                {
-                    @foreach (var friend in friends)
+            <div class="row mt-4">
+                <div class="col-md-12">
+                    @if (searchTerm != "")
                     {
-                        <li>@friend.username || @friend.email || @friend.fullName <button @onclick="() => RemoveFriends(friend.id)">Remove</button>  <button @onclick="()=> ViewFriend(friend.id)">View Details</button></li>
+                        <h3>Filtered Friends</h3>
                     }
-                }
-                
-            </ul>
-        }
-       
+
+                    @if (filteredFriends!=null && filteredFriends.Count == 0)
+                    {
+                        <p>No matching friends found.</p>
+                    }
+                    else
+                    {
+                        <ul class="list-group">
+                            @foreach (var friend in filteredFriends)
+                            {
+                                <li class="list-group-item">
+                                    <span>@friend.username</span>
+                                    <button class="btn btn-danger btn-sm ml-2" @onclick="() => SendFriendRequest(friend.id)">Add Friend</button>
+                                </li>
+                            }
+                        </ul>
+                    }
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h3>Friends</h3>
+                    @if (friends == null)
+                    {
+                        <p>Loading friends...</p>
+                    }
+                    else if (friends.Count == 0)
+                    {
+                        <p>You have no friends yet.</p>
+                    }
+                    else
+                    {
+                        <ul class="list-group">
+                            @foreach (var friend in friends)
+                            {
+                                <li class="list-group-item">
+                                    <span>@friend.username</span>
+                                    <button class="btn btn-danger btn-sm ml-2" @onclick="() => RemoveFriends(friend.id)">Remove</button>
+                                    <button class="btn btn-primary btn-sm ml-2" @onclick="() => ViewFriend(friend.id)">View Details</button>
+                                </li>
+                            }
+                        </ul>
+                    }
+                </div>
+
+                <div class="col-md-6">
+                    <h3>Pending Friend Requests</h3>
+                    @if (pendingFriends == null)
+                    {
+                        <p>Loading friend requests...</p>
+                    }
+                    else if (pendingFriends.Count == 0)
+                    {
+                        <p>You have no friend requests.</p>
+                    }
+                    else
+                    {
+                        <ul class="list-group">
+                            @foreach (var friend in pendingFriends)
+                            {
+                                <li class="list-group-item">
+                                    <span>@friend.username</span>
+                                    <button class="btn btn-success btn-sm ml-2" @onclick="() => AcceptPendingFriends(friend.friendRequstId)">Accept</button>
+                                    <button class="btn btn-danger btn-sm ml-2" @onclick="() => DeletePendingFriends(friend.friendRequstId)">Decline</button>
+                                </li>
+                            }
+                        </ul>
+                    }
+                </div>
+            </div>
+        </div>
+     
     </Authorized>
     <NotAuthorized>
         <p>You are not logged in.</p>
     </NotAuthorized>
 </AuthorizeView>
+
 
 @code { 
     [CascadingParameter]
@@ -84,7 +136,9 @@
     public AuthenticationStateProvider AuthenticationStateProvider { get; set; }
     private List<GetUserDto> filteredFriends = new List<GetUserDto>();
     private string searchTerm = "";
+    private Popup popupRef;
     
+  
     protected override async Task OnInitializedAsync()
     {
         await GetFriendsInfo();
@@ -115,8 +169,8 @@
     {
         var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         await FriendsService.AddFriend(Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value),friendId);
-        searchTerm = "";
-        filteredFriends = null;
+        popupRef.Show("Friend Request Sent!!");
+        
     }
     
     private async Task DeletePendingFriends(int requestId)

@@ -8,7 +8,20 @@
 
 <h3>Group Information</h3>
 <button @onclick="() => AddTaskGroup()">Add Task</button>
- <button @onclick="() => LeaveGroup()">Leave Group</button>
+<button @onclick="() => LeaveGroup()">Leave Group</button>
+     <div>
+            <input type="text" @bind-value="searchTerm" />
+            <button @onclick="SearchFriends">Search</button>
+        </div>
+        <ul>
+            @if (filteredFriends != null)
+            {
+                @foreach (var friend in filteredFriends)
+                {
+                    <li>@friend.username <button @onclick="() => AddFriendToGroup(friend.id)">Add Friend</button></li>
+                }
+            }
+        </ul>
 @if (group != null)
 {
     <h4>Group Name: @group.groupName</h4>
@@ -53,11 +66,17 @@ else
     [Inject]
     private IGroupsService GroupsService { get; set; }
     [Inject]
+    private IFriendsService FriendsService { get; set; }
+    [Inject]
     public AuthenticationStateProvider AuthenticationStateProvider { get; set; }
     [Parameter]
     public int GroupId { get; set; }
     private string Id;
     private GroupDTO group;
+    //add members
+    private List<GetUserDto> allFriends = new List<GetUserDto>();
+    private List<GetUserDto> filteredFriends = new List<GetUserDto>();
+    private string searchTerm = "";
 
     protected override async Task OnInitializedAsync()
     {
@@ -65,6 +84,9 @@ else
         var query = QueryHelpers.ParseQuery(uri.Query);
         Id = query["id"];
         group = await GroupsService.GetGroupById(Convert.ToInt32(Id));
+        //friends
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        allFriends = await FriendsService.GetAllFriends(Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value));
     }
 
     private void AddTaskGroup()
@@ -77,4 +99,25 @@ else
         await GroupsService.LeaveGroup( Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value),Convert.ToInt32(Id));
         NavigationManager.NavigateTo($"/Groups");
     }
+
+    private void SearchFriends()
+    {
+        if(searchTerm!="")
+            filteredFriends = allFriends.Where(f => f.username.ToLower().Contains(searchTerm.ToLower())).ToList();
+    }
+
+    private async Task AddFriendToGroup(int friendId)
+    {
+        
+        if (group.members.Any(m => m.User.id == friendId))
+        {
+            Console.WriteLine("Friend is already a member of the group.");
+            return;
+        }
+        
+        await GroupsService.AddToGroup(friendId, Convert.ToInt32(Id));
+        searchTerm = "";
+        
+    }
+
 }

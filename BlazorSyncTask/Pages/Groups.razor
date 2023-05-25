@@ -112,6 +112,8 @@
         var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         int userId=Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value);
         await GroupsService.AcceptInvite( userId,invite);
+        await getGoups();
+        await getPendingInvites();
     }
 
     private async Task DeclineInvite(int invite)
@@ -119,6 +121,8 @@
         var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         int userId=Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value);
         await GroupsService.DeclineInvite( userId,invite);
+        await getGoups();
+        await getPendingInvites();
         
     }
 

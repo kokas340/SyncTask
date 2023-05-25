@@ -8,29 +8,39 @@
 
 <AuthorizeView>
     <Authorized>
-       <h3>Create Task for Group</h3>
-    
-       <div>
-           <label for="name">Name:</label>
-           <input id="name" @bind="@createTaskDto.name" />
-       </div>
-       
-       <div>
-           <label for="description">Description:</label>
-           <input id="description" @bind="@createTaskDto.description" />
-       </div>
-       
-       <div>
-           <label for="startDate">Start Date:</label>
-           <input id="startDate" type="date" @bind="@startD" />
-       </div>
-       
-       <div>
-           <label for="endDate">End Date:</label>
-           <input id="endDate" type="date" @bind="@endD" />
-       </div>
-       
-       <button @onclick="CreateTasks">Create</button>
+        @if (showLoading)
+        {
+            <div class="loading-screen">
+                <div class="spinner"></div>
+                <div>Loading...</div>
+            </div>
+        }
+        else
+        {
+            <h3>Create Task for Group</h3>
+
+            <div>
+                <label for="name">Name:</label>
+                <input id="name" @bind="@createTaskDto.name"/>
+            </div>
+
+            <div>
+                <label for="description">Description:</label>
+                <input id="description" @bind="@createTaskDto.description"/>
+            </div>
+
+            <div>
+                <label for="startDate">Start Date:</label>
+                <input id="startDate" type="date" @bind="@startD"/>
+            </div>
+
+            <div>
+                <label for="endDate">End Date:</label>
+                <input id="endDate" type="date" @bind="@endD"/>
+            </div>
+
+            <button @onclick="CreateTasks">Create</button>
+        }
     </Authorized>
     <NotAuthorized>
         <p>You are not logged in.</p>
@@ -38,31 +48,47 @@
 </AuthorizeView>
 
 @code {
+
     [CascadingParameter]
     public static Task<AuthenticationState> AuthState { get; set; } = null!;
+
     private CreateTaskDto createTaskDto = new CreateTaskDto();
-    DateTime startD=DateTime.Now.Date, endD = DateTime.Now.Date;
+    DateTime startD = DateTime.Now.Date, endD = DateTime.Now.Date;
     private string Id;
+    private bool showLoading = false;
+
     [Inject]
     public AuthenticationStateProvider AuthenticationStateProvider { get; set; }
+
     protected override async Task OnInitializedAsync()
     {
         var uri = new Uri(NavigationManager.Uri);
         var query = QueryHelpers.ParseQuery(uri.Query);
         Id = query["id"];
-       
     }
 
-    private async Task CreateTasks() {
+    private async Task CreateTasks()
+    {
         var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         createTaskDto.userId = Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value);
-    
-      
+
+
         createTaskDto.startDate = startD.ToString();
         createTaskDto.endDate = endD.ToString();
-        GroupsService.CreateTaskGroup(createTaskDto,Convert.ToInt32(Id));
-      
+        GroupsService.CreateTaskGroup(createTaskDto, Convert.ToInt32(Id));
+        ShowLoading();
     }
 
-    
+    private async Task ShowLoading()
+    {
+    //loading test
+        showLoading = true;
+        StateHasChanged();
+        await Task.Delay(500);
+        showLoading = false;
+        StateHasChanged();
+        NavigationManager.NavigateTo($"/GroupInfo?id=" + Id + "");
+    }
+
+
 }

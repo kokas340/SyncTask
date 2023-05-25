@@ -157,4 +157,18 @@ public class GroupsService: IGroupsService
             throw new Exception(responseContent);
         }
     }
+
+    public async Task AddToGroup(int friendId, int groupId)
+    {
+        string taskAsJson = JsonSerializer.Serialize(groupId);
+        StringContent content = new(taskAsJson, Encoding.UTF8, "application/json");
+        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", JwtAuthService.Jwt);
+        HttpResponseMessage response = await client.PostAsync("http://localhost:8080/api/groups/"+groupId+"/members/invite/"+friendId, content);
+        string responseContent = await response.Content.ReadAsStringAsync();
+     
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(responseContent);
+        }
+    }
 }

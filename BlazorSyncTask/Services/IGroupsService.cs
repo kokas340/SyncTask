@@ -14,4 +14,5 @@ public interface IGroupsService
     Task DeclineInvite(int userId, int invite);
     Task CreateTaskGroup(CreateTaskDto createTaskDto, int groupId);
     Task LeaveGroup(int userId, int gorupId);
+    Task AddToGroup(int friendId, int groupId);
 }
