@@ -3,7 +3,7 @@
 @using BlazorSyncTask.Services
 @inject NavigationManager NavMgr
 
-<h3>All Tasks</h3>
+<h2 class="mb-4 fw-bold">ALL TASKS</h2>
 <div class="grid">
     <div class="row">
         <div class="col-6">
@@ -33,7 +33,7 @@
             </AuthorizeView>
 
 
-            @if (tasks != null)
+             @if (tasks != null)
             {
                 <div class="row mt-4">
                     <div class="col-md-12">
@@ -45,9 +45,13 @@
                                         <div class="task-info overflow-auto" style="background-color: #B5ABCD;">
                                             <div class="d-flex flex-column">
                                                 <div class="task-info-content">
-                                                    <span class="task-name">@task.name</span>
+                                                    <span class="task-dates">
+                                                        <p class="text-danger">@task.startDate - @task.endDate</p>
+                                                    </span>
+                                                    <span class="task-name">
+                                                        <p class="fw-bold">@task.name</p>
+                                                    </span>
                                                     <span class="task-description">@task.description</span>
-                                                    <span class="task-dates">@task.startDate - @task.endDate</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -71,10 +75,9 @@
                 <p>Loading tasks...</p>
             }
         </div>
-        <div class="col-6">
+        <div class="col-md-6">
             <img src="tasksfs.png" class="img-fluid animated" alt="Image description">
         </div>
-
     </div>
 </div>
 
@@ -108,6 +111,7 @@
     {
         var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         tasks = await TasksService.GetAllTasksByUserId(Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value));
+        tasks = tasks.OrderBy(t => t.startDate).ToList();
     }
 
     private async Task CreateTask()

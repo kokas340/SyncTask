@@ -7,7 +7,7 @@
 
 <AuthorizeView>
     <Authorized>
-        <h3>Edit Task</h3>
+        <h2 class="mb-4 fw-bold text-center">EDIT TASKS</h2>
         @if (showLoading)
         {
             <div class="loading-screen">
@@ -17,46 +17,59 @@
         }
         else
         {
-            <table style="border-collapse: separate; border-spacing: 0 10px;">
-                <tr>
-                    <td>
-                        <label for="name" class="form-label">Name:</label>
-                    </td>
-                    <td>
-                        <input id="name" class="form-input" @bind="@createTaskDto.name" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="description" class="form-label">Description:</label>
-                    </td>
-                    <td>
-                        <input id="description" class="form-input" @bind="@createTaskDto.description" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="startDate" class="form-label">Start Date:</label>
-                    </td>
-                    <td>
-                        <input id="startDate" class="form-input" type="date" @bind="@startD" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="endDate" class="form-label">End Date:</label>
-                    </td>
-                    <td>
-                        <input id="endDate" class="form-input" type="date" @bind="@endD" />
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td style="text-align: right;">
-                        <button class=" btn btn-primary btn-rounded" @onclick="()=>EditTasks(createTaskDto)">Edit</button>
-                    </td>
-                </tr>
-            </table>
+            <div class="row">
+                <div class="col-3">
+
+                </div>
+                <div class="col-3">
+                    <table class="mt-4" style="border-collapse: separate; border-spacing: 0 10px;">
+                        <tr>
+                            <td>
+                                <label for="name" class="form-label">Name:</label>
+                            </td>
+                            <td>
+                                <input id="name" class="form-input w-100" @bind="@createTaskDto.name"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="description" class="form-label">Description:</label>
+                            </td>
+                            <td>
+                                <input id="description" class="form-input w-100" @bind="@createTaskDto.description"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="startDate" class="form-label">Start Date:</label>
+                            </td>
+                            <td>
+                                <input id="startDate" class="form-input w-100" type="date" @bind="@startD"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="endDate" class="form-label ">End Date:</label>
+                            </td>
+                            <td>
+                                <input id="endDate" class="form-input w-100" type="date" @bind="@endD"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td style="text-align: right;">
+                                <button class=" btn btn-primary btn-rounded" @onclick="() => EditTasks(createTaskDto)">Edit</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-3">
+                    <img src="tasksfs.png" class="img-fluid animated" alt="Image description">
+                </div>
+                <div class="col-3">
+
+                </div>
+            </div>
         }
     </Authorized>
     <NotAuthorized>
@@ -65,17 +78,19 @@
 </AuthorizeView>
 
 @code {
+
     [CascadingParameter]
     public static Task<AuthenticationState> AuthState { get; set; } = null!;
+
     private CreateTaskDto createTaskDto = new CreateTaskDto();
     private TaskDTO taskDto = new TaskDTO();
-    DateTime startD=DateTime.Now.Date, endD = DateTime.Now.Date;
+    DateTime startD = DateTime.Now.Date, endD = DateTime.Now.Date;
     private bool showLoading = false;
     private string Id;
-  
+
     [Inject]
     public AuthenticationStateProvider AuthenticationStateProvider { get; set; }
-    
+
     protected override async Task OnInitializedAsync()
     {
         var uri = new Uri(NavMgr.Uri);
@@ -87,18 +102,19 @@
         createTaskDto.endDate = taskDto.endDate;
         createTaskDto.description = taskDto.description;
         createTaskDto.userId = taskDto.userId;
-        
     }
-    
-    private async Task EditTasks(CreateTaskDto task) {
+
+    private async Task EditTasks(CreateTaskDto task)
+    {
         var uri = new Uri(NavMgr.Uri);
         var query = QueryHelpers.ParseQuery(uri.Query);
         Id = query["id"];
 
-        await TasksService.EditTaskById(task,Convert.ToInt32(Id));
+        await TasksService.EditTaskById(task, Convert.ToInt32(Id));
         await ShowLoading();
         NavMgr.NavigateTo("/Tasks");
     }
+
     private async Task ShowLoading()
     {
     //loading test
@@ -110,5 +126,5 @@
         NavMgr.NavigateTo($"/Groups");
     }
 
-    
+
 }
