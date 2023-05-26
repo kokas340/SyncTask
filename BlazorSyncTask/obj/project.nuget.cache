@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "HNBgavbQr8UvNxnL5x9MJUN2V/IeDHi90I0lyCW3qD/C5BeMlvMjCD9Gn1i4vVklpw/PY+LLe56qgx61+v2+sw==",
+  "dgSpecHash": "1EH0qL/q5pbRPAASVn0BBG8Vdc/l85oSQwFzTUbf4Ru0n5n5eGtn7xWkex1xlw0oP0w7M3D4KiajUq3uD8C7kw==",
   "success": true,
   "projectFilePath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,8 @@
     "C:\\Users\\jacks\\.nuget\\packages\\blazorise.bootstrap\\1.2.2\\blazorise.bootstrap.1.2.2.nupkg.sha512",
     "C:\\Users\\jacks\\.nuget\\packages\\blazorise.icons.fontawesome\\1.2.2\\blazorise.icons.fontawesome.1.2.2.nupkg.sha512",
     "C:\\Users\\jacks\\.nuget\\packages\\blazorise.licensing\\1.1.0\\blazorise.licensing.1.1.0.nupkg.sha512",
+    "C:\\Users\\jacks\\.nuget\\packages\\fullcalendar\\3.9.0\\fullcalendar.3.9.0.nupkg.sha512",
+    "C:\\Users\\jacks\\.nuget\\packages\\jquery\\2.0.0\\jquery.2.0.0.nupkg.sha512",
     "C:\\Users\\jacks\\.nuget\\packages\\microsoft.aspnetcore.authorization\\7.0.4\\microsoft.aspnetcore.authorization.7.0.4.nupkg.sha512",
     "C:\\Users\\jacks\\.nuget\\packages\\microsoft.aspnetcore.components\\7.0.4\\microsoft.aspnetcore.components.7.0.4.nupkg.sha512",
     "C:\\Users\\jacks\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\7.0.4\\microsoft.aspnetcore.components.analyzers.7.0.4.nupkg.sha512",
@@ -46,6 +48,7 @@
     "C:\\Users\\jacks\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\jacks\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\jacks\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
+    "C:\\Users\\jacks\\.nuget\\packages\\moment.js\\2.9.0\\moment.js.2.9.0.nupkg.sha512",
     "C:\\Users\\jacks\\.nuget\\packages\\mysqlconnector\\2.3.0-beta.2\\mysqlconnector.2.3.0-beta.2.nupkg.sha512",
     "C:\\Users\\jacks\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
     "C:\\Users\\jacks\\.nuget\\packages\\npgsql\\8.0.0-preview.2\\npgsql.8.0.0-preview.2.nupkg.sha512",

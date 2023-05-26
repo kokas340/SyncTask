@@ -3,42 +3,105 @@
 @using BlazorSyncTask.Services
 @inject NavigationManager NavMgr
 
-<h3>All Tasks</h3>
+<h2 class="mb-4 fw-bold">ALL TASKS</h2>
+<div class="grid">
+    <div class="row">
+        <div class="col-6">
+            <AuthorizeView>
+                <Authorized>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" @bind="@createTaskDto.name" placeholder="Task Name"/>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control " @bind="@createTaskDto.description" placeholder="Task Description"/>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="date" class="form-control" @bind="@startD" placeholder="Start Date"/>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="date" class="form-control " @bind="@endD" placeholder="End Date"/>
+                        </div>
+                        <div class="col-md-12 mt-2 text-right">
+                            <button class="btn btn-primary" @onclick="CreateTask">Create Task</button>
+                        </div>
+                    </div>
+                </Authorized>
+                <NotAuthorized>
+                    <p>You are not logged in.</p>
+                </NotAuthorized>
+            </AuthorizeView>
 
-<AuthorizeView>
-    <Authorized>
-        <div>
-            <button @onclick="CreateTask">Create Task</button>
+
+             @if (tasks != null)
+            {
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <ul class="list-group">
+                            @foreach (var task in tasks)
+                            {
+                                <div class="list-group-item d-flex justify-content-between" style="background-color: #B5ABCD;">
+                                    <div class="col-8">
+                                        <div class="task-info overflow-auto" style="background-color: #B5ABCD;">
+                                            <div class="d-flex flex-column">
+                                                <div class="task-info-content">
+                                                    <span class="task-dates">
+                                                        <p class="text-danger">@task.startDate - @task.endDate</p>
+                                                    </span>
+                                                    <span class="task-name">
+                                                        <p class="fw-bold">@task.name</p>
+                                                    </span>
+                                                    <span class="task-description">@task.description</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="button-group">
+                                            <div class="d-flex">
+                                                <button class="btn btn-sm btn-danger m-1 flex-fill" @onclick="() => DeleteTask(task.id)">Delete Task</button>
+                                                <button class="btn btn-sm btn-primary m-1 flex-fill" @onclick="() => EditTask(task.id)">Edit Task</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <p>Loading tasks...</p>
+            }
         </div>
-    </Authorized>
-    <NotAuthorized>
-        <p>You are not logged in.</p>
-    </NotAuthorized>
-</AuthorizeView>
+        <div class="col-md-6">
+            <img src="tasksfs.png" class="img-fluid animated" alt="Image description">
+        </div>
+    </div>
+</div>
 
-@if (tasks != null)
-{
-    <ul>
-        @foreach (var task in tasks)
-        {
-            <li>@task.id -@task.name - @task.description - @task.startDate - @task.endDate  <button @onclick="() => DeleteTask(task.id )">Delete Task</button><button @onclick="() => EditTask(task.id )">Edit Task</button></li>
-        }
-    </ul>
-}
-else
-{
-    <p>Loading tasks...</p>
-}
+@code {
 
-@code { 
+
     [CascadingParameter]
     public static Task<AuthenticationState> AuthState { get; set; } = null!;
+
     [Inject]
     private ITasksService TasksService { get; set; }
+
     [Inject]
     public AuthenticationStateProvider AuthenticationStateProvider { get; set; }
+
     private List<TaskDTO> tasks;
-    
+    private string name;
+    private string description;
+    private DateTime startDate;
+    private DateTime endDate;
+
+    private CreateTaskDto createTaskDto = new CreateTaskDto();
+    DateTime startD = DateTime.Now.Date, endD = DateTime.Now.Date;
+
     protected override async Task OnInitializedAsync()
     {
         await LoadTasks();
@@ -48,25 +111,32 @@ else
     {
         var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         tasks = await TasksService.GetAllTasksByUserId(Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value));
+        tasks = tasks.OrderBy(t => t.startDate).ToList();
     }
 
     private async Task CreateTask()
     {
-        NavMgr.NavigateTo("/CreateTask");
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        createTaskDto.userId = Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value);
+
+
+        createTaskDto.startDate = startD.ToString();
+        createTaskDto.endDate = endD.ToString();
+        TasksService.CreateTask(createTaskDto);
+        await LoadTasks();
+        StateHasChanged();
     }
+
     private async Task DeleteTask(int taskId)
     {
         await TasksService.DeleteTask(taskId);
         await LoadTasks();
         StateHasChanged();
-        
     }
 
     private async Task EditTask(int taskId)
     {
-   
-        NavMgr.NavigateTo($"/EditTask?id=" + taskId + "");
-     
+        NavMgr.NavigateTo($"/EditTask?id={taskId}");
     }
 
 }

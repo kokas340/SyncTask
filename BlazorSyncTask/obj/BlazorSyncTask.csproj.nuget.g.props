@@ -20,5 +20,6 @@
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <PkgMicrosoft_AspNetCore_Components_WebAssembly_DevServer Condition=" '$(PkgMicrosoft_AspNetCore_Components_WebAssembly_DevServer)' == '' ">C:\Users\jacks\.nuget\packages\microsoft.aspnetcore.components.webassembly.devserver\7.0.3</PkgMicrosoft_AspNetCore_Components_WebAssembly_DevServer>
+    <PkgjQuery Condition=" '$(PkgjQuery)' == '' ">C:\Users\jacks\.nuget\packages\jquery\2.0.0</PkgjQuery>
   </PropertyGroup>
 </Project>

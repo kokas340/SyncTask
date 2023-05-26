@@ -11,22 +11,42 @@
     <Authorized>
         @if (friend != null)
         {
-            <p>Name: @friend.fullName</p>
-            <p>Username: @friend.username</p>
-            <p>Email: @friend.email</p>
-            <p>Id: @friend.id</p>
-            <h3>User Tasks:</h3>
+            <div class="container-fluid">
+                <div class="row mt-4 mb-3">
+                    <div class="col-4 text-center">
+                        <img src="user.png" alt="User Image" style="width: 200px; height: 200px;"/>
+                    </div>
+                    <div class="col-8  my-auto">
+                        <p>Name: @friend.fullName</p>
+                        <p>Username: @friend.username</p>
+                        <p>Email: @friend.email</p>
+                     
+                    </div>
+                </div>
+            </div>
+
+            <h3>@friend.fullName Tasks:</h3>
             @foreach (var task in tasks)
-            {
-                <p>Task ID: @task.id</p>
-                <p>Task Name: @task.name</p>
-                <p>Task Description: @task.description</p>
-                <p>Start Date: @task.startDate</p>
-                <p>End Date: @task.endDate</p>
-                <p>User ID: @task.userId</p>
-                <p>Group Task: @task.group</p>
-                <br />
-            }
+                            {
+                                <div class="list-group-item d-flex justify-content-between border rounded mb-1 shadow-lg" style="background-color: #B5ABCD;">
+                                    <div class="col-8">
+                                        <div class="task-info overflow-auto" style="background-color: #B5ABCD;">
+                                            <div class="d-flex flex-column">
+                                                <div class="task-info-content">
+                                                    <span class="task-dates">
+                                                        <p class="text-danger">@task.startDate - @task.endDate</p>
+                                                    </span>
+                                                    <span class="task-name">
+                                                        <p class="fw-bold">@task.name</p>
+                                                    </span>
+                                                    <span class="task-description">@task.description</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                            }
         }
     </Authorized>
     <NotAuthorized>
@@ -38,14 +58,20 @@
 
     [CascadingParameter]
     public static Task<AuthenticationState> AuthState { get; set; } = null!;
+
     [Inject]
     private IFriendsService FriendsService { get; set; }
+
     [Inject]
     private ITasksService TasksService { get; set; }
+
     private GetUserDto friend;
-    [Parameter] public string Id { get; set; }
+
+    [Parameter]
+    public string Id { get; set; }
+
     private List<TaskDTO> tasks;
-    
+
 
     protected override async Task OnInitializedAsync()
     {

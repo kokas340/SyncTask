@@ -85,6 +85,16 @@
           "lib/net7.0/Blazorise.Licensing.dll": {}
         }
       },
+      "fullcalendar/3.9.0": {
+        "type": "package",
+        "dependencies": {
+          "Moment.js": "2.9.0",
+          "jQuery": "2.0.0"
+        }
+      },
+      "jQuery/2.0.0": {
+        "type": "package"
+      },
       "Microsoft.AspNetCore.Authentication.JwtBearer/6.0.8": {
         "type": "package",
         "dependencies": {
@@ -917,6 +927,9 @@
             "related": ".xml"
           }
         }
+      },
+      "Moment.js/2.9.0": {
+        "type": "package"
       },
       "MySqlConnector/2.3.0-beta.2": {
         "type": "package",
@@ -2523,7 +2536,8 @@
           "Npgsql": "8.0.0-preview.2",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.4",
           "Npgsql.EntityFrameworkCore.PostgreSQL.Design": "1.1.0",
-          "Shared": "1.0.0"
+          "Shared": "1.0.0",
+          "fullcalendar": "3.9.0"
         },
         "compile": {
           "bin/placeholder/BlazorSyncTask.dll": {}
@@ -2693,6 +2707,117 @@
         "blazorise.licensing.nuspec",
         "lib/net6.0/Blazorise.Licensing.dll",
         "lib/net7.0/Blazorise.Licensing.dll"
+      ]
+    },
+    "fullcalendar/3.9.0": {
+      "sha512": "Lx1CYPPY8AGVtkDHKl+gjVjD2SKGBi3WC+gEU/qn848HRnO/po3KurcYoblr1Yyp6Iia8kXffYZy62adAHNj+A==",
+      "type": "package",
+      "path": "fullcalendar/3.9.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "content/Content/fullcalendar.css",
+        "content/Content/fullcalendar.min.css",
+        "content/Content/fullcalendar.print.css",
+        "content/Content/fullcalendar.print.min.css",
+        "content/Scripts/fullcalendar/fullcalendar.js",
+        "content/Scripts/fullcalendar/fullcalendar.min.js",
+        "content/Scripts/fullcalendar/gcal.js",
+        "content/Scripts/fullcalendar/gcal.min.js",
+        "content/Scripts/fullcalendar/locale-all.js",
+        "content/Scripts/fullcalendar/locale/af.js",
+        "content/Scripts/fullcalendar/locale/ar-dz.js",
+        "content/Scripts/fullcalendar/locale/ar-kw.js",
+        "content/Scripts/fullcalendar/locale/ar-ly.js",
+        "content/Scripts/fullcalendar/locale/ar-ma.js",
+        "content/Scripts/fullcalendar/locale/ar-sa.js",
+        "content/Scripts/fullcalendar/locale/ar-tn.js",
+        "content/Scripts/fullcalendar/locale/ar.js",
+        "content/Scripts/fullcalendar/locale/bg.js",
+        "content/Scripts/fullcalendar/locale/bs.js",
+        "content/Scripts/fullcalendar/locale/ca.js",
+        "content/Scripts/fullcalendar/locale/cs.js",
+        "content/Scripts/fullcalendar/locale/da.js",
+        "content/Scripts/fullcalendar/locale/de-at.js",
+        "content/Scripts/fullcalendar/locale/de-ch.js",
+        "content/Scripts/fullcalendar/locale/de.js",
+        "content/Scripts/fullcalendar/locale/el.js",
+        "content/Scripts/fullcalendar/locale/en-au.js",
+        "content/Scripts/fullcalendar/locale/en-ca.js",
+        "content/Scripts/fullcalendar/locale/en-gb.js",
+        "content/Scripts/fullcalendar/locale/en-ie.js",
+        "content/Scripts/fullcalendar/locale/en-nz.js",
+        "content/Scripts/fullcalendar/locale/es-do.js",
+        "content/Scripts/fullcalendar/locale/es-us.js",
+        "content/Scripts/fullcalendar/locale/es.js",
+        "content/Scripts/fullcalendar/locale/et.js",
+        "content/Scripts/fullcalendar/locale/eu.js",
+        "content/Scripts/fullcalendar/locale/fa.js",
+        "content/Scripts/fullcalendar/locale/fi.js",
+        "content/Scripts/fullcalendar/locale/fr-ca.js",
+        "content/Scripts/fullcalendar/locale/fr-ch.js",
+        "content/Scripts/fullcalendar/locale/fr.js",
+        "content/Scripts/fullcalendar/locale/gl.js",
+        "content/Scripts/fullcalendar/locale/he.js",
+        "content/Scripts/fullcalendar/locale/hi.js",
+        "content/Scripts/fullcalendar/locale/hr.js",
+        "content/Scripts/fullcalendar/locale/hu.js",
+        "content/Scripts/fullcalendar/locale/id.js",
+        "content/Scripts/fullcalendar/locale/is.js",
+        "content/Scripts/fullcalendar/locale/it.js",
+        "content/Scripts/fullcalendar/locale/ja.js",
+        "content/Scripts/fullcalendar/locale/ka.js",
+        "content/Scripts/fullcalendar/locale/kk.js",
+        "content/Scripts/fullcalendar/locale/ko.js",
+        "content/Scripts/fullcalendar/locale/lb.js",
+        "content/Scripts/fullcalendar/locale/lt.js",
+        "content/Scripts/fullcalendar/locale/lv.js",
+        "content/Scripts/fullcalendar/locale/mk.js",
+        "content/Scripts/fullcalendar/locale/ms-my.js",
+        "content/Scripts/fullcalendar/locale/ms.js",
+        "content/Scripts/fullcalendar/locale/nb.js",
+        "content/Scripts/fullcalendar/locale/nl-be.js",
+        "content/Scripts/fullcalendar/locale/nl.js",
+        "content/Scripts/fullcalendar/locale/nn.js",
+        "content/Scripts/fullcalendar/locale/pl.js",
+        "content/Scripts/fullcalendar/locale/pt-br.js",
+        "content/Scripts/fullcalendar/locale/pt.js",
+        "content/Scripts/fullcalendar/locale/ro.js",
+        "content/Scripts/fullcalendar/locale/ru.js",
+        "content/Scripts/fullcalendar/locale/sk.js",
+        "content/Scripts/fullcalendar/locale/sl.js",
+        "content/Scripts/fullcalendar/locale/sq.js",
+        "content/Scripts/fullcalendar/locale/sr-cyrl.js",
+        "content/Scripts/fullcalendar/locale/sr.js",
+        "content/Scripts/fullcalendar/locale/sv.js",
+        "content/Scripts/fullcalendar/locale/th.js",
+        "content/Scripts/fullcalendar/locale/tr.js",
+        "content/Scripts/fullcalendar/locale/uk.js",
+        "content/Scripts/fullcalendar/locale/vi.js",
+        "content/Scripts/fullcalendar/locale/zh-cn.js",
+        "content/Scripts/fullcalendar/locale/zh-tw.js",
+        "fullcalendar.3.9.0.nupkg.sha512",
+        "fullcalendar.nuspec"
+      ]
+    },
+    "jQuery/2.0.0": {
+      "sha512": "u3YiE0QnFnBExPkBPqWr2EVd8nh01iQlMWPRfa7b1fQ53YuMtHw+Y9oaJukHtEHaMpyL0PJzq69y3/5AxWogGA==",
+      "type": "package",
+      "path": "jquery/2.0.0",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Content/Scripts/jquery-2.0.0-vsdoc.js",
+        "Content/Scripts/jquery-2.0.0.js",
+        "Content/Scripts/jquery-2.0.0.min.js",
+        "Content/Scripts/jquery-2.0.0.min.map",
+        "Tools/common.ps1",
+        "Tools/install.ps1",
+        "Tools/jquery-2.0.0.intellisense.js",
+        "Tools/uninstall.ps1",
+        "jquery.2.0.0.nupkg.sha512",
+        "jquery.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Authentication.JwtBearer/6.0.8": {
@@ -4014,6 +4139,21 @@
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._"
+      ]
+    },
+    "Moment.js/2.9.0": {
+      "sha512": "4rhbvFzmgXp/gjvwjxt9Qjmdz+2CD9T99erXEDtZHlYxaI06F9A4628/Vpxklm8D9RmwJjKjp1244FwEh+a5WQ==",
+      "type": "package",
+      "path": "moment.js/2.9.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Content/Scripts/moment-with-locales.js",
+        "Content/Scripts/moment-with-locales.min.js",
+        "Content/Scripts/moment.js",
+        "Content/Scripts/moment.min.js",
+        "moment.js.2.9.0.nupkg.sha512",
+        "moment.js.nuspec"
       ]
     },
     "MySqlConnector/2.3.0-beta.2": {

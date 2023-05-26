@@ -93,6 +93,14 @@
       "PackagePath": "staticwebassets\\sample-data\\weather.json"
     },
     {
+      "Id": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\wwwroot\\tasksfs.png",
+      "PackagePath": "staticwebassets\\tasksfs.png"
+    },
+    {
+      "Id": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\wwwroot\\user.png",
+      "PackagePath": "staticwebassets\\user.png"
+    },
+    {
       "Id": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\wwwroot\\why-us.png",
       "PackagePath": "staticwebassets\\why-us.png"
     },

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "0VFcsqhkGQOvA+ov6zNOkLi8Q/dJQd07B0rGfggscIg=",
+  "Hash": "FyK07Ttr8Y6p/ab/Yaxg7n53nLqG24atp7Szixx90nE=",
   "Source": "BlazorSyncTask",
   "BasePath": "/",
   "Mode": "Root",
@@ -8566,6 +8566,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\sample-data\\weather.json"
+    },
+    {
+      "Identity": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\wwwroot\\tasksfs.png",
+      "SourceId": "BlazorSyncTask",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "tasksfs.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\tasksfs.png"
+    },
+    {
+      "Identity": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\wwwroot\\user.png",
+      "SourceId": "BlazorSyncTask",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "user.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\user.png"
     },
     {
       "Identity": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\wwwroot\\why-us.png",
