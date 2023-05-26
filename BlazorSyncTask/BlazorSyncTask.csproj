@@ -35,4 +35,10 @@
       </None>
     </ItemGroup>
 
+    <ItemGroup>
+      <Content Update="Pages\Tasks.razor.css">
+        <DependentUpon>Tasks.razor</DependentUpon>
+      </Content>
+    </ItemGroup>
+
 </Project>

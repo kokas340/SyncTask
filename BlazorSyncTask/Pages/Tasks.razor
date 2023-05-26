@@ -40,17 +40,27 @@
                         <ul class="list-group">
                             @foreach (var task in tasks)
                             {
-                                <li class="list-group-item d-flex justify-content-between">
-                                    <div>
-                                        <span>@task.name - @task.description - @task.startDate - @task.endDate</span>
-                                    </div>
-                                    <div class="button-group">
-                                        <div class="row">
-                                            <button class="btn btn-sm btn-danger" @onclick="() => DeleteTask(task.id)">Delete Task</button>
-                                            <button class="btn btn-sm btn-primary" @onclick="() => EditTask(task.id)">Edit Task</button>
+                                <div class="list-group-item d-flex justify-content-between" style="background-color: #B5ABCD;">
+                                    <div class="col-8">
+                                        <div class="task-info overflow-auto" style="background-color: #B5ABCD;">
+                                            <div class="d-flex flex-column">
+                                                <div class="task-info-content">
+                                                    <span class="task-name">@task.name</span>
+                                                    <span class="task-description">@task.description</span>
+                                                    <span class="task-dates">@task.startDate - @task.endDate</span>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </li>
+                                    <div class="col-4">
+                                        <div class="button-group">
+                                            <div class="d-flex">
+                                                <button class="btn btn-sm btn-danger m-1 flex-fill" @onclick="() => DeleteTask(task.id)">Delete Task</button>
+                                                <button class="btn btn-sm btn-primary m-1 flex-fill" @onclick="() => EditTask(task.id)">Edit Task</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             }
                         </ul>
                     </div>
@@ -62,12 +72,14 @@
             }
         </div>
         <div class="col-6">
-            <img src="calendar.png" class="img-fluid" alt="Image description">
+            <img src="tasksfs.png" class="img-fluid animated" alt="Image description">
         </div>
+
     </div>
 </div>
 
 @code {
+
 
     [CascadingParameter]
     public static Task<AuthenticationState> AuthState { get; set; } = null!;
