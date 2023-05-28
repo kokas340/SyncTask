@@ -21,15 +21,7 @@ public class TasksService: ITasksService
 
     public async Task CreateTask(CreateTaskDto createTaskDto)
     {
-        CreateTaskDto createTask = new()
-        {
-            userId = createTaskDto.userId,
-            startDate = createTaskDto.startDate,
-            endDate = createTaskDto.endDate,
-            name = createTaskDto.name,
-            description = createTaskDto.description,
-        };
-
+        
         string taskAsJson = JsonSerializer.Serialize(createTaskDto);
      
         StringContent content = new(taskAsJson, Encoding.UTF8, "application/json");
