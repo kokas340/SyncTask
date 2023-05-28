@@ -6,55 +6,58 @@
 @inject NavigationManager NavigationManager
 @using Microsoft.AspNetCore.WebUtilities
 
-<h2 class="mb-4 fw-bold">MY GROUPS</h2>
+
 <AuthorizeView>
     <Authorized>
+        <h2 class="mb-4 fw-bold">MY GROUPS</h2>
         @if (groups != null || pendingInvites != null)
         {
-            <div style="display: flex; flex-wrap: wrap;">
-                @if (groups != null)
-                {
-                    <div class="container">
-                        <div class="row">
-                            @foreach (var group in groups)
-                            {
-                                <div class="col-md-4">
-                                    <div class="card mb-2" style="background-color: #B5ABCD;">
-                                        <div class="card-body">
-                                            <h4 style="color: black;">@group.groupName</h4>
-                                            <p style="color: black;">Members: @group.members.Count</p>
-                                            <p style="color: black;">Tasks: @group.tasks.Count</p>
-                                            <button class="btn btn-sm btn-primary m-1 flex-fill" @onclick="() => OpenGroupInfo(group.id)">View Details</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            }
-                        </div>
-                        <div class="text-center">
-                            <button class="btn btn-primary m-1 flex-fill " @onclick="CreateGroup">Create Group</button>
-                        </div>
-                    </div>
-                }
-
-                @if (pendingInvites != null && pendingInvites.Any())
-                {
+            @if (pendingInvites != null && pendingInvites.Any())
+            {
+                <div class="container">
+                    <h3 class="mb-4 fw-bold">Pending invites</h3>
                     <div class="row">
                         @foreach (var invite in pendingInvites)
                         {
                             <div class="col-md-4" style="margin-bottom: 15px;">
-                                <div class="card">
+                                <div class="card" style="background-color: #B5ABCD;">
                                     <div class="card-body">
                                         <h4 style="color: black;">@invite.Group.groupName</h4>
                                         <p style="color: black;">Owner: @invite.Group.owner</p>
-                                        <button @onclick="() => AcceptInvite(invite.Group.id)">Accept</button>
-                                        <button @onclick="() => DeclineInvite(invite.Group.id)">Decline</button>
+                                        <button class="btn btn-sm btn-primary m-1 flex-fill" @onclick="() => AcceptInvite(invite.Group.id)">Accept</button>
+                                        <button class="btn btn-sm btn-danger m-1 flex-fill" @onclick="() => DeclineInvite(invite.Group.id)">Decline</button>
                                     </div>
                                 </div>
                             </div>
                         }
                     </div>
-                }
-            </div>
+                </div>
+            }
+
+            @if (groups != null)
+            {
+                <div class="container">
+                    <h2 class="mb-4 fw-bold">GROUPS</h2>
+                    <div class="row">
+                        @foreach (var group in groups)
+                        {
+                            <div class="col-md-4">
+                                <div class="card mb-2" style="background-color: #B5ABCD;">
+                                    <div class="card-body">
+                                        <h4 style="color: black;">@group.groupName</h4>
+                                        <p style="color: black;">Members: @group.members.Count</p>
+                                        <p style="color: black;">Tasks: @group.tasks.Count</p>
+                                        <button class="btn btn-sm btn-primary m-1 flex-fill" @onclick="() => OpenGroupInfo(group.id)">View Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-primary m-1 flex-fill " @onclick="CreateGroup">Create Group</button>
+                    </div>
+                </div>
+            }
         }
         else
         {
@@ -62,9 +65,6 @@
                 <p style="color: black;">No groups or pending invites available.</p>
             </div>
         }
-
-
-
     </Authorized>
     <NotAuthorized>
         <p>You are not logged in.</p>

@@ -15,12 +15,14 @@
         }
         else
         {
-            <div>
+            <div class="mt-5">
                 <div class="row">
                     <div class="col-3"></div>
                     <div class="col-3">
                         <div class="form-group">
-                            <label for="name">Group Name:</label>
+                            <label for="name">
+                                <h2 class="mb-4 fw-bold">GROUP NAME:</h2>
+                            </label>
                             <input id="name" class="form-control" @bind="@createGroupDto.groupName"/>
                         </div>
                         <button class="btn btn-primary" @onclick="CreateGroups">Create</button>
@@ -39,25 +41,29 @@
 </AuthorizeView>
 
 @code {
+
     [CascadingParameter]
     public static Task<AuthenticationState> AuthState { get; set; } = null!;
+
     private CreateGroupDto createGroupDto = new CreateGroupDto();
     DateTime startD, endD;
     private bool showLoading = false;
 
     [Inject]
     public AuthenticationStateProvider AuthenticationStateProvider { get; set; }
-    
-    private async Task CreateGroups() {
+
+    private async Task CreateGroups()
+    {
         var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         createGroupDto.owner = Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value);
 
         await GroupsService.CreateGroup(createGroupDto);
         await ShowLoading();
     }
+
     private async Task ShowLoading()
     {
-        //loading test
+    //loading test
         showLoading = true;
         StateHasChanged();
         await Task.Delay(500);
@@ -65,4 +71,5 @@
         StateHasChanged();
         NavMgr.NavigateTo($"/Groups");
     }
+
 }

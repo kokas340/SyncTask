@@ -6,71 +6,118 @@
 @inject NavigationManager NavigationManager
 @using Microsoft.AspNetCore.WebUtilities
 
-<h3>Group Information</h3>
-<button @onclick="() => AddTaskGroup()">Add Task</button>
-<button @onclick="() => LeaveGroup()">Leave Group</button>
-     <div>
-            <input type="text" @bind-value="searchTerm" />
-            <button @onclick="SearchFriends">Search</button>
-        </div>
-        <ul>
-            @if (filteredFriends != null)
+<div class="container">
+    <h2 class="mb-4 fw-bold">Group information</h2>
+    <div class="row">
+        <div class="col-md-6">
+            @if (group != null)
             {
-                @foreach (var friend in filteredFriends)
+                <h4 class="m-4 fw-bold">@group.groupName</h4>
+
+                <p class="m-4 fw-bold">Add friend by username:</p>
+                <div>
+                    <input type="text" @bind-value="searchTerm"/>
+                    <button class="btn btn-sm btn-primary m-1 flex-fill" @onclick="SearchFriends">Search</button>
+                </div>
+
+                @if (filteredFriends != null)
                 {
-                    <li>@friend.username <button @onclick="() => AddFriendToGroup(friend.id)">Add Friend</button></li>
+                    <ul class="list-group">
+                        @foreach (var friend in filteredFriends)
+                        {
+                            <li class="list-group-item d-flex justify-content-between" style="background-color: #A495B4;">
+                                <div>@friend.username</div>
+                                <button class="btn btn-sm btn-primary" @onclick="() => AddFriendToGroup(friend.id)">Add Friend</button>
+                            </li>
+                        }
+                    </ul>
+                }
+
+                @if (group.members != null && group.members.Count > 0)
+                {
+                    <p class="m-4 fw-bold">Members:</p>
+                    <ul class="list-group" style="background-color: #A495B4;">
+                        @foreach (var member in group.members)
+                        {
+                            <li class="list-group-item d-flex justify-content-between" style="background-color: #A495B4; color: black;">
+                                <div>@member.User.fullName - @member.User.email</div>
+                            </li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <p class="mb-4 fw-bold"> No members in the group.</p>
+                }
+
+                @if (group.tasks != null && group.tasks.Count > 0)
+                {
+                    <p class="m-4 fw-bold">Tasks:</p>
+                    <div>
+                        <button class="btn btn-sm btn-primary m-1 flex-fill" @onclick="() => AddTaskGroup()">Add Task</button>
+                        <button class="btn btn-sm btn-danger m-1 flex-fill" @onclick="() => LeaveGroup()">Leave Group</button>
+                    </div>
+                    <ul class="list-group">
+                        @foreach (var task in group.tasks)
+                        {
+                            <li class="list-group-item d-flex justify-content-between" style="background-color: #A495B4;">
+                                <div class="col-8">
+                                    <div class="task-info overflow-auto" style="background-color: #A495B4;">
+                                        <div class="d-flex flex-column">
+                                            <div class="task-info-content">
+                                                <span class="task-dates">
+                                                    <p class="text-danger">@task.startDate - @task.endDate</p>
+                                                </span>
+                                                <span class="task-name">
+                                                    <p class="fw-bold">@task.name</p>
+                                                </span>
+                                                <span class="task-description">@task.description</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <p class="m-4 fw-bold">No tasks available</p>
+                    <div>
+                        <button class="btn btn-sm btn-primary m-1 flex-fill" @onclick="() => AddTaskGroup()">Add Task</button>
+                        <button class="btn btn-sm btn-danger m-1 flex-fill" @onclick="() => LeaveGroup()">Leave Group</button>
+                    </div>
                 }
             }
-        </ul>
-@if (group != null)
-{
-    <h4>Group Name: @group.groupName</h4>
-
-    @if (group.members != null && group.members.Count > 0)
-    {
-        <p>Members:</p>
-        <ul>
-            @foreach (var member in group.members)
+            else
             {
-                <li>@member.User.fullName - @member.User.email</li>
+                <p class="mb-4 fw-bold">Loading group information...</p>
             }
-        </ul>
-    }
-    else
-    {
-        <p>No members in the group.</p>
-    }
+        </div>
+        <div class="col-md-6">
+            <img src="group.png" class="img-fluid animated" alt="Image description">
+        </div>
+    </div>
+</div>
 
-    @if (group.tasks != null && group.tasks.Count > 0)
-    {
-        <p>Tasks:</p>
-        <ul>
-            @foreach (var task in group.tasks)
-            {
-                <li>@task.name - @task.description</li>
-            }
-        </ul>
-    }
-    else
-    {
-        <p>No tasks in the group.</p>
-    }
-}
-else
-{
-    <p>Loading group information...</p>
-}
+
 @code {
+
     [CascadingParameter]
     public static Task<AuthenticationState> AuthState { get; set; } = null!;
+
     [Inject]
     private IGroupsService GroupsService { get; set; }
+
     [Inject]
     private IFriendsService FriendsService { get; set; }
+
     [Inject]
     public AuthenticationStateProvider AuthenticationStateProvider { get; set; }
+
     [Parameter]
     public int GroupId { get; set; }
+
     private string Id;
     private GroupDTO group;
     //add members
@@ -84,7 +131,7 @@ else
         var query = QueryHelpers.ParseQuery(uri.Query);
         Id = query["id"];
         group = await GroupsService.GetGroupById(Convert.ToInt32(Id));
-        //friends
+    //friends
         var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         allFriends = await FriendsService.GetAllFriends(Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value));
     }
@@ -93,31 +140,30 @@ else
     {
         NavigationManager.NavigateTo($"/AddTaskGroup?id=" + Convert.ToInt32(Id) + "");
     }
+
     private async Task LeaveGroup()
     {
         var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-        await GroupsService.LeaveGroup( Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value),Convert.ToInt32(Id));
+        await GroupsService.LeaveGroup(Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value), Convert.ToInt32(Id));
         NavigationManager.NavigateTo($"/Groups");
     }
 
     private void SearchFriends()
     {
-        if(searchTerm!="")
+        if (searchTerm != "")
             filteredFriends = allFriends.Where(f => f.username.ToLower().Contains(searchTerm.ToLower())).ToList();
     }
 
     private async Task AddFriendToGroup(int friendId)
     {
-        
         if (group.members.Any(m => m.User.id == friendId))
         {
             Console.WriteLine("Friend is already a member of the group.");
             return;
         }
-        
+
         await GroupsService.AddToGroup(friendId, Convert.ToInt32(Id));
         searchTerm = "";
-        
     }
 
 }

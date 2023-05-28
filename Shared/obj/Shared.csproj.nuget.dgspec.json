@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj": {}
+    "C:\\Users\\Bruger\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj": {
+    "C:\\Users\\Bruger\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj",
+        "projectUniqueName": "C:\\Users\\Bruger\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj",
         "projectName": "Shared",
-        "projectPath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj",
-        "packagesPath": "C:\\Users\\jacks\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\Shared\\obj\\",
+        "projectPath": "C:\\Users\\Bruger\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj",
+        "packagesPath": "C:\\Users\\Bruger\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Bruger\\Documents\\GitHub\\SyncTask\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\jacks\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Bruger\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
