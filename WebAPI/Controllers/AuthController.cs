@@ -102,7 +102,6 @@ public class AuthController : ControllerBase
     [HttpPost, Route("test")]
     public async Task<ActionResult> test(UserRegisterDto user)
     {
-       
         try
         {
             await connectionDB.CreateAsync(user);
@@ -112,9 +111,21 @@ public class AuthController : ControllerBase
         {
             return BadRequest(e.Message);
         }
-
-      
     }
-
-
+    
+    [HttpGet, Route("verifyToken")]
+    public async Task<ActionResult> GetUserIdByToken(string jwtToken )
+    {
+        try
+        { 
+            string userId= connectionDB.GetIdByToken(jwtToken);
+            return Ok(userId);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
+    
+    
 }

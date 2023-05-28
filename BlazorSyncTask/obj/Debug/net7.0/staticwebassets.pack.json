@@ -73,6 +73,10 @@
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
+      "Id": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\wwwroot\\group.png",
+      "PackagePath": "staticwebassets\\group.png"
+    },
+    {
       "Id": "C:\\Users\\jacks\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\wwwroot\\hero-img.png",
       "PackagePath": "staticwebassets\\hero-img.png"
     },

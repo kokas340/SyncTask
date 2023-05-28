@@ -1,3 +1,4 @@
+using System.IdentityModel.Tokens.Jwt;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Shared.Dtos;
@@ -70,5 +71,13 @@ public class UserEfcDao
        
         return existing;
         
+    }
+
+    public string GetIdByToken(string jwtToken)
+    {
+        var tokenHandler = new JwtSecurityTokenHandler();
+        var jwtSecurityToken = tokenHandler.ReadToken(jwtToken) as JwtSecurityToken;
+        var userId = jwtSecurityToken.Claims.FirstOrDefault(claim => claim.Type == "Id")?.Value;
+        return userId;
     }
 }
