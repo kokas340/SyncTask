@@ -15,15 +15,23 @@
         }
         else
         {
-            <h3>Create Group</h3>
-
             <div>
-                <label for="name">Group Name:</label>
-                <input id="name" @bind="@createGroupDto.groupName"/>
+                <div class="row">
+                    <div class="col-3"></div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label for="name">Group Name:</label>
+                            <input id="name" class="form-control" @bind="@createGroupDto.groupName"/>
+                        </div>
+                        <button class="btn btn-primary" @onclick="CreateGroups">Create</button>
+                    </div>
+                    <div class="col-3">
+                        <img src="group.png" class="img-fluid animated" alt="Image description">
+                    </div>
+                    <div class="col-3"></div>
+                </div>
             </div>
-            <button @onclick="CreateGroups">Create</button>
         }
-       
     </Authorized>
     <NotAuthorized>
         <p>You are not logged in.</p>

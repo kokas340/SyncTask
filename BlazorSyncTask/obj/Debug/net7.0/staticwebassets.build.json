@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "f6lQ8ZMgdY+MJinTuBJ218gnbCqtOPRARn+xvm/4zXQ=",
+  "Hash": "VU6PRx4wBc84lDNZwFC+CFAPOpl9nw3G9gqmq5Sso3Q=",
   "Source": "BlazorSyncTask",
   "BasePath": "/",
   "Mode": "Root",
@@ -8498,6 +8498,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.png"
+    },
+    {
+      "Identity": "C:\\Users\\Bruger\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\wwwroot\\group.png",
+      "SourceId": "BlazorSyncTask",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Bruger\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "group.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\group.png"
     },
     {
       "Identity": "C:\\Users\\Bruger\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\wwwroot\\hero-img.png",
