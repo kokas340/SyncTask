@@ -60,7 +60,7 @@
                     <ul class="list-group">
                         @foreach (var task in group.tasks)
                         {
-                            <li class="list-group-item d-flex justify-content-between" style="background-color: #A495B4;">
+                            <div class="list-group-item d-flex justify-content-between" style="background-color: #A495B4;">
                                 <div class="col-8">
                                     <div class="task-info overflow-auto" style="background-color: #A495B4;">
                                         <div class="d-flex flex-column">
@@ -76,7 +76,12 @@
                                         </div>
                                     </div>
                                 </div>
-                            </li>
+                                <div class="col-4">
+                                    <div class="d-flex">
+                                        <button class="btn btn-sm btn-danger m-1 flex-fill" @onclick="() => DeleteTask(task.id)">Delete Task</button>
+                                    </div>
+                                </div>
+                            </div>
                         }
                     </ul>
                 }
@@ -115,6 +120,9 @@
     [Inject]
     public AuthenticationStateProvider AuthenticationStateProvider { get; set; }
 
+    [Inject]
+    private ITasksService TasksService { get; set; }
+
     [Parameter]
     public int GroupId { get; set; }
 
@@ -124,6 +132,8 @@
     private List<GetUserDto> allFriends = new List<GetUserDto>();
     private List<GetUserDto> filteredFriends = new List<GetUserDto>();
     private string searchTerm = "";
+
+    private List<TaskDTO> tasks;
 
     protected override async Task OnInitializedAsync()
     {
@@ -165,5 +175,26 @@
         await GroupsService.AddToGroup(friendId, Convert.ToInt32(Id));
         searchTerm = "";
     }
+
+    private async Task LoadTasks()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        tasks = await TasksService.GetAllTasksByUserId(Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value));
+        tasks = tasks.OrderBy(t => t.startDate).ToList();
+    }
+
+    private async Task DeleteTask(int taskId)
+    {
+        await TasksService.DeleteTask(taskId);
+        group = await GroupsService.GetGroupById(Convert.ToInt32(Id));
+        await LoadTasks();
+        StateHasChanged();
+    }
+    
+
+
+
+
+
 
 }
