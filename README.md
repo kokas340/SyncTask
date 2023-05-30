@@ -17,7 +17,7 @@ The SyncTask project aims to provide a user-friendly productivity tool that can 
 - [x] As a user, I want to delete groups, in order to remove the group.
 - [ ] As a user with admin permisions of the group, I want to edit the group, in order to add or remove users.
 - [x] As a user within the group, I want to add tasks to the group, in order to contribute to the schedule.
-- [ ] As a user within the group, I want to delete my own tasks, in order to remove them from the schedule.
+- [x] As a user within the group, I want to delete my own tasks, in order to remove them from the schedule.
 - [x] As a user, I want to be able to accept the invitation to the group, in order to be a member of the group.
 - [x] As a user, I want to be able to decline the invitation to the group, in order avoid groups.
 
