@@ -8,4 +8,6 @@ public class GroupDTO
     public bool accepted { get; set; }
     public List<TaskDTO> tasks { get; set; }
     public List<MemberDTO> members { get; set; }
+    
+    public bool IsOwner { get; set; }
 }

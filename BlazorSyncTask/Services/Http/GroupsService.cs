@@ -8,8 +8,7 @@ using Shared.Models;
 
 namespace BlazorSyncTask.Services.Http;
 
-
-public class GroupsService: IGroupsService
+public class GroupsService : IGroupsService
 {
     private readonly HttpClient client;
 
@@ -18,18 +17,17 @@ public class GroupsService: IGroupsService
         this.client = client;
     }
 
-    
 
     public async Task CreateGroup(CreateGroupDto createGroupDto)
     {
         string taskAsJson = JsonSerializer.Serialize(createGroupDto);
-     
+
         StringContent content = new(taskAsJson, Encoding.UTF8, "application/json");
-        Console.WriteLine("HERE => "+createGroupDto.groupName);
+        Console.WriteLine("HERE => " + createGroupDto.groupName);
         client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", JwtAuthService.Jwt);
         HttpResponseMessage response = await client.PostAsync("http://localhost:8080/api/groups/", content);
         string responseContent = await response.Content.ReadAsStringAsync();
-     
+
         if (!response.IsSuccessStatusCode)
         {
             //throw new Exception(responseContent);
@@ -77,20 +75,23 @@ public class GroupsService: IGroupsService
 
         return group;
     }
-    
+
     public async Task<List<GroupInviteDTO>> GetAllGroupInvitesByUserId(int userId)
     {
         client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", JwtAuthService.Jwt);
-        HttpResponseMessage response = await client.GetAsync("http://localhost:8080/api/groups/user/"+userId+"/invites");
+        HttpResponseMessage response =
+            await client.GetAsync("http://localhost:8080/api/groups/user/" + userId + "/invites");
         string responseContent = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {
             throw new Exception(responseContent);
         }
-        List<GroupInviteDTO> pendingGroups = JsonSerializer.Deserialize<List<GroupInviteDTO>>(responseContent, new JsonSerializerOptions
-        {
-            PropertyNameCaseInsensitive = true
-        }) ?? throw new InvalidOperationException();
+
+        List<GroupInviteDTO> pendingGroups = JsonSerializer.Deserialize<List<GroupInviteDTO>>(responseContent,
+            new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            }) ?? throw new InvalidOperationException();
         return pendingGroups;
     }
 
@@ -104,7 +105,9 @@ public class GroupsService: IGroupsService
         string taskAsJson = JsonSerializer.Serialize(dto);
         StringContent content = new(taskAsJson, Encoding.UTF8, "application/json");
         client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", JwtAuthService.Jwt);
-        HttpResponseMessage response = await client.PostAsync("http://localhost:8080/api/groups/"+invite+"/members/"+userId+"/accept", content);
+        HttpResponseMessage response =
+            await client.PostAsync("http://localhost:8080/api/groups/" + invite + "/members/" + userId + "/accept",
+                content);
         string responseContent = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {
@@ -122,36 +125,63 @@ public class GroupsService: IGroupsService
         string taskAsJson = JsonSerializer.Serialize(dto);
         StringContent content = new(taskAsJson, Encoding.UTF8, "application/json");
         client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", JwtAuthService.Jwt);
-        HttpResponseMessage response = await client.PostAsync("http://localhost:8080/api/groups/"+invite+"/members/"+userId+"/deny", content);
+        HttpResponseMessage response =
+            await client.PostAsync("http://localhost:8080/api/groups/" + invite + "/members/" + userId + "/deny",
+                content);
         string responseContent = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {
             throw new Exception(responseContent);
         }
     }
-    
-    public async Task CreateTaskGroup(CreateTaskDto createTaskDto,int groupId)
+
+    public async Task CreateTaskGroup(CreateTaskDto createTaskDto, int groupId)
     {
         string taskAsJson = JsonSerializer.Serialize(createTaskDto);
         StringContent content = new(taskAsJson, Encoding.UTF8, "application/json");
         client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", JwtAuthService.Jwt);
-        HttpResponseMessage response = await client.PostAsync("http://localhost:8080/api/groups/"+groupId+"/"+createTaskDto.userId+"/task/", content);
+        HttpResponseMessage response =
+            await client.PostAsync(
+                "http://localhost:8080/api/groups/" + groupId + "/" + createTaskDto.userId + "/task/", content);
         string responseContent = await response.Content.ReadAsStringAsync();
-     
+
         if (!response.IsSuccessStatusCode)
         {
             throw new Exception(responseContent);
         }
     }
-    
+
     public async Task LeaveGroup(int userId, int groupId)
     {
-  
         string send = JsonSerializer.Serialize(userId);
         StringContent content = new(send, Encoding.UTF8, "application/json");
         client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", JwtAuthService.Jwt);
-        HttpResponseMessage response = await client.PostAsync("http://localhost:8080/api/groups/"+groupId+"/members/"+userId+"/leave", content);
+        HttpResponseMessage response =
+            await client.PostAsync("http://localhost:8080/api/groups/" + groupId + "/members/" + userId + "/leave",
+                content);
         string responseContent = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(responseContent);
+        }
+    }
+
+    public async Task DeleteGroup(int userID, int groupId)
+    {
+        GroupDTO group = await GetGroupById(groupId);
+
+
+        int authenticatedUserId = userID;
+        if (group.owner != authenticatedUserId)
+        {
+            throw new Exception("Only the group creator can delete the group.");
+        }
+
+
+        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", JwtAuthService.Jwt);
+        HttpResponseMessage response = await client.DeleteAsync("http://localhost:8080/api/groups/" + groupId);
+        string responseContent = await response.Content.ReadAsStringAsync();
+
         if (!response.IsSuccessStatusCode)
         {
             throw new Exception(responseContent);
@@ -163,9 +193,11 @@ public class GroupsService: IGroupsService
         string taskAsJson = JsonSerializer.Serialize(groupId);
         StringContent content = new(taskAsJson, Encoding.UTF8, "application/json");
         client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", JwtAuthService.Jwt);
-        HttpResponseMessage response = await client.PostAsync("http://localhost:8080/api/groups/"+groupId+"/members/invite/"+friendId, content);
+        HttpResponseMessage response =
+            await client.PostAsync("http://localhost:8080/api/groups/" + groupId + "/members/invite/" + friendId,
+                content);
         string responseContent = await response.Content.ReadAsStringAsync();
-     
+
         if (!response.IsSuccessStatusCode)
         {
             throw new Exception(responseContent);

@@ -15,4 +15,6 @@ public interface IGroupsService
     Task CreateTaskGroup(CreateTaskDto createTaskDto, int groupId);
     Task LeaveGroup(int userId, int gorupId);
     Task AddToGroup(int friendId, int groupId);
+    Task DeleteGroup(int userId ,int groupId);
+
 }
