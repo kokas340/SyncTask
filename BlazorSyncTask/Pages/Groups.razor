@@ -47,7 +47,14 @@
                                         <h4 style="color: black;">@group.groupName</h4>
                                         <p style="color: black;">Members: @group.members.Count</p>
                                         <p style="color: black;">Tasks: @group.tasks.Count</p>
-                                        <button class="btn btn-sm btn-primary m-1 flex-fill" @onclick="() => OpenGroupInfo(group.id)">View Details</button>
+                                        <div>
+                                            <button class="btn btn-sm btn-primary m-1 flex-fill" @onclick="() => OpenGroupInfo(group.id)">View Details</button>
+                                            @if (group.IsOwner)
+                                            {
+                                                <button class="btn btn-sm btn-danger m-1 flex-fill" @onclick="() => DeleteGroup(group.id)">Delete Group</button>
+                                            }
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -87,10 +94,11 @@
 
     private List<GroupDTO> groups;
     public List<GroupInviteDTO> pendingInvites;
+    private GetUserDto getUserDto = new GetUserDto();
 
     protected override async Task OnInitializedAsync()
     {
-        await getGoups();
+        await getGroups();
         await getPendingInvites();
     }
 
@@ -100,10 +108,17 @@
         pendingInvites = await GroupsService.GetAllGroupInvitesByUserId(Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value));
     }
 
-    private async Task getGoups()
+    private async Task getGroups()
     {
         var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-        groups = await GroupsService.GetAllGroupsByUserId(Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value));
+        int authenticatedUserId = Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value);
+        groups = await GroupsService.GetAllGroupsByUserId(authenticatedUserId);
+
+    // Set the IsOwner property for each group
+        foreach (var group in groups)
+        {
+            group.IsOwner = group.owner == authenticatedUserId;
+        }
     }
 
     private async Task CreateGroup()
@@ -125,20 +140,45 @@
     private async Task AcceptInvite(int invite)
     {
         var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-        int userId=Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value);
-        await GroupsService.AcceptInvite( userId,invite);
-        await getGoups();
+        int userId = Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value);
+        await GroupsService.AcceptInvite(userId, invite);
+        await getGroups();
         await getPendingInvites();
     }
 
     private async Task DeclineInvite(int invite)
     {
         var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-        int userId=Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value);
-        await GroupsService.DeclineInvite( userId,invite);
-        await getGoups();
+        int userId = Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value);
+        await GroupsService.DeclineInvite(userId, invite);
+        await getGroups();
         await getPendingInvites();
-        
     }
+
+    private async Task<bool> IsGroupOwner(GroupDTO group)
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        int userId = Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value);
+        return group.owner == userId;
+    }
+
+    private async Task DeleteGroup(int groupId)
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        int userId = Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value);
+
+        try
+        {
+            await GroupsService.DeleteGroup(userId, groupId);
+            await getGroups();
+            await getPendingInvites();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error deleting group: {ex.Message}");
+        }
+    }
+
+
 
 }
