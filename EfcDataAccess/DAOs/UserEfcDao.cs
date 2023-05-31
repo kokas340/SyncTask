@@ -15,6 +15,13 @@ public class UserEfcDao
     }
     public async Task<UserT> CreateAsync(UserRegisterDto dto)
     {
+        // Check if user aleady exist
+        bool userExists = await context.usert.AnyAsync(u => u.username == dto.username || u.email == dto.email);
+        if (userExists)
+        {
+            throw new Exception("User already exists");
+        }
+
         string hashPassword = BCrypt.Net.BCrypt.HashPassword(dto.password);
 
         UserT toCreate = new UserT
