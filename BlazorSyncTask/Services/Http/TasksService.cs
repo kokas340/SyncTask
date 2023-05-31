@@ -54,7 +54,7 @@ public class TasksService: ITasksService
         return pendingUsers;
     }
 
-    public async Task DeleteTask(int taskId)
+    public async Task DeleteTask(long taskId)
     {
         client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", JwtAuthService.Jwt);
         HttpResponseMessage response = await client.DeleteAsync("http://localhost:8080/api/tasks/"+taskId);

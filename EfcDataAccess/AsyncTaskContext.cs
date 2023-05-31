@@ -14,7 +14,7 @@ public class AsyncTaskContext: DbContext
     {
       
       
-        string connectionString = "Host=localhost;Port=5432;Database=synctask;Username=postgres;Password=krisdan29;SearchPath=synctask";
+        string connectionString = "Host=localhost;Port=5432;Database=postgres;Username=postgres;Password=1234;SearchPath=synctask";
         optionsBuilder.UseNpgsql(connectionString);
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)

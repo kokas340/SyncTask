@@ -10,7 +10,7 @@ public interface ITasksService
 
     Task<List<TaskDTO>> GetAllTasksByUserId(int userId);
 
-    Task DeleteTask(int taskId);
+    Task DeleteTask(long taskId);
     Task<TaskDTO> GetTaskById(int toInt32);
     Task EditTaskById(CreateTaskDto task, int userId);
 }

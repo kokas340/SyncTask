@@ -20,6 +20,7 @@ builder.Services.AddScoped<IAuthService, JwtAuthService>();
 builder.Services.AddScoped<IFriendsService, FriendsService>();
 builder.Services.AddScoped<ITasksService, TasksService>();
 builder.Services.AddScoped<IGroupsService, GroupsService>();
+builder.Services.AddScoped<IWebSocketService, WebSocketService>();
 
 AuthorizationPolicies.AddPolicies(builder.Services);
 

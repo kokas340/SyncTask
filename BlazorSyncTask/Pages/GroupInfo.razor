@@ -5,6 +5,8 @@
 @using BlazorSyncTask.Services.Http
 @inject NavigationManager NavigationManager
 @using Microsoft.AspNetCore.WebUtilities
+@using Newtonsoft.Json
+@inject IWebSocketService WebSocketService
 
 <div class="container">
     <h2 class="mb-4 fw-bold">Group information</h2>
@@ -50,7 +52,7 @@
                     <p class="mb-4 fw-bold"> No members in the group.</p>
                 }
 
-                @if (group.tasks != null && group.tasks.Count > 0)
+                @if (groupTasks != null && groupTasks.Count > 0)
                 {
                     <p class="m-4 fw-bold">Tasks:</p>
                     <div>
@@ -58,7 +60,7 @@
                         <button class="btn btn-sm btn-danger m-1 flex-fill" @onclick="() => LeaveGroup()">Leave Group</button>
                     </div>
                     <ul class="list-group">
-                        @foreach (var task in group.tasks)
+                        @foreach (var task in groupTasks)
                         {
                             <div class="list-group-item d-flex justify-content-between" style="background-color: #A495B4;">
                                 <div class="col-8">
@@ -132,8 +134,10 @@
     private List<GetUserDto> allFriends = new List<GetUserDto>();
     private List<GetUserDto> filteredFriends = new List<GetUserDto>();
     private string searchTerm = "";
-
+    
     private List<TaskDTO> tasks;
+    
+    private List<TaskWebSocket> groupTasks;
 
     protected override async Task OnInitializedAsync()
     {
@@ -141,9 +145,28 @@
         var query = QueryHelpers.ParseQuery(uri.Query);
         Id = query["id"];
         group = await GroupsService.GetGroupById(Convert.ToInt32(Id));
-    //friends
+        //friends
         var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         allFriends = await FriendsService.GetAllFriends(Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value));
+        
+        long groupId = Convert.ToInt32(Id);
+        await WebSocketService.ConnectWebSocket($"ws://localhost:8080/tasks/groups/{groupId}");
+        WebSocketService.TaskUpdateReceived += OnTaskUpdateReceived;
+        StateHasChanged();
+    }
+    
+    private void OnTaskUpdateReceived(string message)
+    {
+        Console.WriteLine("olaaaa "+message);
+        var updatedGroupTasks = JsonConvert.DeserializeObject<List<TaskWebSocket>>(message);
+        groupTasks = updatedGroupTasks;
+        StateHasChanged();
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        WebSocketService.TaskUpdateReceived -= OnTaskUpdateReceived;
+        WebSocketService.DisconnectWebSocket();
     }
 
     private void AddTaskGroup()
@@ -183,12 +206,11 @@
         tasks = tasks.OrderBy(t => t.startDate).ToList();
     }
 
-    private async Task DeleteTask(int taskId)
+    private async Task DeleteTask(long taskId)
     {
         await TasksService.DeleteTask(taskId);
         group = await GroupsService.GetGroupById(Convert.ToInt32(Id));
-        await LoadTasks();
-        StateHasChanged();
+        NavigationManager.NavigateTo($"/Groups");
     }
     
 
