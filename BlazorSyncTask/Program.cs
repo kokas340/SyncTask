@@ -8,6 +8,7 @@ using BlazorSyncTask.Auth;
 using BlazorSyncTask.Services;
 using BlazorSyncTask.Services.Http;
 using Microsoft.AspNetCore.Components.Authorization;
+using Radzen;
 using Shared.Auth;
 
 
@@ -21,6 +22,7 @@ builder.Services.AddScoped<IFriendsService, FriendsService>();
 builder.Services.AddScoped<ITasksService, TasksService>();
 builder.Services.AddScoped<IGroupsService, GroupsService>();
 builder.Services.AddScoped<IWebSocketService, WebSocketService>();
+builder.Services.AddScoped<DialogService>();
 
 AuthorizationPolicies.AddPolicies(builder.Services);
 

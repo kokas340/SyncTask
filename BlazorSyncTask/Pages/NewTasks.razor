@@ -1,0 +1,101 @@
+@page "/NewTasks"
+@using BlazorSyncTask.Services
+@using global::Shared.Dtos
+@using System.Globalization
+@using global::Shared.Models
+@inject DialogService DialogService
+
+<AuthorizeView>
+    <Authorized>
+        <RadzenScheduler @ref=@scheduler LoadData="@OnLoadData" SlotRender=@OnSlotRender style="height: 700px;" TItem="DataItem" Data=@appointments
+                             StartProperty="Start" EndProperty="End"
+                             TextProperty="Text" SelectedIndex="2"
+                             SlotSelect=@OnSlotSelect AppointmentSelect=@OnAppointmentSelect AppointmentRender=@OnAppointmentRender>
+            <RadzenDayView/>
+            <RadzenWeekView/>
+            <RadzenMonthView/>
+            <RadzenYearView/>
+        </RadzenScheduler>
+    </Authorized>
+    <NotAuthorized>
+        <p>You are not logged in.</p>
+    </NotAuthorized>
+</AuthorizeView>
+@code {
+    [CascadingParameter]
+    public static Task<AuthenticationState> AuthState { get; set; } = null!;
+    
+    [Inject]
+    private ITasksService TasksService { get; set; }
+
+    [Inject]
+    public AuthenticationStateProvider AuthenticationStateProvider { get; set; }
+    
+    private List<TaskDTO> tasks;
+    RadzenScheduler<DataItem> scheduler;
+    
+    IList<DataItem> appointments = new List<DataItem>();
+    Dictionary<DateTime, string> events = new Dictionary<DateTime, string>();
+    
+    
+    private async Task OnLoadData()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        tasks = await TasksService.GetAllTasksByUserId(Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value));
+        tasks = tasks.OrderBy(t => t.startDate).ToList();
+        appointments.Clear();
+        foreach (var task in tasks)
+        {
+            appointments.Add(new DataItem(){ Start = Convert.ToDateTime(task.startDate, new CultureInfo("en-US")), End = Convert.ToDateTime(task.endDate, new CultureInfo("en-US")), Text = task.name});
+        }
+        await scheduler.Reload();
+    }
+
+
+    async void OnSlotRender(SchedulerSlotRenderEventArgs args)
+    {
+        // Highlight today in month view
+        if (args.View.Text == "Month" && args.Start.Date == DateTime.Today)
+        {
+            args.Attributes["style"] = "background: rgba(255,220,40,.2);";
+        }
+
+        // Highlight working hours (9-18)
+        if ((args.View.Text == "Week" || args.View.Text == "Day") && args.Start.Hour > 8 && args.Start.Hour < 19)
+        {
+            args.Attributes["style"] = "background: rgba(255,220,40,.2);";
+        }
+    }
+    async Task OnSlotSelect(SchedulerSlotSelectEventArgs args)
+    {
+        Console.WriteLine($"SlotSelect: Start={args.Start} End={args.End}");
+
+        
+            DataItem data = await DialogService.OpenAsync<AddAppointmentPage>("Add Task",
+                new Dictionary<string, object> { { "Start", args.Start }, { "End", args.End } });
+
+            if (data != null)
+            {
+                appointments.Add(data);
+                await scheduler.Reload();
+            }
+        
+    }
+
+    async Task OnAppointmentSelect(SchedulerAppointmentSelectEventArgs<DataItem> args)
+    {
+        Console.WriteLine($"AppointmentSelect: Appointment={args.Data.Text}");
+
+        await DialogService.OpenAsync<EditAppointmentPage>("Task info ", new Dictionary<string, object> { {"task", args.Data} });
+
+        await scheduler.Reload();
+    }
+
+    void OnAppointmentRender(SchedulerAppointmentRenderEventArgs<DataItem> args)
+    {
+        if (args.Data.Text == "Birthday")
+        {
+            args.Attributes["style"] = "background: red";
+        }
+    }
+}

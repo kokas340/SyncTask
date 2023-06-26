@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Bruger\\Documents\\GitHub\\SyncTask\\WebAPI\\WebAPI.csproj": {}
+    "C:\\Users\\guilh\\Documents\\GitHub\\SyncTask\\WebAPI\\WebAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Bruger\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj": {
+    "C:\\Users\\guilh\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Bruger\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj",
+        "projectUniqueName": "C:\\Users\\guilh\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj",
         "projectName": "BlazorSyncTask",
-        "projectPath": "C:\\Users\\Bruger\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj",
-        "packagesPath": "C:\\Users\\Bruger\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Bruger\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\obj\\",
+        "projectPath": "C:\\Users\\guilh\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj",
+        "packagesPath": "C:\\Users\\guilh\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\guilh\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Bruger\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\guilh\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -26,8 +26,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Bruger\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj": {
-                "projectPath": "C:\\Users\\Bruger\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj"
+              "C:\\Users\\guilh\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj": {
+                "projectPath": "C:\\Users\\guilh\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj"
               }
             }
           }
@@ -99,6 +99,10 @@
               "target": "Package",
               "version": "[1.1.0, )"
             },
+            "Radzen.Blazor": {
+              "target": "Package",
+              "version": "[4.13.4, )"
+            },
             "fullcalendar": {
               "target": "Package",
               "version": "[3.9.0, )"
@@ -118,7 +122,7 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-              "version": "[7.0.4, 7.0.4]"
+              "version": "[7.0.5, 7.0.5]"
             }
           ],
           "frameworkReferences": {
@@ -126,7 +130,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Users\\Bruger\\.dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
@@ -135,17 +139,17 @@
         }
       }
     },
-    "C:\\Users\\Bruger\\Documents\\GitHub\\SyncTask\\EfcDataAccess\\EfcDataAccess.csproj": {
+    "C:\\Users\\guilh\\Documents\\GitHub\\SyncTask\\EfcDataAccess\\EfcDataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Bruger\\Documents\\GitHub\\SyncTask\\EfcDataAccess\\EfcDataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\guilh\\Documents\\GitHub\\SyncTask\\EfcDataAccess\\EfcDataAccess.csproj",
         "projectName": "EfcDataAccess",
-        "projectPath": "C:\\Users\\Bruger\\Documents\\GitHub\\SyncTask\\EfcDataAccess\\EfcDataAccess.csproj",
-        "packagesPath": "C:\\Users\\Bruger\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Bruger\\Documents\\GitHub\\SyncTask\\EfcDataAccess\\obj\\",
+        "projectPath": "C:\\Users\\guilh\\Documents\\GitHub\\SyncTask\\EfcDataAccess\\EfcDataAccess.csproj",
+        "packagesPath": "C:\\Users\\guilh\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\guilh\\Documents\\GitHub\\SyncTask\\EfcDataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Bruger\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\guilh\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -157,11 +161,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Bruger\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj": {
-                "projectPath": "C:\\Users\\Bruger\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj"
+              "C:\\Users\\guilh\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj": {
+                "projectPath": "C:\\Users\\guilh\\Documents\\GitHub\\SyncTask\\BlazorSyncTask\\BlazorSyncTask.csproj"
               },
-              "C:\\Users\\Bruger\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj": {
-                "projectPath": "C:\\Users\\Bruger\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj"
+              "C:\\Users\\guilh\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj": {
+                "projectPath": "C:\\Users\\guilh\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj"
               }
             }
           }
@@ -227,21 +231,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Users\\Bruger\\.dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Bruger\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj": {
+    "C:\\Users\\guilh\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Bruger\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj",
+        "projectUniqueName": "C:\\Users\\guilh\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj",
         "projectName": "Shared",
-        "projectPath": "C:\\Users\\Bruger\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj",
-        "packagesPath": "C:\\Users\\Bruger\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Bruger\\Documents\\GitHub\\SyncTask\\Shared\\obj\\",
+        "projectPath": "C:\\Users\\guilh\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj",
+        "packagesPath": "C:\\Users\\guilh\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\guilh\\Documents\\GitHub\\SyncTask\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Bruger\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\guilh\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -310,21 +314,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Users\\Bruger\\.dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Bruger\\Documents\\GitHub\\SyncTask\\WebAPI\\WebAPI.csproj": {
+    "C:\\Users\\guilh\\Documents\\GitHub\\SyncTask\\WebAPI\\WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Bruger\\Documents\\GitHub\\SyncTask\\WebAPI\\WebAPI.csproj",
+        "projectUniqueName": "C:\\Users\\guilh\\Documents\\GitHub\\SyncTask\\WebAPI\\WebAPI.csproj",
         "projectName": "WebAPI",
-        "projectPath": "C:\\Users\\Bruger\\Documents\\GitHub\\SyncTask\\WebAPI\\WebAPI.csproj",
-        "packagesPath": "C:\\Users\\Bruger\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Bruger\\Documents\\GitHub\\SyncTask\\WebAPI\\obj\\",
+        "projectPath": "C:\\Users\\guilh\\Documents\\GitHub\\SyncTask\\WebAPI\\WebAPI.csproj",
+        "packagesPath": "C:\\Users\\guilh\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\guilh\\Documents\\GitHub\\SyncTask\\WebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Bruger\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\guilh\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -336,11 +340,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Bruger\\Documents\\GitHub\\SyncTask\\EfcDataAccess\\EfcDataAccess.csproj": {
-                "projectPath": "C:\\Users\\Bruger\\Documents\\GitHub\\SyncTask\\EfcDataAccess\\EfcDataAccess.csproj"
+              "C:\\Users\\guilh\\Documents\\GitHub\\SyncTask\\EfcDataAccess\\EfcDataAccess.csproj": {
+                "projectPath": "C:\\Users\\guilh\\Documents\\GitHub\\SyncTask\\EfcDataAccess\\EfcDataAccess.csproj"
               },
-              "C:\\Users\\Bruger\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj": {
-                "projectPath": "C:\\Users\\Bruger\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj"
+              "C:\\Users\\guilh\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj": {
+                "projectPath": "C:\\Users\\guilh\\Documents\\GitHub\\SyncTask\\Shared\\Shared.csproj"
               }
             }
           }
@@ -411,7 +415,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Users\\Bruger\\.dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }
