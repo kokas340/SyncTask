@@ -52,7 +52,7 @@
     }
 
 
-    async void OnSlotRender(SchedulerSlotRenderEventArgs args)
+    void OnSlotRender(SchedulerSlotRenderEventArgs args)
     {
         // Highlight today in month view
         if (args.View.Text == "Month" && args.Start.Date == DateTime.Today)

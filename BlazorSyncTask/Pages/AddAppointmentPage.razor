@@ -1,15 +1,27 @@
 @using global::Shared.Models
 @using ButtonType = Radzen.ButtonType
+@using BlazorSyncTask.Services.Http
+@using global::Shared.Dtos
+@using BlazorSyncTask.Services
 @inject DialogService DialogService
 
 <RadzenTemplateForm TItem="DataItem" Data="@model" Submit=@OnSubmit>
     <div class="row" style="margin-bottom: 16px">
         <div class="col-md-3">
-            <RadzenLabel Text="Text" />
+            <RadzenLabel Text="Title" />
         </div>
         <div class="col">
-            <RadzenTextBox @bind-Value="@model.Text" Name="Text" />
+            <RadzenTextBox @bind-Value="@createTaskDto.name" Name="Text" />
             <RadzenRequiredValidator Text="Title is required" Component="Text" />
+        </div>
+    </div> 
+    <div class="row" style="margin-bottom: 16px">
+        <div class="col-md-3">
+            <RadzenLabel Text="Description" />
+        </div>
+        <div class="col">
+            <RadzenTextBox @bind-Value="@createTaskDto.description" Name="Text" />
+            <RadzenRequiredValidator Text="Description is required" Component="Text" />
         </div>
     </div>
     <div class="row" style="margin-bottom: 16px">
@@ -17,7 +29,7 @@
             <RadzenLabel Text="Start" />
         </div>
         <div class="col">
-            <RadzenDatePicker @bind-Value="@model.Start" Name="Start" ShowTime="true" />
+            <RadzenDatePicker @bind-Value="@Start" Name="Start" ShowTime="true" />
             <RadzenRequiredValidator Text="Start is required" Component="Start" />
         </div>
     </div>
@@ -26,7 +38,7 @@
             <RadzenLabel Text="End" />
         </div>
         <div class="col">
-            <RadzenDatePicker Name="End" @bind-Value="@model.End" ShowTime="true" />
+            <RadzenDatePicker Name="End" @bind-Value="@End" ShowTime="true" />
             <RadzenRequiredValidator Component="End" Text="End is required" />
         </div>
     </div>
@@ -38,6 +50,15 @@
     </div>
 </RadzenTemplateForm>
 @code {
+    [CascadingParameter]
+    public static Task<AuthenticationState> AuthState { get; set; } = null!;
+
+    [Inject]
+    private ITasksService TasksService { get; set; }
+
+    [Inject]
+    public AuthenticationStateProvider AuthenticationStateProvider { get; set; }
+    
     [Parameter]
     public DateTime Start { get; set; }
 
@@ -45,6 +66,8 @@
     public DateTime End { get; set; }
 
     DataItem model = new DataItem();
+    
+    private CreateTaskDto createTaskDto = new CreateTaskDto();
 
     protected override void OnParametersSet()
     {
@@ -52,8 +75,13 @@
         model.End = End;
     }
 
-    void OnSubmit(DataItem model)
+    async void OnSubmit(DataItem model)
     {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        createTaskDto.userId = Convert.ToInt32(authState.User.FindFirst(c => c.Type == "Id")?.Value);
+        createTaskDto.startDate = Start.ToString();
+        createTaskDto.endDate = End.ToString();
+        TasksService.CreateTask(createTaskDto);
         DialogService.Close(model);
     }
 }
